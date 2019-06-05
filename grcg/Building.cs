@@ -5,14 +5,6 @@ namespace grcg
 {
     internal class Building
     {
-        private readonly Dictionary<string, string> _flags = new Dictionary<string, string>
-        {
-            {"English", "6887"},
-            {"French", "6886"},
-            {"German", "6922"},
-            {"Spanish", "6889"}
-        };
-
         private readonly Dictionary<string, string> _translations = new Dictionary<string, string>();
         public Building(Category category)
         {
@@ -20,6 +12,7 @@ namespace grcg
         }
 
         public Category Category { get; }
+        public IEnumerable<KeyValuePair<string, string>> Translations => _translations;
 
         public void AddTranslation(string language, string name)
         {
@@ -31,9 +24,9 @@ namespace grcg
             var translations = _translations.Select(p =>
             {
                 var translation = string.Empty;
-                if (_flags.ContainsKey(p.Key))
+                if (BuildingData.Flags.Exists(p.Key))
                 {
-                    translation += $"[microbadge={_flags[p.Key]}]";
+                    translation += $"[microbadge={BuildingData.Flags[p.Key]}]";
                 }
 
                 translation += p.Value;

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Translations\Spanish.lang~RFa05ed42.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Buildings.dat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -22,6 +26,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Translations\German.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Translations\Polish.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Translations\Spanish.lang">
