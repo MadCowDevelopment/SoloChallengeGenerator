@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace grcg
@@ -62,10 +63,16 @@ namespace grcg
         private string ReplaceStartingBuildings(Category category, string templateString)
         {
             var builder = new StringBuilder();
-            foreach (var startingBuilding in _buildingData.GetStartingBuildings(category))
+            builder.Append("[size=11]");
+            var startingBuildings = _buildingData.GetStartingBuildings(category);
+            var buildingsGroupedByTranslations = startingBuildings.SelectMany(p => p.Translations).GroupBy(p => p.Key)
+                .ToDictionary(p => p.Key, p => p.Select(x => x.Value).ToList());
+            foreach (var languageGroup in buildingsGroupedByTranslations)
             {
-                builder.AppendLine(startingBuilding.ToPostFormat());
+                builder.AppendLine($"[microbadge={BuildingData.Flags[languageGroup.Key]}] {string.Join(" - ", languageGroup.Value)}");
             }
+
+            builder.Append("[/size]");
 
             var placeHolder = $"<<STARTING_BUILDINGS_{category.ToString().ToUpper()}>>";
             return templateString.Replace(placeHolder, builder.ToString());
@@ -76,7 +83,7 @@ namespace grcg
             var builder = new StringBuilder();
             foreach (var offerBuilding in _buildingData.GetOfferBuildings(category))
             {
-                builder.Append($"[o]{offerBuilding.ToPostFormat()}[/o]");
+                builder.Append($"[o][size=11]{offerBuilding.ToPostFormat()}[/size][/o]");
             }
 
             var placeHolder = $"<<OFFER_BUILDINGS_{category.ToString().ToUpper()}>>";
