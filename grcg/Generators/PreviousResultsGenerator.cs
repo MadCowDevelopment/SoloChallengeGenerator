@@ -1,0 +1,26 @@
+﻿using System.Text;
+
+namespace grcg.Generators
+{
+    internal class PreviousResultsGenerator : TemplateGenerator
+    {
+        private readonly ChallengeData _challengeData;
+
+        public PreviousResultsGenerator(ChallengeData challengeData)
+        {
+            _challengeData = challengeData;
+        }
+
+        public override string Token { get; } = "<<PREVIOUS_RESULTS>>";
+        public override string Apply(string template, string[] arguments)
+        {
+            var builder = new StringBuilder();
+            foreach (var challenge in _challengeData)
+            {
+                builder.AppendLine($":chalice:[thread={challenge.ThreadId}][/thread] -- high score {challenge.Score} by {challenge.User}:chalice:");
+            }
+
+            return template.Replace("<<PREVIOUS_RESULTS>>", builder.ToString());
+        }
+    }
+}

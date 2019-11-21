@@ -6,34 +6,45 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Translations\Spanish.lang~RFa05ed42.TMP" />
+    <None Remove="Games\GlassRoad\Translations\Spanish.lang~RFa05ed42.TMP" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Buildings.dat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="ForumPost.template">
+    <None Update="Games\GlassRoad\Buildings.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="PreviousChallenges.dat">
+    <None Update="Games\GlassRoad\ForumPost.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Translations\English.lang">
+    <None Update="Games\GlassRoad\Generator.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Translations\French.lang">
+    <None Update="Games\GlassRoad\PreviousChallenges.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Translations\German.lang">
+    <None Update="Games\GlassRoad\Translations\English.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Translations\Polish.lang">
+    <None Update="Games\GlassRoad\Translations\French.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Translations\Spanish.lang">
+    <None Update="Games\GlassRoad\Translations\German.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Games\GlassRoad\Translations\Polish.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\GlassRoad\Translations\Spanish.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Games\FieldsOfArle\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
   </ItemGroup>
 
 </Project>

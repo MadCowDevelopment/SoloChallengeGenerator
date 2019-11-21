@@ -7,6 +7,7 @@ namespace grcg
 {
     internal class BuildingData
     {
+        private readonly FileRepository _repository;
         private readonly List<Building> _buildings = new List<Building>();
 
         public static FlagsDictionary Flags { get; } = new FlagsDictionary();
@@ -30,40 +31,39 @@ namespace grcg
             }
         }
 
-        private BuildingData()
+        public BuildingData(FileRepository repository)
         {
+            _repository = repository;
+            Load();
         }
 
-        public static BuildingData Load()
+        private void Load()
         {
-            var data = new BuildingData();
-            InitializeBuilding(data);
-            AddTranslations(data);
-            RandomizeBuildings(data);
-
-            return data;
+            InitializeBuilding();
+            AddTranslations();
+            RandomizeBuildings();
         }
 
-        private static void RandomizeBuildings(BuildingData data)
+        private void RandomizeBuildings()
         {
-            data._buildings.Shuffle();
+            _buildings.Shuffle();
         }
 
-        private static void AddTranslations(BuildingData data)
+        private void AddTranslations()
         {
-            var translationFiles = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, @"Translations"), "*.lang");
+            var translationFiles = _repository.GetFiles("Translations", "*.lang");
             foreach (var translationFile in translationFiles)
             {
-                AddTranslation(data, translationFile);
+                AddTranslation(translationFile);
             }
         }
 
-        private static void AddTranslation(BuildingData data, string translationFile)
+        private void AddTranslation(string translationFile)
         {
             var lines = File.ReadAllLines(translationFile);
-            if (lines.Length != data.Count)
+            if (lines.Length != Count)
             {
-                Console.WriteLine($"Translation file '{translationFile}' has an invalid number of entries. Expected: {data.Count}.");
+                Console.WriteLine($"Translation file '{translationFile}' has an invalid number of entries. Expected: {Count}.");
                 return;
             };
 
@@ -72,7 +72,7 @@ namespace grcg
             for (var i = 0; i < lines.Length; i++)
             {
                 var line = lines[i];
-                var building = data._buildings[i];
+                var building = _buildings[i];
 
                 building.AddTranslation(languageName, line);
             }
@@ -80,12 +80,12 @@ namespace grcg
 
         private int Count => _buildings.Count;
 
-        private static void InitializeBuilding(BuildingData data)
+        private void InitializeBuilding()
         {
-            var buildingData = File.ReadAllLines(@"Buildings.dat");
+            var buildingData = _repository.ReadAllLines("Buildings.dat");
             foreach (var line in buildingData)
             {
-                data.Add(new Building(Enum.Parse<Category>(line)));
+                Add(new Building(line));
             }
         }
 
@@ -94,14 +94,14 @@ namespace grcg
             _buildings.Add(building);
         }
 
-        public IEnumerable<Building> GetStartingBuildings(Category category)
+        public IEnumerable<Building> GetStartingBuildings(string category)
         {
-            return _buildings.Where(p => p.Category == category).Take(4);
+            return _buildings.Where(p => string.Equals(p.Category,category, StringComparison.InvariantCultureIgnoreCase)).Take(4);
         }
 
-        public IEnumerable<Building> GetOfferBuildings(Category category)
+        public IEnumerable<Building> GetOfferBuildings(string category)
         {
-            return _buildings.Where(p => p.Category == category).Skip(4).Take(10);
+            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(4).Take(10);
         }
     }
 }

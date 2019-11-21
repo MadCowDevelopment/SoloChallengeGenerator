@@ -6,12 +6,12 @@ namespace grcg
     internal class Building
     {
         private readonly Dictionary<string, string> _translations = new Dictionary<string, string>();
-        public Building(Category category)
+        public Building(string category)
         {
             Category = category;
         }
 
-        public Category Category { get; }
+        public string Category { get; }
         public IEnumerable<KeyValuePair<string, string>> Translations => _translations;
 
         public void AddTranslation(string language, string name)
