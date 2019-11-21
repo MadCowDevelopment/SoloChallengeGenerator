@@ -10,6 +10,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Games\FieldsOfArle\Buildings.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\ForumPost.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\Generator.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\Translations\English.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\Translations\German.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\GlassRoad\Buildings.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -37,10 +55,6 @@
     <None Update="Games\GlassRoad\Translations\Spanish.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Games\FieldsOfArle\" />
   </ItemGroup>
 
   <ItemGroup>

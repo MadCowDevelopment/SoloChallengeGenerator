@@ -17,7 +17,8 @@ namespace grcg.Generators
         {
             var builder = new StringBuilder();
             var category = arguments[0];
-            foreach (var offerBuilding in _buildingData.GetOfferBuildings(category))
+            var number = int.Parse(arguments[1]);
+            foreach (var offerBuilding in _buildingData.GetOfferBuildings(category, number))
             {
                 builder.Append($"[o][size=11]{offerBuilding.ToPostFormat()}[/size][/o]");
             }

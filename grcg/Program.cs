@@ -19,7 +19,7 @@ namespace grcg
         private static void GenerateNewPost()
         {
             var bootstrapper = new Bootstrapper();
-            bootstrapper.Initialize("GlassRoad");
+            bootstrapper.Initialize("FieldsOfArle");
             bootstrapper.Run();
         }
 

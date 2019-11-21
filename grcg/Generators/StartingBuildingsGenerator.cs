@@ -19,8 +19,8 @@ namespace grcg.Generators
             builder.Append("[size=11]");
 
             var category = arguments[0];
-
-            var startingBuildings = _buildingData.GetStartingBuildings(category);
+            var number = int.Parse(arguments[1]);
+            var startingBuildings = _buildingData.GetStartingBuildings(category, number);
             var buildingsGroupedByTranslations = startingBuildings.SelectMany(p => p.Translations).GroupBy(p => p.Key)
                 .ToDictionary(p => p.Key, p => p.Select(x => x.Value).ToList());
             foreach (var languageGroup in buildingsGroupedByTranslations)

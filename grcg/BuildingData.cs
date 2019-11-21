@@ -9,6 +9,7 @@ namespace grcg
     {
         private readonly FileRepository _repository;
         private readonly List<Building> _buildings = new List<Building>();
+        private Dictionary<string, int> _tilesTaken = new Dictionary<string, int>();
 
         public static FlagsDictionary Flags { get; } = new FlagsDictionary();
 
@@ -65,7 +66,7 @@ namespace grcg
             {
                 Console.WriteLine($"Translation file '{translationFile}' has an invalid number of entries. Expected: {Count}.");
                 return;
-            };
+            }
 
             var languageName = Path.GetFileNameWithoutExtension(translationFile);
 
@@ -94,14 +95,16 @@ namespace grcg
             _buildings.Add(building);
         }
 
-        public IEnumerable<Building> GetStartingBuildings(string category)
+        public IEnumerable<Building> GetStartingBuildings(string category, int number)
         {
-            return _buildings.Where(p => string.Equals(p.Category,category, StringComparison.InvariantCultureIgnoreCase)).Take(4);
+            _tilesTaken[category] = number;
+            return _buildings.Where(p => string.Equals(p.Category,category, StringComparison.InvariantCultureIgnoreCase)).Take(number);
         }
 
-        public IEnumerable<Building> GetOfferBuildings(string category)
+        public IEnumerable<Building> GetOfferBuildings(string category, int number)
         {
-            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(4).Take(10);
+            var tilesToSkip = _tilesTaken.ContainsKey(category) ? _tilesTaken[category] : 0;
+            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(tilesToSkip).Take(number);
         }
     }
 }
