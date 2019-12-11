@@ -8,18 +8,25 @@ namespace grcg
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length != 1)
+            {
+                Console.WriteLine("Argument missing: A GameId is required.");
+                Console.WriteLine("E.g. dotnet grcg.dll GlassRoad");
+                Environment.Exit(-1);
+            }
+
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
             CultureInfo.CurrentUICulture = CultureInfo.InvariantCulture;
             
-            GenerateNewPost();
+            GenerateNewPost(args[0]);
         }
 
-        private static void GenerateNewPost()
+        private static void GenerateNewPost(string gameId)
         {
             var bootstrapper = new Bootstrapper();
-            bootstrapper.Initialize("FieldsOfArle");
+            bootstrapper.Initialize(gameId);
             bootstrapper.Run();
         }
 
