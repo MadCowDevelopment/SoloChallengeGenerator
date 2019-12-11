@@ -9,7 +9,7 @@ namespace grcg
     {
         private readonly FileRepository _repository;
         private readonly List<Building> _buildings = new List<Building>();
-        private Dictionary<string, int> _tilesTaken = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> _takenBuildings = new Dictionary<string, int>();
 
         public static FlagsDictionary Flags { get; } = new FlagsDictionary();
 
@@ -86,6 +86,7 @@ namespace grcg
             var buildingData = _repository.ReadAllLines("Buildings.dat");
             foreach (var line in buildingData)
             {
+
                 Add(new Building(line));
             }
         }
@@ -95,16 +96,20 @@ namespace grcg
             _buildings.Add(building);
         }
 
-        public IEnumerable<Building> GetStartingBuildings(string category, int number)
+        public IEnumerable<Building> GetAndSkipTakenBuildings(string category, int number)
         {
-            _tilesTaken[category] = number;
-            return _buildings.Where(p => string.Equals(p.Category,category, StringComparison.InvariantCultureIgnoreCase)).Take(number);
+            var buildingsToSkip = _takenBuildings.ContainsKey(category) ? _takenBuildings[category] : 0;
+            var buildings = _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(buildingsToSkip).Take(number).ToList();
+
+            if (_takenBuildings.ContainsKey(category)) _takenBuildings[category] += buildings.Count;
+            else _takenBuildings[category] = buildings.Count;
+
+            return buildings;
         }
 
-        public IEnumerable<Building> GetOfferBuildings(string category, int number)
+        public IEnumerable<Building> GetAll(string category)
         {
-            var tilesToSkip = _tilesTaken.ContainsKey(category) ? _tilesTaken[category] : 0;
-            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(tilesToSkip).Take(number);
+            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
     }
 }

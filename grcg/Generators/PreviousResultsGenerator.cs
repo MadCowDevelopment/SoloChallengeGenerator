@@ -20,7 +20,7 @@ namespace grcg.Generators
                 builder.AppendLine($":chalice:[thread={challenge.ThreadId}][/thread] -- high score {challenge.Score} by {challenge.User}:chalice:");
             }
 
-            return template.Replace("<<PREVIOUS_RESULTS>>", builder.ToString());
+            return template.Replace(Token, builder.ToString());
         }
     }
 }

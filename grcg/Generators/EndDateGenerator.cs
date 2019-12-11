@@ -15,7 +15,7 @@ namespace grcg.Generators
                 endDate = endDate.AddDays(1);
             }
 
-            return template.Replace("<<END_DATE>>", endDate.ToShortDateString());
+            return template.Replace(Token, endDate.ToShortDateString());
         }
     }
 }

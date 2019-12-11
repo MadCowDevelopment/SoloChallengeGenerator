@@ -12,7 +12,7 @@
         public override string Token { get; } = "<<CHALLENGE_NUMBER>>";
         public override string Apply(string template, string[] arguments)
         {
-            return template.Replace("<<CHALLENGE_NUMBER>>", (_challengeData.Count + 1).ToString());
+            return template.Replace(Token, (_challengeData.Count + 1).ToString());
         }
     }
 }

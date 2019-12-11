@@ -40,12 +40,14 @@ namespace grcg
                 _kernel.Bind<Generator>().ToSelf().InSingletonScope();
                 _kernel.Bind<BuildingData>().ToSelf().InSingletonScope();
                 _kernel.Bind<ChallengeData>().ToSelf().InSingletonScope();
-                
+
                 _kernel.Bind<ITemplateGenerator>().To<EndDateGenerator>().InSingletonScope();
                 _kernel.Bind<ITemplateGenerator>().To<ChallengeNumberGenerator>().InSingletonScope();
                 _kernel.Bind<ITemplateGenerator>().To<PreviousResultsGenerator>().InSingletonScope();
                 _kernel.Bind<ITemplateGenerator>().To<StartingBuildingsGenerator>().InSingletonScope();
                 _kernel.Bind<ITemplateGenerator>().To<OfferBuildingsGenerator>().InSingletonScope();
+                _kernel.Bind<ITemplateGenerator>().To<ScoringCardGenerator>().InSingletonScope();
+                _kernel.Bind<ITemplateGenerator>().To<SeasonGenerator>().InSingletonScope();
             }
 
             public void Run()

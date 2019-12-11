@@ -5,14 +5,19 @@ namespace grcg
 {
     internal class Building
     {
+
         private readonly Dictionary<string, string> _translations = new Dictionary<string, string>();
         public Building(string category)
         {
+            Id = NextId++;
             Category = category;
         }
 
+        private static int NextId { get; set; } = 1;
+
         public string Category { get; }
         public IEnumerable<KeyValuePair<string, string>> Translations => _translations;
+        public int Id { get; }
 
         public void AddTranslation(string language, string name)
         {
