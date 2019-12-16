@@ -9,6 +9,8 @@ namespace grcg.Generators
     {
         private readonly BuildingData _buildingData;
 
+        private static readonly string NL = Environment.NewLine;
+
         private readonly List<Building> _ambushPool = new List<Building>();
         private readonly Dictionary<int, CardData> _cardData = new Dictionary<int, CardData>();
 
@@ -17,80 +19,80 @@ namespace grcg.Generators
             _buildingData = buildingData;
 
             _cardData.Add(1, new CardData(1, new[] {TerrainType.Farm},
-                "   |  X\n" +
-                "X  | XXX\n" +
-                "XG |  X\n" +
-                "   |\n"));
+                $"   |  X{NL}" +
+                $"X  | XXX{NL}" +
+                $"XG |  X{NL}" +
+                $"   |{NL}"));
             _cardData.Add(2, new CardData(2, new[] { TerrainType.Forest, TerrainType.Village },
-                " \n" +
-                "  XX\n" +
-                "XXX \n" +
-                " \n"));
+                $" {NL}" +
+                $"  XX{NL}" +
+                $"XXX {NL}" +
+                $" {NL}"));
             _cardData.Add(3, new CardData(2, new[] { TerrainType.Village, TerrainType.Water },
-                " \n" +
-                "XXXX\n" +
-                " \n" +
-                " \n"));
+                $" {NL}" +
+                $"XXXX{NL}" +
+                $" {NL}" +
+                $" {NL}"));
             _cardData.Add(4, new CardData(2, new[] { TerrainType.Village, TerrainType.Farm },
-                "X\n" +
-                "XX\n" +
-                "X\n" +
-                " \n"));
+                $"X{NL}" +
+                $"XX{NL}" +
+                $"X{NL}" +
+                $" {NL}"));
             _cardData.Add(5, new CardData(1, new[] { TerrainType.Water },
-                "X  |   X\n" +
-                "XG |  XX\n" +
-                "X  | XX\n" +
-                "   |\n"));
+                $"X  |   X{NL}" +
+                $"XG |  XX{NL}" +
+                $"X  | XX{NL}" +
+                $"   |{NL}"));
             _cardData.Add(6, new CardData(2, new[] { TerrainType.Farm, TerrainType.Water },
-                "XXX\n" +
-                "X\n" +
-                "X\n" +
-                " \n"));
+                $"XXX{NL}" +
+                $"X{NL}" +
+                $"X{NL}" +
+                $" {NL}"));
             _cardData.Add(7, new CardData(2, new[] { TerrainType.Forest, TerrainType.Farm },
-                " \n" +
-                "XXX\n" +
-                "  X\n" +
-                " \n"));
+                $" {NL}" +
+                $"XXX{NL}" +
+                $"  X{NL}" +
+                $" {NL}"));
             _cardData.Add(8, new CardData(0, new[] { TerrainType.Forest, TerrainType.Village, TerrainType.Farm, TerrainType.Water, TerrainType.Monster },
-                " \n" +
-                "X\n" +
-                " \n" +
-                " \n"));
+                $" {NL}" +
+                $"X{NL}" +
+                $" {NL}" +
+                $" {NL}"));
             _cardData.Add(9, new CardData(2, new[] { TerrainType.Forest, TerrainType.Water },
-                "X\n" +
-                "XXX\n" +
-                "X\n" +
-                " \n"));
+                $"X{NL}" +
+                $"XXX{NL}" +
+                $"X{NL}" +
+                $" {NL}"));
             _cardData.Add(10, new CardData(1, new[] { TerrainType.Forest },
-                "    | X\n" +
-                "X   | XX\n" +
-                " XG |  X\n" +
-                "    |\n"));
+                $"    | X{NL}" +
+                $"X   | XX{NL}" +
+                $" XG |  X{NL}" +
+                $"    |{NL}"));
             _cardData.Add(11, new CardData(1, new[] { TerrainType.Village },
-                "    |\n" +
-                "X   | XXX\n" +
-                "XXG | XX\n" +
-                "    |\n"));
+                $"    |{NL}" +
+                $"X   | XXX{NL}" +
+                $"XXG | XX{NL}" +
+                $"    |{NL}"));
             _cardData.Add(14, new CardData(0, new[] { TerrainType.Monster },
-                "D XX \n" +
-                "  X\n" +
-                "  XX\n" +
-                " \n"));
+                $"D XX {NL}" +
+                $"  X{NL}" +
+                $"  XX{NL}" +
+                $" {NL}"));
             _cardData.Add(15, new CardData(0, new[] { TerrainType.Monster },
-                "X \n" +
-                " X \n" +
-                "  X U\n" +
-                " \n"));
+                $"X {NL}" +
+                $" X {NL}" +
+                $"  X U{NL}" +
+                $" {NL}"));
             _cardData.Add(16, new CardData(0, new[] { TerrainType.Monster },
-                "    D\n" +
-                "XOX \n" +
-                "XOX \n" +
-                " \n"));
+                $"    D{NL}" +
+                $"XOX {NL}" +
+                $"XOX {NL}" +
+                $" {NL}"));
             _cardData.Add(17, new CardData(0, new[] { TerrainType.Monster },
-                "  X\n" +
-                "  XX\n" +
-                "U X\n" +
-                " \n"));
+                $"  X{NL}" +
+                $"  XX{NL}" +
+                $"U X{NL}" +
+                $" {NL}"));
         }
 
         public override string Token { get; } = "<<SEASON_{x}>>";
@@ -195,7 +197,7 @@ namespace grcg.Generators
                 _shapeDescription = shapeDescription;
             }
 
-            public static CardData Placeholder { get; } = new CardData(0, new[] {TerrainType.None}, " \n \n \n \n");
+            public static CardData Placeholder { get; } = new CardData(0, new[] {TerrainType.None}, $" {NL} {NL} {NL} {NL}");
 
             public int Time { get; }
 
