@@ -125,7 +125,7 @@ namespace grcg.Generators
                 AppendCardData(builder, cardData);
             }
 
-            while (cardsDrawn < maxPossibleCards)
+            while (cardsDrawn <= maxPossibleCards)
             {
                 var cardData = CardData.Placeholder;
                 builder.AppendLine($"[o][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] Season is over");
