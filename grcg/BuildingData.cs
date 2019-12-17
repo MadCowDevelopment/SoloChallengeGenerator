@@ -12,26 +12,7 @@ namespace grcg
         private readonly Dictionary<string, int> _takenBuildings = new Dictionary<string, int>();
 
         public static FlagsDictionary Flags { get; } = new FlagsDictionary();
-
-        public class FlagsDictionary
-        {
-            private static readonly Dictionary<string, string> _flags = new Dictionary<string, string>
-            {
-                {"English", "6887"},
-                {"French", "6886"},
-                {"German", "6922"},
-                {"Polish", "6917" },
-                {"Spanish", "6889"}
-            };
-
-            public string this[string str] => _flags[str];
-
-            public bool Exists(string key)
-            {
-                return _flags.ContainsKey(key);
-            }
-        }
-
+        
         public BuildingData(FileRepository repository)
         {
             _repository = repository;

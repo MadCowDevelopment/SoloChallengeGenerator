@@ -10,6 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Flags.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\Cartographers\Buildings.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
