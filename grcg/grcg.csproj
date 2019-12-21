@@ -37,6 +37,9 @@
     <None Update="Games\Cartographers\Translations\Portuguese.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Games\Cartographers\Translations\Spanish.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\FieldsOfArle\Buildings.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
