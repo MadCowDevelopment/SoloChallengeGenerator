@@ -31,6 +31,12 @@
     <None Update="Games\Cartographers\Translations\German.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Games\Cartographers\Translations\Polish.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\Cartographers\Translations\Portuguese.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\FieldsOfArle\Buildings.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -44,6 +50,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Games\FieldsOfArle\Translations\English.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\FieldsOfArle\Translations\French.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Games\FieldsOfArle\Translations\German.lang">
