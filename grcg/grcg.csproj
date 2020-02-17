@@ -25,6 +25,9 @@
     <None Update="Games\Cartographers\PreviousChallenges.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Games\FieldsOfArle\Translations\Dutch.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\Cartographers\Translations\English.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
