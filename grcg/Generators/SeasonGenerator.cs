@@ -18,7 +18,7 @@ namespace grcg.Generators
         {
             _buildingData = buildingData;
 
-            _cardData.Add(1, new CardData(1, new[] {TerrainType.Farm},
+            _cardData.Add(1, new CardData(1, new[] { TerrainType.Farm },
                 $"   |  X{NL}" +
                 $"X  | XXX{NL}" +
                 $"XG |  X{NL}" +
@@ -104,13 +104,16 @@ namespace grcg.Generators
             var maxPossibleCards = GetMaxPossibleCards(season);
             int usedTime = 0;
             int cardsDrawn = 0;
+            bool previousTurnWasRuinsAndMonster = false;
 
             var exploreDeck = PrepareExploreDeck();
 
             var builder = new StringBuilder();
+
             while (usedTime < timeThreshold)
             {
                 var drawnCardsThisTurn = new List<Building>();
+                var drawRuins = false;
 
                 Building currentCard;
                 do
@@ -118,20 +121,36 @@ namespace grcg.Generators
                     currentCard = exploreDeck[cardsDrawn++];
                     drawnCardsThisTurn.Add(currentCard);
                     if (_ambushPool.Contains(currentCard)) _ambushPool.Remove(currentCard);
-                } while (currentCard.Id == 12 || currentCard.Id == 13);
+                } while (currentCard.IsRuins());
 
                 var cardData = _cardData[currentCard.Id];
                 usedTime += cardData.Time;
 
+                if (previousTurnWasRuinsAndMonster)
+                {
+                    previousTurnWasRuinsAndMonster = false;
+                    drawRuins = true;
+                }
+
+                if (drawnCardsThisTurn.Any(p => p.IsRuins()))
+                {
+                    if (cardData.IsMonster)
+                    {
+                        previousTurnWasRuinsAndMonster = true;
+                        drawRuins = false;
+                    }
+                    else drawRuins = true;
+                }
+
                 builder.AppendLine($"[o][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] {string.Join("[microbadge=12865][microbadge=10792][microbadge=12865]", drawnCardsThisTurn.Select(p => p.ToPostFormat()))}");
-                AppendCardData(builder, cardData);
+                AppendCardData(builder, cardData, drawRuins);
             }
 
             while (cardsDrawn <= maxPossibleCards)
             {
                 var cardData = CardData.Placeholder;
                 builder.AppendLine($"[o][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] Season is over");
-                AppendCardData(builder, cardData);
+                AppendCardData(builder, cardData, false);
                 cardsDrawn++;
             }
 
@@ -176,12 +195,12 @@ namespace grcg.Generators
             return exploreDeck;
         }
 
-        private static void AppendCardData(StringBuilder builder, CardData cardData)
+        private static void AppendCardData(StringBuilder builder, CardData cardData, bool drawRuins)
         {
             builder.AppendLine();
             builder.AppendLine(cardData.PrintTerrainTypes());
             builder.AppendLine();
-            builder.Append(cardData.PrintShapes());
+            builder.Append(cardData.PrintShapes(drawRuins));
             builder.Append("[/size][/o]");
         }
 
@@ -197,9 +216,10 @@ namespace grcg.Generators
                 _shapeDescription = shapeDescription;
             }
 
-            public static CardData Placeholder { get; } = new CardData(0, new[] {TerrainType.None}, $" {NL} {NL} {NL} {NL}");
+            public static CardData Placeholder { get; } = new CardData(0, new[] { TerrainType.None }, $" {NL} {NL} {NL} {NL}");
 
             public int Time { get; }
+            public bool IsMonster => _terrainTypes.Any(p => p == TerrainType.Monster) && _terrainTypes.Count() == 1;
 
             public string PrintTerrainTypes()
             {
@@ -225,11 +245,11 @@ namespace grcg.Generators
                 }));
             }
 
-            public string PrintShapes()
+            public string PrintShapes(bool drawRuins)
             {
                 var shape = _shapeDescription;
                 shape = shape.Replace(" ", "[microbadge=12865]");
-                shape = shape.Replace("X", "[microbadge=23792]");
+                shape = drawRuins ? shape.Replace("X", "[microbadge=42242]") : shape.Replace("X", "[microbadge=23792]");
                 shape = shape.Replace("O", "[microbadge=2301]");
                 shape = shape.Replace("G", "[microbadge=47]");
                 shape = shape.Replace("U", "[microbadge=10790]");
@@ -246,6 +266,14 @@ namespace grcg.Generators
             Village,
             Water,
             Monster
+        }
+    }
+
+    internal static class BuildingExtensions
+    {
+        internal static bool IsRuins(this Building building)
+        {
+            return building.Id == 12 || building.Id == 13;
         }
     }
 }
