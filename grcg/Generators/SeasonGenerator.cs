@@ -249,7 +249,7 @@ namespace grcg.Generators
             {
                 var shape = _shapeDescription;
                 shape = shape.Replace(" ", "[microbadge=12865]");
-                shape = drawRuins ? shape.Replace("X", "[microbadge=42242]") : shape.Replace("X", "[microbadge=23792]");
+                shape = drawRuins ? shape.Replace("X", "[microbadge=44987]") : shape.Replace("X", "[microbadge=23792]");
                 shape = shape.Replace("O", "[microbadge=2301]");
                 shape = shape.Replace("G", "[microbadge=47]");
                 shape = shape.Replace("U", "[microbadge=10790]");
