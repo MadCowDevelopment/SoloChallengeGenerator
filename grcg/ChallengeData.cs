@@ -15,7 +15,7 @@ namespace grcg
 
         private void Load()
         {
-            foreach (var line in _repository.ReadAllLines("PreviousChallenges.dat").Select(p=>p.Split(",")))
+            foreach (var line in _repository.ReadAllLines("PreviousChallenges.dat", true).Select(p=>p.Split(",")))
             {
                 Add(new ChallengeResult(line[0], line[1], line[2]));
             }

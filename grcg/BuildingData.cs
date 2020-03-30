@@ -64,7 +64,7 @@ namespace grcg
 
         private void InitializeBuilding()
         {
-            var buildingData = _repository.ReadAllLines("Buildings.dat");
+            var buildingData = _repository.ReadAllLines("Buildings.dat", false);
             foreach (var line in buildingData)
             {
 

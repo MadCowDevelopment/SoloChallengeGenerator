@@ -18,8 +18,8 @@ namespace grcg
 
         public string Generate()
         {
-            var templateString = _repository.ReadAllText("ForumPost.template");
-            var definitions = _repository.ReadAllLines("Generator.def");
+            var templateString = _repository.ReadAllText("ForumPost.template", true);
+            var definitions = _repository.ReadAllLines("Generator.def", false);
             foreach (var definition in definitions)
             {
                 var splitDefinitions = definition.Split(',');
