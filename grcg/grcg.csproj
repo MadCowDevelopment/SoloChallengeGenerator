@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Games\GlassRoad\Translations\German.lang~RFb2fd8b10.TMP" />
     <None Remove="Games\GlassRoad\Translations\Spanish.lang~RFa05ed42.TMP" />
   </ItemGroup>
 

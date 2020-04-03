@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace grcg.Generators
 {
@@ -18,9 +20,19 @@ namespace grcg.Generators
             var builder = new StringBuilder();
             var category = arguments[0];
             var number = int.Parse(arguments[1]);
+
+            var buildingLines = new List<string>();
             foreach (var offerBuilding in _buildingData.GetAndSkipTakenBuildings(category, number))
             {
-                builder.Append($"[o][size=11]{offerBuilding.ToPostFormat()}[/size][/o]");
+                buildingLines.Add($"[o][c][size=11]{offerBuilding.ToPostFormat()}%WHITESPACES%[/size][/c][/o]");
+            }
+
+            var maxLength = buildingLines.Max(p => p.Length);
+            foreach (var buildingLine in buildingLines)
+            {
+                var differenceToMax = maxLength - buildingLine.Length;
+                var whitespaces = string.Join("", Enumerable.Repeat(" ", differenceToMax));
+                builder.Append(buildingLine.Replace("%WHITESPACES%", whitespaces));
             }
 
             var placeHolder = $"<<OFFER_BUILDINGS_{category.ToUpper()}>>";
