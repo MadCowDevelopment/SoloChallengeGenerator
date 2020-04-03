@@ -142,14 +142,14 @@ namespace grcg.Generators
                     else drawRuins = true;
                 }
 
-                builder.AppendLine($"[o][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] {string.Join("[microbadge=12865][microbadge=10792][microbadge=12865]", drawnCardsThisTurn.Select(p => p.ToPostFormat()))}");
+                builder.AppendLine($"[o][c][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] {string.Join("[microbadge=12865][microbadge=10792][microbadge=12865]", drawnCardsThisTurn.Select(p => p.ToPostFormat()))}");
                 AppendCardData(builder, cardData, drawRuins);
             }
 
             while (cardsDrawn <= maxPossibleCards)
             {
                 var cardData = CardData.Placeholder;
-                builder.AppendLine($"[o][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] Season is over");
+                builder.AppendLine($"[o][c][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] Season is over");
                 AppendCardData(builder, cardData, false);
                 cardsDrawn++;
             }
@@ -199,9 +199,11 @@ namespace grcg.Generators
         {
             builder.AppendLine();
             builder.AppendLine(cardData.PrintTerrainTypes());
+            builder.AppendLine("__________________________________________________________________________________________________________________________");
             builder.AppendLine();
             builder.Append(cardData.PrintShapes(drawRuins));
-            builder.Append("[/size][/o]");
+            builder.Append("[/size][/c][/o]");
+            builder.AppendLine();
         }
 
         private class CardData
