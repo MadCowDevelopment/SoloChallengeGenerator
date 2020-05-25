@@ -93,6 +93,26 @@ namespace grcg.Generators
                 $"  XX{NL}" +
                 $"U X{NL}" +
                 $" {NL}"));
+            _cardData.Add(34, new CardData(0, new[] { TerrainType.Monster },
+                $"    L{NL}" +
+                $" X{NL}" +
+                $" XX{NL}" +
+                $" {NL}"));
+            _cardData.Add(35, new CardData(0, new[] { TerrainType.Monster },
+                $"R  X{NL}" +
+                $"  XX{NL}" +
+                $"  X{NL}" +
+                $" {NL}"));
+            _cardData.Add(36, new CardData(0, new[] { TerrainType.Monster },
+                $" {NL}" +
+                $" XXX{NL}" +
+                $" {NL}" +
+                $"    L{NL}"));
+            _cardData.Add(37, new CardData(0, new[] { TerrainType.Monster },
+                $" {NL}" +
+                $" XX{NL}" +
+                $" XX{NL}" +
+                $"R {NL}"));
         }
 
         public override string Token { get; } = "<<SEASON_{x}>>";
