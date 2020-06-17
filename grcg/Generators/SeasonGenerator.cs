@@ -276,6 +276,8 @@ namespace grcg.Generators
                 shape = shape.Replace("G", "[microbadge=47]");
                 shape = shape.Replace("U", "[microbadge=10790]");
                 shape = shape.Replace("D", "[microbadge=10788]");
+                shape = shape.Replace("L", "[microbadge=10791]");
+                shape = shape.Replace("R", "[microbadge=10792]");
                 return shape;
             }
         }
