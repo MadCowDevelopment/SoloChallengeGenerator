@@ -29,6 +29,9 @@
     <None Update="Games\Cartographers\Translations\Chinese.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Games\Cartographers\Translations\French.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Games\FieldsOfArle\Translations\Dutch.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -66,6 +69,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Games\FieldsOfArle\Translations\German.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\TinyTowns\Buildings.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\TinyTowns\ForumPost.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\TinyTowns\Generator.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\TinyTowns\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Games\TinyTowns\Translations\English.lang">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Games\GlassRoad\Buildings.dat">
