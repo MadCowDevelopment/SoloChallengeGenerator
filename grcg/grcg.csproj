@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="publish\**" />
+    <EmbeddedResource Remove="publish\**" />
+    <None Remove="publish\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Games\GlassRoad\Translations\German.lang~RFb2fd8b10.TMP" />
     <None Remove="Games\GlassRoad\Translations\Spanish.lang~RFa05ed42.TMP" />
   </ItemGroup>
