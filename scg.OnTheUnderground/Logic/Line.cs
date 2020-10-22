@@ -1,18 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Windows.Media;
 
-namespace scg.Logic
+namespace scg.OnTheUnderground.Logic
 {
     public class Line
     {
         private string Name { get; }
         private int Value { get; }
-        private IReadOnlyCollection<LondonLocation> Locations { get; }
+        public IEnumerable<LondonLocation> Locations { get; }
+        public Color Color { get; }
 
-        public Line(string name, int value, IEnumerable<LondonLocation> locations)
+        public Line(string name, int value, Color color, IEnumerable<LondonLocation> locations)
         {
             Name = name;
             Value = value;
+            Color = color;
             Locations = locations.ToImmutableList();
         }
     }

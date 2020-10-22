@@ -1,4 +1,4 @@
-﻿namespace scg.Logic
+﻿namespace scg.OnTheUnderground.Logic
 {
     public class DestinationCard
     {

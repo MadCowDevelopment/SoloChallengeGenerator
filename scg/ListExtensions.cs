@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace scg
 {
-    internal static class ListExtensions
+    public static class ListExtensions
     {
         private static readonly Random _random = new Random((int)DateTime.Now.Ticks);
 

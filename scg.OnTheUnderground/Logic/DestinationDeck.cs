@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace scg.Logic
+namespace scg.OnTheUnderground.Logic
 {
     public class DestinationDeck
     {

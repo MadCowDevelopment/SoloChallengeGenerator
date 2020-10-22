@@ -1,4 +1,4 @@
-﻿namespace scg.Logic
+﻿namespace scg.OnTheUnderground.Logic
 {
     public enum LondonLocation
     {
@@ -28,7 +28,7 @@
         Edgware,
         ElephantAndCastle,
         Epping,
-        Eustone,
+        Euston,
         FinsburyPark,
         Finchley,
         FinchleyRoad,
@@ -60,7 +60,7 @@
         LiverpoolStreet,
         LondonBridge,
         MarbleArch,
-        MaryLebone,
+        Marylebone,
         MileEnd,
         MillHillEast,
         Moorgate,

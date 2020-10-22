@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\scg\scg.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="landmark_food.png" />
     <Resource Include="landmark_gov.png" />
     <Resource Include="landmark_mall.png" />

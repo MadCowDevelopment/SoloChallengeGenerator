@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp29"
-        xmlns:wpfApp29="clr-namespace:WpfApp29;assembly=scg.OnTheUnderground"
+        xmlns:onTheUnderground="clr-namespace:scg.OnTheUnderground;assembly=scg.OnTheUnderground"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="MainWindow" Height="800" Width="1100">
     <Grid>
-        <wpfApp29:LondonMap/>
+        <onTheUnderground:LondonMap/>
     </Grid>
 </Window>

@@ -1,9 +1,8 @@
-﻿<UserControl x:Class="WpfApp29.LondonMap"
+﻿<UserControl x:Class="scg.OnTheUnderground.LondonMap"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApp29"
              mc:Ignorable="d" 
              Width="1600" Height="1078">
     <Canvas>
@@ -20,6 +19,11 @@
             <TransformGroup x:Key="U2">
                 <RotateTransform Angle="-30"/>
             </TransformGroup>
+            <Style TargetType="Rectangle">
+                <Style.Setters>
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Style.Setters>
+            </Style>
         </Canvas.Resources>
 
         <Image Source="/scg.OnTheUnderground;component/London_map.jpg"/>
@@ -34,7 +38,7 @@
         <Rectangle x:Name="EalingBroadway_Acton_2" Height="10" Canvas.Left="226.511" Stroke="Black" Canvas.Top="554" Width="50" Fill="Red"/>
         <Rectangle x:Name="Acton_WhiteCity_1" Height="10" Canvas.Left="317.177" Stroke="Black" Canvas.Top="546.251" Width="50" Fill="Red"/>
         <Rectangle x:Name="WhiteCity_ShepherdsBush_1" Height="10" Canvas.Left="409.176" Stroke="Black" Canvas.Top="546.584" Width="50" Fill="Red"/>
-        <Rectangle x:Name="ShepherdsBush_NottingHilGate_1" Height="10" Canvas.Left="501.511" Stroke="Black" Canvas.Top="546.917" Width="50" Fill="Red"/>
+        <Rectangle x:Name="ShepherdsBush_NottingHillGate_1" Height="10" Canvas.Left="501.511" Stroke="Black" Canvas.Top="546.917" Width="50" Fill="Red"/>
         <Rectangle x:Name="NottingHillGate_MarbleArch_1" Height="10" Canvas.Left="591.178" Stroke="Black" Canvas.Top="546.917" Width="50" Fill="Red"/>
         <Rectangle x:Name="MarbleArch_BondStreet_1" Height="10" Canvas.Left="681.179" Stroke="Black" Canvas.Top="547.25" Width="50" Fill="Red"/>
         <Rectangle x:Name="Paddington_Marylebone_1" Height="10" Canvas.Left="591.511" Stroke="Black" Canvas.Top="453.917" Width="50" Fill="Red"/>
@@ -102,7 +106,7 @@
         <Rectangle x:Name="MillHillEast_Finchley_1" Height="10" Canvas.Left="953.023" Stroke="Black" Canvas.Top="149.001" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
         <Rectangle x:Name="CanningTown_Beckton_1" Height="10" Canvas.Left="1395.72" Stroke="Black" Canvas.Top="686.003" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
         <Rectangle x:Name="Holborn_Bank_1" Height="10" Canvas.Left="1039.054" Stroke="Black" Canvas.Top="592.003" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
-        <Rectangle x:Name="PicadillyCircus_CharingCross_1" Height="10" Canvas.Left="860.385" Stroke="Black" Canvas.Top="682.668" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
+        <Rectangle x:Name="PiccadillyCircus_CharingCross_1" Height="10" Canvas.Left="860.385" Stroke="Black" Canvas.Top="682.668" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
         <Rectangle x:Name="Westminster_Waterloo_1" Height="10" Canvas.Left="864.387" Stroke="Black" Canvas.Top="773.337" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
         <Rectangle x:Name="WestBrompton_Putney_1" Height="10" Canvas.Left="589.052" Stroke="Black" Canvas.Top="863.168" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
         <Rectangle x:Name="GreenPark_Westminster_1" Height="10" Canvas.Left="767.135" Stroke="Black" Canvas.Top="682.668" Width="50" Fill="Red" RenderTransformOrigin="0.5,0.5" RenderTransform="{StaticResource D}"/>
@@ -207,13 +211,13 @@
         <Rectangle x:Name="MorningtonCrescent_Euston_2" Height="50" Canvas.Left="925.332" Stroke="Black" Canvas.Top="399.844" Width="10" Fill="Red"/>
         <Rectangle x:Name="BakerStreet_BondStreet_1" Height="50" Canvas.Left="743.498" Stroke="Black" Canvas.Top="485.34" Width="10" Fill="Red"/>
         <Rectangle x:Name="BondStreet_GreenPark_1" Height="50" Canvas.Left="744.164" Stroke="Black" Canvas.Top="574.332" Width="10" Fill="Red"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_food.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="0"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_food.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="0"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_mall.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="38"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_mall.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="38"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_park.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="76"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_park.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="76"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_gov.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="114"/>
-        <Image Source="/scg.OnTheUnderground;component/landmark_gov.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="114"/>
+        <Image x:Name="Landmark1" Source="/scg.OnTheUnderground;component/landmark_food.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="0"/>
+        <Image x:Name="Landmark2" Source="/scg.OnTheUnderground;component/landmark_food.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="0"/>
+        <Image x:Name="Landmark3" Source="/scg.OnTheUnderground;component/landmark_mall.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="38"/>
+        <Image x:Name="Landmark4" Source="/scg.OnTheUnderground;component/landmark_mall.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="38"/>
+        <Image x:Name="Landmark5" Source="/scg.OnTheUnderground;component/landmark_park.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="76"/>
+        <Image x:Name="Landmark6" Source="/scg.OnTheUnderground;component/landmark_park.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="76"/>
+        <Image x:Name="Landmark7" Source="/scg.OnTheUnderground;component/landmark_gov.png" Width="38" Height="38" Canvas.Top="0" Canvas.Left="114"/>
+        <Image x:Name="Landmark8" Source="/scg.OnTheUnderground;component/landmark_gov.png" Width="38" Height="38" Canvas.Top="38" Canvas.Left="114"/>
     </Canvas>
 </UserControl>
