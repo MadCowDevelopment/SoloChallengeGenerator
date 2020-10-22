@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp29"
+        xmlns:wpfApp29="clr-namespace:WpfApp29;assembly=scg.OnTheUnderground"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1100">
     <Grid>
-        <local:LondonMap/>
+        <wpfApp29:LondonMap/>
     </Grid>
 </Window>

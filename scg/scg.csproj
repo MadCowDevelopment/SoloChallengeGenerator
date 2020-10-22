@@ -1,8 +1,167 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>scg</ToolCommandName>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="publish\**" />
+    <EmbeddedResource Remove="publish\**" />
+    <None Remove="publish\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Flags.dat" />
+    <None Remove="Games\Cartographers\Buildings.dat" />
+    <None Remove="Games\Cartographers\ForumPost.template" />
+    <None Remove="Games\Cartographers\Generator.def" />
+    <None Remove="Games\Cartographers\PreviousChallenges.dat" />
+    <None Remove="Games\Cartographers\Translations\Chinese.lang" />
+    <None Remove="Games\Cartographers\Translations\English.lang" />
+    <None Remove="Games\Cartographers\Translations\French.lang" />
+    <None Remove="Games\Cartographers\Translations\German.lang" />
+    <None Remove="Games\Cartographers\Translations\Polish.lang" />
+    <None Remove="Games\Cartographers\Translations\Portuguese.lang" />
+    <None Remove="Games\Cartographers\Translations\Spanish.lang" />
+    <None Remove="Games\FieldsOfArle\Buildings.dat" />
+    <None Remove="Games\FieldsOfArle\ForumPost.template" />
+    <None Remove="Games\FieldsOfArle\Generator.def" />
+    <None Remove="Games\FieldsOfArle\PreviousChallenges.dat" />
+    <None Remove="Games\FieldsOfArle\Translations\Dutch.lang" />
+    <None Remove="Games\FieldsOfArle\Translations\English.lang" />
+    <None Remove="Games\FieldsOfArle\Translations\French.lang" />
+    <None Remove="Games\FieldsOfArle\Translations\German.lang" />
+    <None Remove="Games\GlassRoad\Buildings.dat" />
+    <None Remove="Games\GlassRoad\ForumPost.template" />
+    <None Remove="Games\GlassRoad\Generator.def" />
+    <None Remove="Games\GlassRoad\PreviousChallenges.dat" />
+    <None Remove="Games\GlassRoad\Translations\English.lang" />
+    <None Remove="Games\GlassRoad\Translations\French.lang" />
+    <None Remove="Games\GlassRoad\Translations\German.lang" />
+    <None Remove="Games\GlassRoad\Translations\German.lang~RFb2fd8b10.TMP" />
+    <None Remove="Games\GlassRoad\Translations\Polish.lang" />
+    <None Remove="Games\GlassRoad\Translations\Spanish.lang" />
+    <None Remove="Games\GlassRoad\Translations\Spanish.lang~RFa05ed42.TMP" />
+    <None Remove="Games\TinyTowns\Buildings.dat" />
+    <None Remove="Games\TinyTowns\ForumPost.template" />
+    <None Remove="Games\TinyTowns\Generator.def" />
+    <None Remove="Games\TinyTowns\PreviousChallenges.dat" />
+    <None Remove="Games\TinyTowns\Translations\English.lang" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Flags.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Buildings.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\ForumPost.template">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Generator.def">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\Chinese.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\English.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\French.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\German.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\Polish.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\Portuguese.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Translations\Spanish.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Buildings.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\ForumPost.template">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Generator.def">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Translations\Dutch.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Translations\English.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Translations\French.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Translations\German.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Buildings.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\ForumPost.template">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Generator.def">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Translations\English.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Translations\French.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Translations\German.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Translations\Polish.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Translations\Spanish.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\Buildings.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\ForumPost.template">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\Generator.def">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\PreviousChallenges.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\Translations\English.lang">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="ninject.extensions.conventions" Version="3.3.0" />
+  </ItemGroup>
 
 </Project>

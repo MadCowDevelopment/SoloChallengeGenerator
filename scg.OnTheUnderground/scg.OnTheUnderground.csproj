@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="landmark_food.png" />
+    <None Remove="landmark_gov.png" />
+    <None Remove="landmark_mall.png" />
+    <None Remove="landmark_park.png" />
+    <None Remove="London_map.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="landmark_food.png" />
+    <Resource Include="landmark_gov.png" />
+    <Resource Include="landmark_mall.png" />
+    <Resource Include="landmark_park.png" />
+    <Resource Include="London_map.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="LondonMap.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="LondonMap.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

@@ -7,21 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="landmark_food.png" />
-    <None Remove="landmark_gov.png" />
-    <None Remove="landmark_mall.png" />
-    <None Remove="landmark_park.png" />
-    <None Remove="London_map.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="landmark_food.png" />
-    <Resource Include="landmark_mall.png" />
-    <Resource Include="landmark_park.png" />
-    <Resource Include="landmark_gov.png" />
-    <Resource Include="London_map.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <ProjectReference Include="..\scg.OnTheUnderground\scg.OnTheUnderground.csproj" />
   </ItemGroup>
 
 </Project>
