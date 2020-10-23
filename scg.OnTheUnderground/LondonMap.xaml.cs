@@ -8,7 +8,6 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using scg.OnTheUnderground.Logic;
 using static scg.OnTheUnderground.Logic.LondonLocation;
-using Line = scg.OnTheUnderground.Logic.Line;
 
 namespace scg.OnTheUnderground
 {
@@ -27,7 +26,7 @@ namespace scg.OnTheUnderground
             InitializeLine(lines.ElementAt(10));
         }
 
-        public void InitializeLine(Line line)
+        public void InitializeLine(LondonLine line)
         {
             for (var i = 0; i < line.Locations.Count() - 1; i++)
             {
