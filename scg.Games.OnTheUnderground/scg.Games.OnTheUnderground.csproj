@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>scg.Games.OnTheUnderground</AssemblyName>
+    <RootNamespace>scg.Games.OnTheUnderground</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>MadCowDevelopment</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,9 +27,7 @@
     <Resource Include="landmark_gov.png" />
     <Resource Include="landmark_mall.png" />
     <Resource Include="landmark_park.png" />
-    <Resource Include="London_map.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="London_map.jpg"/>
   </ItemGroup>
 
   <ItemGroup>

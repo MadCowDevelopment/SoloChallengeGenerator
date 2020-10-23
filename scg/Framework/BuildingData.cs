@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using scg.Utils;
 
-namespace scg
+namespace scg.Framework
 {
     internal class BuildingData
     {

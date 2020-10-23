@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace scg
+namespace scg.Framework
 {
     public class GlobalRepository : RepositoryBase
     {

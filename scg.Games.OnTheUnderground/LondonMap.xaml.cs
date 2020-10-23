@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using scg.OnTheUnderground.Logic;
-using static scg.OnTheUnderground.Logic.LondonLocation;
+using scg.Games.OnTheUnderground.Logic;
+using scg.Utils;
+using static scg.Games.OnTheUnderground.Logic.LondonLocation;
 
-namespace scg.OnTheUnderground
+namespace scg.Games.OnTheUnderground
 {
     /// <summary>
     /// Interaction logic for LondonMap.xaml
@@ -19,6 +19,7 @@ namespace scg.OnTheUnderground
         public LondonMap()
         {
             InitializeComponent();
+
             InitializeLandmarks();
 
             var lines = new LinesFactory().CreateLines();

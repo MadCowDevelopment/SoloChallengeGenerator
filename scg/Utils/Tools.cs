@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace scg
+namespace scg.Utils
 {
     public static class Tools
     {

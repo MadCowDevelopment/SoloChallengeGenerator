@@ -4,10 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\scg.OnTheUnderground\scg.OnTheUnderground.csproj" />
+    <ProjectReference Include="..\scg.Games.OnTheUnderground\scg.Games.OnTheUnderground.csproj" />
   </ItemGroup>
 
 </Project>

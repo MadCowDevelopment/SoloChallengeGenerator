@@ -1,4 +1,6 @@
-﻿namespace scg.Generators
+﻿using scg.Framework;
+
+namespace scg.Generators
 {
     internal class ChallengeNumberGenerator : TemplateGenerator
     {

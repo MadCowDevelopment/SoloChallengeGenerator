@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace scg
+namespace scg.Utils
 {
     public static class FileHelper
     {

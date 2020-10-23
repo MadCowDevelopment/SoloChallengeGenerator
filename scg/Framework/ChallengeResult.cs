@@ -1,4 +1,4 @@
-﻿namespace scg
+﻿namespace scg.Framework
 {
     internal class ChallengeResult
     {

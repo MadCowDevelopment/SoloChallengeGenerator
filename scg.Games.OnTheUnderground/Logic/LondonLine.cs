@@ -2,7 +2,7 @@
 using System.Collections.Immutable;
 using System.Windows.Media;
 
-namespace scg.OnTheUnderground.Logic
+namespace scg.Games.OnTheUnderground.Logic
 {
     public class LondonLine
     {

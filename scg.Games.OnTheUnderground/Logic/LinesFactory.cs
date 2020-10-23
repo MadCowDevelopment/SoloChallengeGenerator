@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
-using static scg.OnTheUnderground.Logic.LondonLocation;
-namespace scg.OnTheUnderground.Logic
+using static scg.Games.OnTheUnderground.Logic.LondonLocation;
+namespace scg.Games.OnTheUnderground.Logic
 {
     public class LinesFactory
     {

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg", "scg\scg.csproj", "{0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp29", "WpfApp29\WpfApp29.csproj", "{2D7E1927-8A00-4EDA-A4A1-ECA605FCB281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scg.OnTheUnderground", "scg.OnTheUnderground\scg.OnTheUnderground.csproj", "{388D1862-208D-441B-9AF1-587E27E10369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg.Games.OnTheUnderground", "scg.Games.OnTheUnderground\scg.Games.OnTheUnderground.csproj", "{388D1862-208D-441B-9AF1-587E27E10369}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

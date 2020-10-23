@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace scg
+namespace scg.Framework
 {
     public class FlagsDictionary
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace scg
+namespace scg.Utils
 {
     public static class RNG
     {

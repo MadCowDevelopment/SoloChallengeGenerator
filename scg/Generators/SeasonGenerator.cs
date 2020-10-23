@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators
 {

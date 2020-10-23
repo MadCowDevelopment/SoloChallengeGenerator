@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
+using scg.Framework;
 
 namespace scg.Generators
 {

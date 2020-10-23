@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace scg
+namespace scg.Utils
 {
     public static class ListExtensions
     {

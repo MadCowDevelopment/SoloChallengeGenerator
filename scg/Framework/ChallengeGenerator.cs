@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using scg.Generators;
 
-namespace scg
+namespace scg.Framework
 {
-    internal class Generator
+    internal class ChallengeGenerator
     {
         private readonly FileRepository _repository;
         private readonly Dictionary<string, ITemplateGenerator> _generators;
 
-        public Generator(FileRepository repository, IEnumerable<ITemplateGenerator> generators)
+        public ChallengeGenerator(FileRepository repository, IEnumerable<ITemplateGenerator> generators)
         {
             _repository = repository;
             _generators = generators.ToDictionary(p => p.Token, p => p);

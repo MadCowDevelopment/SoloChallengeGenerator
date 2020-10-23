@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:onTheUnderground="clr-namespace:scg.OnTheUnderground;assembly=scg.OnTheUnderground"
+        xmlns:onTheUnderground="clr-namespace:scg.Games.OnTheUnderground;assembly=scg.Games.OnTheUnderground"
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="MainWindow" Height="800" Width="1100">
