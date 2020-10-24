@@ -9,10 +9,16 @@ namespace scg.Generators
     internal class ScoringCardGenerator : TemplateGenerator
     {
         private readonly BuildingData _buildingData;
+        private readonly Dictionary<int, int> _targetScores;
 
         public ScoringCardGenerator(BuildingData buildingData)
         {
             _buildingData = buildingData;
+            _targetScores = new Dictionary<int, int>
+            {
+                {18, 17}, {19, 22}, {20, 18}, {21, 25}, {22, 27}, {23, 24}, {24, 20}, {25, 22},
+                {26, 16}, {27, 16}, {28, 20}, {29, 21}, {30, 20}, {31, 24}, {32, 24}, {33, 24}
+            };
         }
 
         public override string Token { get; } = "<<SCORING_CARDS>>";
@@ -29,13 +35,16 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-
             builder.AppendLine($"A) {scoringCards[0].ToPostFormat()}");
             builder.AppendLine($"B) {scoringCards[1].ToPostFormat()}");
             builder.AppendLine($"C) {scoringCards[2].ToPostFormat()}");
             builder.AppendLine($"D) {scoringCards[3].ToPostFormat()}");
-
             builder.Append("[/size]");
+
+            builder.AppendLine();
+            var totalTargetScore = scoringCards.Sum(p => _targetScores[p.Id]);
+            builder.AppendLine($"Total of the numbers in the lower right corner: [b]{totalTargetScore}[/b]");
+            builder.AppendLine("At the end of your game you have to subtract that from your score to find your rating!");
 
             return template.Replace(Token, builder.ToString());
         }

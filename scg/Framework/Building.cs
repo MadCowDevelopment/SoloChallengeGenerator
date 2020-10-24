@@ -26,6 +26,11 @@ namespace scg.Framework
             _translations.Add(language, name);
         }
 
+        public string ToEnglish()
+        {
+            return $"[microbadge={_flags["English"]}] - {_translations["English"]}";
+        }
+
         public string ToPostFormat()
         {
             var translations = _translations.Select(p =>
