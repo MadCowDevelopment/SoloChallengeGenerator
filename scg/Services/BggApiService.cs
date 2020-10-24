@@ -9,21 +9,43 @@ namespace scg.Services
 {
     public class BggApiService
     {
-        public async Task<string> PostThread(CookieContainer cookie)
+        private readonly CookieContainer _cookie = new CookieContainer();
+
+        public async Task Login(string username, string password)
         {
-            HttpClient httpClient = new HttpClient(new HttpClientHandler {CookieContainer = cookie});
+            string postData = $"lasturl=&username={username}&password={password}";
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://www.boardgamegeek.com/login");
+            webRequest.Method = "POST";
+            webRequest.ContentType = "application/x-www-form-urlencoded";
+            webRequest.CookieContainer = _cookie;
+
+            using (Stream webpageStream = await webRequest.GetRequestStreamAsync())
+            {
+                webpageStream.Write(byteArray, 0, byteArray.Length);
+            }
+
+            using (WebResponse response = await webRequest.GetResponseAsync())
+            {
+            }
+        }
+
+        public async Task<string> PostThread(string subject, string body, int forumId, int objectId, string objectType)
+        {
+            HttpClient httpClient = new HttpClient(new HttpClientHandler {CookieContainer = _cookie});
             MultipartFormDataContent form = new MultipartFormDataContent();
             form.Add(new StringContent("save"), "action");
-            form.Add(new StringContent("8"), "forumid");
+            form.Add(new StringContent(forumId.ToString()), "forumid");
             form.Add(new StringContent(""), "articleid");
-            form.Add(new StringContent("region"), "objecttype");
-            form.Add(new StringContent("1"), "objectid");
+            form.Add(new StringContent(objectType), "objecttype");
+            form.Add(new StringContent(objectId.ToString()), "objectid");
             form.Add(new StringContent(""), "replytoid");
-            form.Add(new StringContent("8"), "forumid");
+            form.Add(new StringContent(forumId.ToString()), "forumid");
             form.Add(new StringContent(""), "geek_link_select_1"); 
             form.Add(new StringContent("10"), "sizesel");
-            form.Add(new StringContent("SampleSubject"), "subject");
-            form.Add(new StringContent("SampleBody"), "body");
+            form.Add(new StringContent(subject), "subject");
+            form.Add(new StringContent(body), "body");
             form.Add(new StringContent("1"), "notify");
 
             var response = await httpClient.PostAsync("https://boardgamegeek.com/article/save", form);
@@ -32,9 +54,9 @@ namespace scg.Services
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public async Task<string> PostImage(CookieContainer cookie, string path, string filename)
+        public async Task<string> PostImage(string path, string filename)
         {
-            HttpClient httpClient = new HttpClient(new HttpClientHandler { CookieContainer = cookie });
+            HttpClient httpClient = new HttpClient(new HttpClientHandler { CookieContainer = _cookie });
             MultipartFormDataContent form = new MultipartFormDataContent();
             form.Add(new StringContent("4"), "license[licenseid]");
             form.Add(new StringContent("user"), "objecttype");
@@ -58,9 +80,6 @@ namespace scg.Services
         {
             //http://www.boardgamegeek.com/geekplay.php?objecttype=thing&objectid=104557&ajax=1&action=new
 
-            CookieContainer jar = new CookieContainer();
-            jar = await Login(username, password, jar);
-            
             string requestBase = "dummy=1&ajax=1&action=save&version=2&objecttype=thing&objectid={0}&playid=&action=save&playdate={1}&dateinput={2}&YUIButton=&twitter=0&savetwitterpref=0&location=&quantity={3}&length={4}&incomplete=0&nowinstats=0&comments={5}";
             string request = string.Format(requestBase, gameId, date.ToString("yyyy-MM-dd"), DateTime.Today.ToString("yyyy-MM-dd"), amount, length, comments);
 
@@ -69,7 +88,7 @@ namespace scg.Services
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://www.boardgamegeek.com/geekplay.php");
             webRequest.Method = "POST";
             webRequest.ContentType = "application/x-www-form-urlencoded";
-            webRequest.CookieContainer = jar;
+            webRequest.CookieContainer = _cookie;
 
             using (Stream webpageStream = await webRequest.GetRequestStreamAsync())
             {
@@ -85,29 +104,6 @@ namespace scg.Services
                 }
             }
             return true;
-        }
-
-        public async Task<CookieContainer> Login(string username, string password, CookieContainer cookie)
-        {
-            string postData = string.Format("lasturl=&username={0}&password={1}", username, password);
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://www.boardgamegeek.com/login");
-            webRequest.Method = "POST";
-            webRequest.ContentType = "application/x-www-form-urlencoded";
-            webRequest.CookieContainer = cookie;
-
-
-            using (Stream webpageStream = await webRequest.GetRequestStreamAsync())
-            {
-                webpageStream.Write(byteArray, 0, byteArray.Length);
-            }
-            using (WebResponse response = await webRequest.GetResponseAsync())
-            {
-
-            }
-            return cookie;
-
         }
     }
 }

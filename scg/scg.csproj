@@ -30,6 +30,7 @@
     <None Remove="Games\Cartographers\Buildings.dat" />
     <None Remove="Games\Cartographers\ForumPost.template" />
     <None Remove="Games\Cartographers\Generator.def" />
+    <None Remove="Games\Cartographers\Metadata.json" />
     <None Remove="Games\Cartographers\PreviousChallenges.dat" />
     <None Remove="Games\Cartographers\Translations\Chinese.lang" />
     <None Remove="Games\Cartographers\Translations\English.lang" />
@@ -41,6 +42,7 @@
     <None Remove="Games\FieldsOfArle\Buildings.dat" />
     <None Remove="Games\FieldsOfArle\ForumPost.template" />
     <None Remove="Games\FieldsOfArle\Generator.def" />
+    <None Remove="Games\FieldsOfArle\Metadata.json" />
     <None Remove="Games\FieldsOfArle\PreviousChallenges.dat" />
     <None Remove="Games\FieldsOfArle\Translations\Dutch.lang" />
     <None Remove="Games\FieldsOfArle\Translations\English.lang" />
@@ -49,6 +51,7 @@
     <None Remove="Games\GlassRoad\Buildings.dat" />
     <None Remove="Games\GlassRoad\ForumPost.template" />
     <None Remove="Games\GlassRoad\Generator.def" />
+    <None Remove="Games\GlassRoad\Metadata.json" />
     <None Remove="Games\GlassRoad\PreviousChallenges.dat" />
     <None Remove="Games\GlassRoad\Translations\English.lang" />
     <None Remove="Games\GlassRoad\Translations\French.lang" />
@@ -60,6 +63,7 @@
     <None Remove="Games\TinyTowns\Buildings.dat" />
     <None Remove="Games\TinyTowns\ForumPost.template" />
     <None Remove="Games\TinyTowns\Generator.def" />
+    <None Remove="Games\TinyTowns\Metadata.json" />
     <None Remove="Games\TinyTowns\PreviousChallenges.dat" />
     <None Remove="Games\TinyTowns\Translations\English.lang" />
   </ItemGroup>
@@ -77,6 +81,7 @@
     <EmbeddedResource Include="Games\Cartographers\Generator.def">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\Cartographers\Metadata.json" />
     <EmbeddedResource Include="Games\Cartographers\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -110,6 +115,7 @@
     <EmbeddedResource Include="Games\FieldsOfArle\Generator.def">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\Metadata.json" />
     <EmbeddedResource Include="Games\FieldsOfArle\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -134,6 +140,7 @@
     <EmbeddedResource Include="Games\GlassRoad\Generator.def">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\Metadata.json" />
     <EmbeddedResource Include="Games\GlassRoad\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -161,6 +168,7 @@
     <EmbeddedResource Include="Games\TinyTowns\Generator.def">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\Metadata.json" />
     <EmbeddedResource Include="Games\TinyTowns\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>

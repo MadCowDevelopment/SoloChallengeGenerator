@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using scg.Generators;
 
@@ -8,15 +9,36 @@ namespace scg.Framework
     internal class ChallengeGenerator
     {
         private readonly FileRepository _repository;
+        private readonly GameMetadata _metadata;
+        private readonly ChallengeData _challengeData;
         private readonly Dictionary<string, ITemplateGenerator> _generators;
 
-        public ChallengeGenerator(FileRepository repository, IEnumerable<ITemplateGenerator> generators)
+        public ChallengeGenerator(
+            FileRepository repository,
+            GameMetadata metadata,
+            ChallengeData challengeData,
+            IEnumerable<ITemplateGenerator> generators)
         {
             _repository = repository;
+            _metadata = metadata;
+            _challengeData = challengeData;
             _generators = generators.ToDictionary(p => p.Token, p => p);
         }
 
-        public string Generate()
+        public GenerationResult Generate()
+        {
+            return GenerationResultBuilder.Create()
+                .WithChallengePost(new ChallengePost(GeneratePostSubject(_metadata.Name, _challengeData.Count), GeneratePostBody()))
+                .Build();
+        }
+
+        private string GeneratePostSubject(string gameName, int challengeNumber)
+        {
+            var date = DateTime.Now.AddMonths(1).ToString("MMMM yyyy", CultureInfo.InvariantCulture);
+            return $"{gameName} Solo Challenge #{challengeNumber+1} - {date}";
+        }
+
+        private string GeneratePostBody()
         {
             var templateString = _repository.ReadAllText("ForumPost.template", true);
             var definitions = _repository.ReadAllLines("Generator.def", false);
