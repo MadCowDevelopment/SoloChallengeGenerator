@@ -20,6 +20,12 @@
             return this;
         }
 
+        public GenerationResultBuilder WithGeeklistPost(GeeklistPost geeklistPost)
+        {
+            _result.GeeklistPost = geeklistPost;
+            return this;
+        }
+
         public GenerationResult Build()
         {
             return _result;

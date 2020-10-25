@@ -28,8 +28,10 @@
   <ItemGroup>
     <None Remove="Flags.dat" />
     <None Remove="Games\Cartographers\Buildings.dat" />
+    <None Remove="Games\Cartographers\ForumPost.generators" />
     <None Remove="Games\Cartographers\ForumPost.template" />
-    <None Remove="Games\Cartographers\Generator.def" />
+    <None Remove="Games\Cartographers\GeeklistPost.generators" />
+    <None Remove="Games\Cartographers\GeeklistPost.template" />
     <None Remove="Games\Cartographers\Metadata.json" />
     <None Remove="Games\Cartographers\PreviousChallenges.dat" />
     <None Remove="Games\Cartographers\Translations\Chinese.lang" />
@@ -40,8 +42,8 @@
     <None Remove="Games\Cartographers\Translations\Portuguese.lang" />
     <None Remove="Games\Cartographers\Translations\Spanish.lang" />
     <None Remove="Games\FieldsOfArle\Buildings.dat" />
+    <None Remove="Games\FieldsOfArle\Forumpost.generators" />
     <None Remove="Games\FieldsOfArle\ForumPost.template" />
-    <None Remove="Games\FieldsOfArle\Generator.def" />
     <None Remove="Games\FieldsOfArle\Metadata.json" />
     <None Remove="Games\FieldsOfArle\PreviousChallenges.dat" />
     <None Remove="Games\FieldsOfArle\Translations\Dutch.lang" />
@@ -49,8 +51,8 @@
     <None Remove="Games\FieldsOfArle\Translations\French.lang" />
     <None Remove="Games\FieldsOfArle\Translations\German.lang" />
     <None Remove="Games\GlassRoad\Buildings.dat" />
+    <None Remove="Games\GlassRoad\ForumPost.generators" />
     <None Remove="Games\GlassRoad\ForumPost.template" />
-    <None Remove="Games\GlassRoad\Generator.def" />
     <None Remove="Games\GlassRoad\Metadata.json" />
     <None Remove="Games\GlassRoad\PreviousChallenges.dat" />
     <None Remove="Games\GlassRoad\Translations\English.lang" />
@@ -61,8 +63,8 @@
     <None Remove="Games\GlassRoad\Translations\Spanish.lang" />
     <None Remove="Games\GlassRoad\Translations\Spanish.lang~RFa05ed42.TMP" />
     <None Remove="Games\TinyTowns\Buildings.dat" />
+    <None Remove="Games\TinyTowns\ForumPost.generators" />
     <None Remove="Games\TinyTowns\ForumPost.template" />
-    <None Remove="Games\TinyTowns\Generator.def" />
     <None Remove="Games\TinyTowns\Metadata.json" />
     <None Remove="Games\TinyTowns\PreviousChallenges.dat" />
     <None Remove="Games\TinyTowns\Translations\English.lang" />
@@ -78,7 +80,9 @@
     <EmbeddedResource Include="Games\Cartographers\ForumPost.template">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\Cartographers\Generator.def">
+    <EmbeddedResource Include="Games\Cartographers\GeeklistPost.generators" />
+    <EmbeddedResource Include="Games\Cartographers\GeeklistPost.template" />
+    <EmbeddedResource Include="Games\Cartographers\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\Cartographers\Metadata.json" />
@@ -112,7 +116,7 @@
     <EmbeddedResource Include="Games\FieldsOfArle\ForumPost.template">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\FieldsOfArle\Generator.def">
+    <EmbeddedResource Include="Games\FieldsOfArle\Forumpost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\FieldsOfArle\Metadata.json" />
@@ -137,7 +141,7 @@
     <EmbeddedResource Include="Games\GlassRoad\ForumPost.template">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\GlassRoad\Generator.def">
+    <EmbeddedResource Include="Games\GlassRoad\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\GlassRoad\Metadata.json" />
@@ -165,7 +169,7 @@
     <EmbeddedResource Include="Games\TinyTowns\ForumPost.template">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\TinyTowns\Generator.def">
+    <EmbeddedResource Include="Games\TinyTowns\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\TinyTowns\Metadata.json" />

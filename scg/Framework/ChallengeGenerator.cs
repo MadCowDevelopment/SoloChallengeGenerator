@@ -29,19 +29,20 @@ namespace scg.Framework
         {
             return GenerationResultBuilder.Create()
                 .WithChallengePost(new ChallengePost(GeneratePostSubject(_metadata.Name, _challengeData.Count), GeneratePostBody()))
+                .WithGeeklistPost(new GeeklistPost(GenerateGeeklistPostComments()))
                 .Build();
         }
-
+        
         private string GeneratePostSubject(string gameName, int challengeNumber)
         {
             var date = DateTime.Now.AddMonths(1).ToString("MMMM yyyy", CultureInfo.InvariantCulture);
             return $"{gameName} Solo Challenge #{challengeNumber+1} - {date}";
         }
 
-        private string GeneratePostBody()
+        private string ApplyGeneratorsToTemplate(string templateFile, string generatorFile)
         {
-            var templateString = _repository.ReadAllText("ForumPost.template", true);
-            var definitions = _repository.ReadAllLines("Generator.def", false);
+            var templateString = _repository.ReadAllText(templateFile, true);
+            var definitions = _repository.ReadAllLines(generatorFile, false);
             foreach (var definition in definitions)
             {
                 var splitDefinitions = definition.Split(',');
@@ -58,6 +59,16 @@ namespace scg.Framework
             }
 
             return templateString;
+        }
+
+        private string GeneratePostBody()
+        {
+            return ApplyGeneratorsToTemplate("ForumPost.template", "ForumPost.generators");
+        }
+
+        private string GenerateGeeklistPostComments()
+        {
+            return ApplyGeneratorsToTemplate("GeeklistPost.template", "GeeklistPost.generators");
         }
     }
 }

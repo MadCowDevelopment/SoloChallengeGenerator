@@ -8,33 +8,93 @@ Now
 [u][b]Description[/b][/u]
 Here's Cartographers solo challenge #<<CHALLENGE_NUMBER>>!
 
-The rules of the solo version can be found e. g. in the download section of [url=https://www.thunderworksgames.com/cartographers.html] Thunderworks[/url] (English/Greek) or of [url=https://pegasusshop.de/Sortiment/Spiele/Kennerspiele/9791/Der-Kartograph] Pegasus[/url] (German).
-
-[b][size=18]Hall of Fame:[/size][/b]
-[b]<<PREVIOUS_RESULTS>>[/b]
-
-[COLOR=#FF0000]Edit: Slightly differences regarding the ambush rules between English and German version. 
-
-There is a small but subtle difference between the original English and the German version: You're not allowed to rotate or mirror monsters! So we play the rule of the original version. 
-
-Thanks Andrea for the hint.[/COLOR] 
-
-[user=Laraya ][/user]
+The rules of the solo version can be found e. g. in the download section of [url=https://www.thunderworksgames.com/cartographers.html] Thunderworks[/url].
+Please note for German players, that there is a small but subtle difference between the original English and the German version: [COLOR=#FF0000]You're not allowed to rotate or mirror monsters![/COLOR] So we play the [b]rules of the original version[/b].
 
 Please also note: Only your first blind play, in which you do not know which cards are coming up, counts for the challenge.
 
+Please post your results in this thread below. It would be awesome if you wanted to include photos of your final board as well as comments on your strategy and/or how your game went, but please post them in spoiler boxes. If you post your score, please use following fields:
 
-Please post your results in this thread below. It would be awesome if you wanted to include photos of your final board as well as comments on your strategy and/or how your game went, but please post them in spoiler boxes.
+[COLOR=#0033FF]BGG Name:
+Total Reputation Score:
+Total lost of Reputation Stars:
+I want to win this prize:
+[/COLOR]
+
+Last field means the total lost of reputation stars to monster terrain across all four seasons. In case of an equal score this will be used in the event of a tie. The tied player who lost the least reputation stars is ranked higher. If there is a further tie, all tied players share the rank.
+
+The texts in the spoiler boxes are multilingual and the explore cards contain terrain type and shapes. Also the shapes for the four ambush cards are shown as well as their starting corner and direction.
+
+A big thick 'Vergelt's Gott' (spoken in deep bavarian tongue) to Hans for the great work and implementation.
+
+If another language should be added, please contact him directly. Currently supported languages are English, German, Polish, Spanish, Portuguese, Chinese and now also in French.
+
+[user=MadMihi][/user]
 
 Thanks for participating!!
 
 
-[b][size=18]Setup:[/size][/b]
-We play the A side of the base game without promos and without the little expansion as written in the rulebook of the base game on page 12 respectively auf Seite 9 [COLOR=#FF0000](except that you're not allowed to rotate or mirror the monsters, see edit above)[/COLOR].
+[b][size=18]Rewards[/size][/b]
 
-We will all use the same cards in each season. In the draw phase, you can choose one of the terrain types and one of the available shapes depicted on the revealed explore card.
+Besides Geekgold for the best three scores, I proudly announce that Keith of Thunderworks Games
+
+[user=kmatejka][/user]
+
+awards prizes to three participants at random at the end of this Challenge (one entry per user). The winners may choose one of the following:
+
+A)[url=https://thunderworksgames.bigcartel.com/product/cartographers-playmat] Cartographers Playmat[/url]
+B)[url=https://thunderworksgames.bigcartel.com/product/cartographers-ambush-cards-mini-expansion] Cartographers Ambush Cards Mini Expansion[/url]
+C)[url=https://thunderworksgames.bigcartel.com/product/cartographers-skills-mini-expansion] Cartographers Skills Mini Expansion[/url]
+D)[url=https://thunderworksgames.bigcartel.com/product/cartographers-colored-pencils] Cartographers Colored Pencils[/url]
+
+When submitting your score, please indicate which prize you would like to receive if you win (A, B, C or D). If for any reason you do not wish to participate in the draw, please also note this in your post.
+
+A big thank you to Keith for the great and generous prizes.
+
+
+[b][size=18]Setup & Rules[/size][/b]
+
+This month we play again with the [COLOR=#FF0000][b]wastelands side map (B)[/b][/COLOR] of the base game as written in the rulebook of the base game on page 12 respectively auf Seite 9 (except that you're not allowed to rotate or mirror the monsters, see above). And we also play [COLOR=#FF0000]with the two little expansions [b]Ambush Expansion[/b] and [b]Skills Expansion[/b][/COLOR]. Once per season, you may activate the ability of one of three face-up skill cards by paying its cost in coins. You can find the rules of the Skills Mini Expansion [thing=273353]here[/thing]. If you don't want to use this mini expansion for any reason, just leave it out. It's just an additional option in the game (with benefits and disadvantages), not a must. 
+
+
+We will all use the same cards in each season. In the draw phase, you can choose one of the terrain types and one of the available shapes depicted on the revealed explore card. 
+
+
+[b][size=18]Hints[/size][/b]
+
+- Only your first blind play counts for the challenge.
+
+- Ruin cards have no time values and don't count for the time threshold.
+
+- Shapes with [microbadge=23792] can be drawn on the map as usual.
+
+- Shapes with [microbadge=44987] indicates a reminder for the shape that a ruins card was drawn before, so that it overlaps a ruins space on their map (if possible). 
+
+- If an ambush card is revealed immediately after a ruins card, the ambush card is resolved normally. The effect of the ruins card will apply to the next explore card that is revealed. This also applies if two ambush cards are drawn in direct succession after a ruins card. Both ambush cards are resolved normally. So just pay attention to the color of the shape when you need to place a card on a ruins space.
+
+- For placing an ambush card in Solo mode, giantmike made a fantastic graphic for this. [ImageID=5274676]
+
+- You're allowed to draw a shape on a ruins space even though no ruins card was revealed before. 
+
+- The arrow of monster cards indicates the corner where to begin; the direction of the arrow indicates the edge of the map where you should proceed. Don't forget that you're not allowed to flip or rotate the monster shape.
+
+- Wasteland tiles in the middle of the map are cosidered filled, but not with a specific terrain type. So they are taken into account for example for Borderlands, but not as terrain type for the purpose of scoring for Greengold Plains.
+
+- Please read carefully the handling of the scorecards. For example with Shoreside Expanse you do not earn any reputation stars if a farm/water cluster is adjacent to another farm/water cluster or to the edge of the map).
+
+- An ability can be activated from one of the three revealed skill cards only once each season. If you have used an ability, it is best to turn the card 90 degrees to indicate this. At the end of each season, turn the card back. Don't forget to pay their costs in coins. 
+
+- If a skill card mentions a 2x1 shape, it also works for a 1x2 shape.
+
+- Move Silently skill card cannot be used on ambush cards in Solo mode. The player cannot "choose" when these cards are turned face up.
+
 
 Let me know if I missed anything or if you have questions. Good luck and have fun.
+
+
+[b][size=18]Hall of Fame:[/size][/b]
+[b]<<PREVIOUS_RESULTS>>[/b]
+
 
 [b][size=18]Skill cards:[/size][/b]
 <<SKILL_CARDS>>

@@ -34,9 +34,21 @@ namespace scg.Framework
             var password = GetPassword();
             
             await _bggApiService.Login(user, password);
+
             //await service.PostImage(cookie, @"D:\Incoming", "IMG_20201020_112002.jpg");
-            await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
+
+            var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
                 _metadata.PostFormData.ForumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
+            Console.WriteLine($"Challenge posted at '{threadUri.OriginalString}'.");
+            threadUri.OpenInBrowser();
+            
+            generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
+            var geeklistUri = await _bggApiService.PostGeeklistItem(generationResult.GeeklistPost.Comments,
+                GlobalIdentifiers.ListId, _metadata.GeeklistFormData.ObjectId,
+                _metadata.GeeklistFormData.ObjectType, _metadata.GeeklistFormData.GeekItemName,
+                _metadata.GeeklistFormData.ImageId);
+            Console.WriteLine("Challenge added to solo challenges geeklist.");
+            geeklistUri.OpenInBrowser();
         }
 
         private static string GetPassword()

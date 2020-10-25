@@ -148,7 +148,7 @@ namespace scg.Generators
                 var cardData = _cardData[currentCard.Id];
                 usedTime += cardData.Time;
 
-                if (previousTurnWasRuinsAndMonster)
+                if (!cardData.IsMonster && previousTurnWasRuinsAndMonster)
                 {
                     previousTurnWasRuinsAndMonster = false;
                     drawRuins = true;
