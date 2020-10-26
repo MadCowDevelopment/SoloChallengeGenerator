@@ -5,5 +5,11 @@
     "forumId": 274,
     "objectId": 159675,
     "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 159675,
+    "objectType": "thing",
+    "geekItemName": "Fields of Arle",
+    "imageId": 2225968
   }
 }

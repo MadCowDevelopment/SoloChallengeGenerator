@@ -4,6 +4,12 @@
   "postFormData": {
     "forumId": 274,
     "objectId": 143693,
-    "objectType":  "thing" 
-  } 
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 143693,
+    "objectType": "thing",
+    "geekItemName": "Glass Road",
+    "imageId": 3505745
+  }
 }
