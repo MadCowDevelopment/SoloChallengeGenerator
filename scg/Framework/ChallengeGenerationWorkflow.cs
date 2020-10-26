@@ -43,12 +43,11 @@ namespace scg.Framework
             threadUri.OpenInBrowser();
             
             generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
-            var geeklistUri = await _bggApiService.PostGeeklistItem(generationResult.GeeklistPost.Comments,
+            await _bggApiService.PostGeeklistItem(generationResult.GeeklistPost.Comments,
                 GlobalIdentifiers.ListId, _metadata.GeeklistFormData.ObjectId,
                 _metadata.GeeklistFormData.ObjectType, _metadata.GeeklistFormData.GeekItemName,
                 _metadata.GeeklistFormData.ImageId);
             Console.WriteLine("Challenge added to solo challenges geeklist.");
-            geeklistUri.OpenInBrowser();
         }
 
         private static string GetPassword()

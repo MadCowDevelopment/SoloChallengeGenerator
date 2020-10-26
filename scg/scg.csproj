@@ -6,7 +6,7 @@
 
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>scg</ToolCommandName>
-    <Version>1.0.1</Version>
+    <Version>1.0.0</Version>
     <Authors>MadCowDevelopment</Authors>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -42,8 +42,10 @@
     <None Remove="Games\Cartographers\Translations\Portuguese.lang" />
     <None Remove="Games\Cartographers\Translations\Spanish.lang" />
     <None Remove="Games\FieldsOfArle\Buildings.dat" />
-    <None Remove="Games\FieldsOfArle\Forumpost.generators" />
+    <None Remove="Games\FieldsOfArle\ForumPost.generators" />
     <None Remove="Games\FieldsOfArle\ForumPost.template" />
+    <None Remove="Games\FieldsOfArle\GeeklistPost.generators" />
+    <None Remove="Games\FieldsOfArle\GeeklistPost.template" />
     <None Remove="Games\FieldsOfArle\Metadata.json" />
     <None Remove="Games\FieldsOfArle\PreviousChallenges.dat" />
     <None Remove="Games\FieldsOfArle\Translations\Dutch.lang" />
@@ -53,6 +55,8 @@
     <None Remove="Games\GlassRoad\Buildings.dat" />
     <None Remove="Games\GlassRoad\ForumPost.generators" />
     <None Remove="Games\GlassRoad\ForumPost.template" />
+    <None Remove="Games\GlassRoad\GeeklistPost.generators" />
+    <None Remove="Games\GlassRoad\GeeklistPost.template" />
     <None Remove="Games\GlassRoad\Metadata.json" />
     <None Remove="Games\GlassRoad\PreviousChallenges.dat" />
     <None Remove="Games\GlassRoad\Translations\English.lang" />
@@ -65,6 +69,8 @@
     <None Remove="Games\TinyTowns\Buildings.dat" />
     <None Remove="Games\TinyTowns\ForumPost.generators" />
     <None Remove="Games\TinyTowns\ForumPost.template" />
+    <None Remove="Games\TinyTowns\GeeklistPost.generators" />
+    <None Remove="Games\TinyTowns\GeeklistPost.template" />
     <None Remove="Games\TinyTowns\Metadata.json" />
     <None Remove="Games\TinyTowns\PreviousChallenges.dat" />
     <None Remove="Games\TinyTowns\Translations\English.lang" />
@@ -116,9 +122,11 @@
     <EmbeddedResource Include="Games\FieldsOfArle\ForumPost.template">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\FieldsOfArle\Forumpost.generators">
+    <EmbeddedResource Include="Games\FieldsOfArle\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\FieldsOfArle\GeeklistPost.generators" />
+    <EmbeddedResource Include="Games\FieldsOfArle\GeeklistPost.template" />
     <EmbeddedResource Include="Games\FieldsOfArle\Metadata.json" />
     <EmbeddedResource Include="Games\FieldsOfArle\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -144,6 +152,8 @@
     <EmbeddedResource Include="Games\GlassRoad\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\GlassRoad\GeeklistPost.generators" />
+    <EmbeddedResource Include="Games\GlassRoad\GeeklistPost.template" />
     <EmbeddedResource Include="Games\GlassRoad\Metadata.json" />
     <EmbeddedResource Include="Games\GlassRoad\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -172,6 +182,8 @@
     <EmbeddedResource Include="Games\TinyTowns\ForumPost.generators">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\TinyTowns\GeeklistPost.generators" />
+    <EmbeddedResource Include="Games\TinyTowns\GeeklistPost.template" />
     <EmbeddedResource Include="Games\TinyTowns\Metadata.json" />
     <EmbeddedResource Include="Games\TinyTowns\PreviousChallenges.dat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
