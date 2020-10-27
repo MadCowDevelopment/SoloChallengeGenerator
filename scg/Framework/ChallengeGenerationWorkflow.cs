@@ -48,6 +48,7 @@ namespace scg.Framework
                 _metadata.GeeklistFormData.ObjectType, _metadata.GeeklistFormData.GeekItemName,
                 _metadata.GeeklistFormData.ImageId);
             Console.WriteLine("Challenge added to solo challenges geeklist.");
+            new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.ListId}").OpenInBrowser();
         }
 
         private static string GetPassword()

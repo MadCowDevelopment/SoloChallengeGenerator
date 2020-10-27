@@ -35,10 +35,10 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-            builder.AppendLine($"A) {scoringCards[0].ToPostFormat()}");
-            builder.AppendLine($"B) {scoringCards[1].ToPostFormat()}");
-            builder.AppendLine($"C) {scoringCards[2].ToPostFormat()}");
-            builder.AppendLine($"D) {scoringCards[3].ToPostFormat()}");
+            builder.AppendLine($"A) [{_targetScores[scoringCards[0].Id]}] {scoringCards[0].ToPostFormat()}");
+            builder.AppendLine($"B) [{_targetScores[scoringCards[1].Id]}] {scoringCards[1].ToPostFormat()}");
+            builder.AppendLine($"C) [{_targetScores[scoringCards[2].Id]}] {scoringCards[2].ToPostFormat()}");
+            builder.AppendLine($"D) [{_targetScores[scoringCards[3].Id]}] {scoringCards[3].ToPostFormat()}");
             builder.Append("[/size]");
 
             builder.AppendLine();
