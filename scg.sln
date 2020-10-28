@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp29", "WpfApp29\WpfApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg.Games.OnTheUnderground", "scg.Games.OnTheUnderground\scg.Games.OnTheUnderground.csproj", "{388D1862-208D-441B-9AF1-587E27E10369}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scg.research", "scg.research\scg.research.csproj", "{55D5EC03-23B1-4D46-A148-249FC72A8ABE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{388D1862-208D-441B-9AF1-587E27E10369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{388D1862-208D-441B-9AF1-587E27E10369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{388D1862-208D-441B-9AF1-587E27E10369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D5EC03-23B1-4D46-A148-249FC72A8ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D5EC03-23B1-4D46-A148-249FC72A8ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D5EC03-23B1-4D46-A148-249FC72A8ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D5EC03-23B1-4D46-A148-249FC72A8ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

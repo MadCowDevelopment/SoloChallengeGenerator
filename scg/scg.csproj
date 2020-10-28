@@ -194,11 +194,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="ninject.extensions.conventions" Version="3.3.0" />
-    <PackageReference Include="NuGet.Client" Version="4.3.0-beta1-2418" />
-    <PackageReference Include="NuGet.Protocol" Version="5.7.0" />
-    <PackageReference Include="NuGet.Repositories" Version="4.3.0-beta1-2418" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
   </ItemGroup>
 

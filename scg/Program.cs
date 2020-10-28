@@ -8,11 +8,9 @@ namespace scg
     {
         static Task<int> Main(string[] args)
         {
-            return Parser.Default.ParseArguments<GenerateOptions, InstallOptions, UninstallOptions>(args)
+            return Parser.Default.ParseArguments<GenerateOptions>(args)
                 .MapResult(
                     (GenerateOptions opts) => Generator.Generate(opts),
-                    (InstallOptions opts) => Installer.Run(opts),
-                    (UninstallOptions opts) => Uninstaller.Run(opts),
                     errs => Task.FromResult(1));
         }
     }
