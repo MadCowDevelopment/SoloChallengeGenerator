@@ -49,9 +49,9 @@ namespace scg.Services
                 cancellationToken);
 
             Console.WriteLine($"Downloaded package {packageId} {packageVersion}");
-            
+
             using PackageArchiveReader reader = new PackageArchiveReader(packageStream);
-            foreach (var file in reader.GetFiles().Where(p=>p.Contains("scg.Games.") && p.EndsWith(".dll")))
+            foreach (var file in reader.GetFiles().Where(p => p.Contains("scg.Games.") && p.EndsWith(".dll")))
             {
                 var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Path.GetFileName(file));
                 reader.ExtractFile(file, path, NullLogger.Instance);
