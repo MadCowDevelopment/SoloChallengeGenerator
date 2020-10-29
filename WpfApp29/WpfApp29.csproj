@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\scg.Games.OnTheUnderground\scg.Games.OnTheUnderground.csproj" />
+    <ProjectReference Include="..\scg\scg-win.csproj" />
   </ItemGroup>
 
 </Project>
