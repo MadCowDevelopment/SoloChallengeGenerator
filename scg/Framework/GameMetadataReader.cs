@@ -13,7 +13,7 @@ namespace scg.Framework
 
         public GameMetadata Read()
         {
-            return JsonConvert.DeserializeObject<GameMetadata>(_repository.ReadAllText("Metadata.json", false));
+            return JsonConvert.DeserializeObject<GameMetadata>(_repository.ReadAllText(File.Metadata, false));
         }
     }
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace scg.Framework
 {
@@ -17,30 +19,42 @@ namespace scg.Framework
         public string ReadAllText(string filename, bool isUserData)
         {
             return isUserData
-                ? File.ReadAllText(Path.Combine(GetPath(filename), filename))
+                ? System.IO.File.ReadAllText(GetPath(filename))
                 : ReadEmbeddedResource(filename);
         }
 
         public string[] ReadAllLines(string filename, bool isUserData)
         {
             return isUserData
-                ? File.ReadAllLines(Path.Combine(GetPath(filename), filename))
+                ? System.IO.File.ReadAllLines(GetPath(filename))
                 : ReadEmbeddedResource(filename).Split(Environment.NewLine);
         }
 
         private string GetPath(string filename)
         {
             CopyFromDefaultIfNecessary(filename);
-            return _userPath;
+            return Path.Combine(_userPath, filename);
         }
 
         private void CopyFromDefaultIfNecessary(string filename)
         {
             var userFile = Path.Combine(_userPath, filename);
-            if (File.Exists(userFile)) return;
+            if (System.IO.File.Exists(userFile)) return;
 
             var template = ReadEmbeddedResource(filename);
-            File.WriteAllText(userFile, template);
+            System.IO.File.WriteAllText(userFile, template);
+        }
+
+        public void AppendLine(string filename, string line)
+        {
+            var lines = ReadAllLines(filename, true).ToList();
+            lines.Add(line);
+            System.IO.File.WriteAllLines(GetPath(filename), lines);
+        }
+
+        public void WriteAllLines(string filename, IEnumerable<string> contents)
+        {
+            System.IO.File.WriteAllLines(GetPath(filename), contents);
         }
     }
 }

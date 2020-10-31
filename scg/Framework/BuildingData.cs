@@ -64,7 +64,7 @@ namespace scg.Framework
 
         private void InitializeBuilding()
         {
-            var buildingData = _repository.ReadAllLines("Buildings.dat", false);
+            var buildingData = _repository.ReadAllLines(File.Buildings, false);
             foreach (var line in buildingData)
             {
 

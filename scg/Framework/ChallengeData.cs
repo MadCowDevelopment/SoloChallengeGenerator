@@ -15,7 +15,7 @@ namespace scg.Framework
 
         private void Load()
         {
-            foreach (var line in _repository.ReadAllLines("PreviousChallenges.dat", true).Select(p=>p.Split(",")))
+            foreach (var line in _repository.ReadAllLines(File.PreviousChallenges, true).Select(p=>p.Split(",")))
             {
                 Add(new ChallengeResult(line[0], line[1], line[2]));
             }

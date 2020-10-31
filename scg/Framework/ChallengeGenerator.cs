@@ -63,12 +63,12 @@ namespace scg.Framework
 
         private string GeneratePostBody()
         {
-            return ApplyGeneratorsToTemplate("ForumPost.template", "ForumPost.generators");
+            return ApplyGeneratorsToTemplate(File.ForumPostTemplate, File.ForumPostGenerators);
         }
 
         private string GenerateGeeklistPostComments()
         {
-            return ApplyGeneratorsToTemplate("GeeklistPost.template", "GeeklistPost.generators");
+            return ApplyGeneratorsToTemplate(File.GeeklistPostTemplate, File.GeeklistPostGenerators);
         }
     }
 }

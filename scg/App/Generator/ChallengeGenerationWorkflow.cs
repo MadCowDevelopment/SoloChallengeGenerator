@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using scg.App;
+using scg.Framework;
 using scg.Services;
 using scg.Utils;
 
-namespace scg.Framework
+namespace scg.App.Generator
 {
     internal class ChallengeGenerationWorkflow
     {
@@ -30,8 +30,8 @@ namespace scg.Framework
 
         private async Task PublishToBGG(GenerateOptions options, GenerationResult generationResult)
         {
-            var user = GetUser(options);
-            var password = GetPassword();
+            var user = ConsoleUtils.ReadValidString(options.User, "Username: ");
+            var password = ConsoleUtils.ReadValidString(null, "Password: ");
             
             await _bggApiService.Login(user, password);
 
@@ -51,34 +51,10 @@ namespace scg.Framework
             new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.ListId}").OpenInBrowser();
         }
 
-        private static string GetPassword()
-        {
-            string password = null;
-            while (string.IsNullOrEmpty(password))
-            {
-                Console.Write("Password: ");
-                password = ConsoleUtils.ReadPassword();
-            }
-
-            return password;
-        }
-
-        private static string GetUser(GenerateOptions options)
-        {
-            var user = options.User;
-            while (string.IsNullOrEmpty(user))
-            {
-                Console.Write("Username: ");
-                user = Console.ReadLine();
-            }
-
-            return user;
-        }
-
         private async Task SaveToFile(string challengePost)
         {
             var outputFilename = @"ForumPost.txt";
-            await File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename), challengePost);
+            await System.IO.File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename), challengePost);
             FileHelper.OpenFile(outputFilename);
         }
     }

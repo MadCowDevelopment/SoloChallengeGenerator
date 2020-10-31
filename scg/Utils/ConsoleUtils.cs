@@ -34,5 +34,47 @@ namespace scg.Utils
             Console.WriteLine();
             return pwd.ToString();
         }
+        
+        public static double ReadValidDouble(double? initial, string message)
+        {
+            var result = initial;
+            while (result == null)
+            {
+                Console.Write(message);
+                if (double.TryParse(Console.ReadLine(), out var tmp))
+                {
+                    result = tmp;
+                }
+            }
+
+            return result.Value;
+        }
+
+        public static int ReadValidInt(int? initial, string message)
+        {
+            var result = initial;
+            while (result == null)
+            {
+                Console.Write(message);
+                if (int.TryParse(Console.ReadLine(), out var tmp))
+                {
+                    result = tmp;
+                }
+            }
+
+            return result.Value;
+        }
+
+        public static string ReadValidString(string initial, string message)
+        {
+            var result = initial;
+            while (string.IsNullOrEmpty(result))
+            {
+                Console.Write(message);
+                result = Console.ReadLine();
+            }
+
+            return result;
+        }
     }
 }

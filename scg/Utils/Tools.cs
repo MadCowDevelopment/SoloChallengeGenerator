@@ -11,7 +11,7 @@ namespace scg.Utils
             var translationFiles = Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, @"Translations"), "*.lang");
             foreach (var translationFile in translationFiles)
             {
-                foreach (var line in File.ReadAllLines(translationFile))
+                foreach (var line in System.IO.File.ReadAllLines(translationFile))
                 {
                     if (line.Length > 20)
                     {
@@ -27,9 +27,9 @@ namespace scg.Utils
 
         public static void AddTranslationsToExistingPost()
         {
-            var existingPost = File.ReadAllText(@".\ExistingPost.txt");
-            var englishBuildings = File.ReadAllLines(@".\Translations\English.lang");
-            var frenchBuildings = File.ReadAllLines(@".\Translations\French.lang");
+            var existingPost = System.IO.File.ReadAllText(@".\ExistingPost.txt");
+            var englishBuildings = System.IO.File.ReadAllLines(@".\Translations\English.lang");
+            var frenchBuildings = System.IO.File.ReadAllLines(@".\Translations\French.lang");
 
             for (int i = 0; i < englishBuildings.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace scg.Utils
                 existingPost = existingPost.Replace(searchText, replaceText);
             }
 
-            File.WriteAllText("UpdatedPost.txt", existingPost);
+            System.IO.File.WriteAllText("UpdatedPost.txt", existingPost);
         }
 
     }

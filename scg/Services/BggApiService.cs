@@ -92,7 +92,7 @@ namespace scg.Services
             form.Add(new StringContent("user"), "objecttype");
             form.Add(new StringContent("1034692"), "objectid");
 
-            FileStream fs = File.OpenRead(Path.Combine(path, filename));
+            FileStream fs = System.IO.File.OpenRead(Path.Combine(path, filename));
 
             var streamContent = new StreamContent(fs);
             streamContent.Headers.Add("Content-Type", "application/octet-stream");

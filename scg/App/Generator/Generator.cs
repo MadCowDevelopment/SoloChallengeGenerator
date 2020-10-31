@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using CommandLine;
 using Ninject;
 using Ninject.Extensions.Conventions;
 using scg.Framework;
@@ -8,7 +7,7 @@ using scg.Generators;
 using scg.Services;
 using scg.Utils;
 
-namespace scg.App
+namespace scg.App.Generator
 {
     public class Generator
     {
@@ -46,18 +45,5 @@ namespace scg.App
                 return _kernel.Get<ChallengeGenerationWorkflow>().Run(options);
             }
         }
-    }
-
-    [Verb("generate", isDefault:true, HelpText = "Generate a new challenge post.")]
-    public class GenerateOptions
-    {
-        [Value(0, MetaName = "GameName", HelpText = "The identifier of the game. E.g. GlassRoad", Required = true)]
-        public string Game { get; set; }
-
-        [Option('p', "publish", Default = false, HelpText = "Automatically upload the generated post to BoardGameGeek (requires BGG account).")]
-        public bool Publish { get; set; }
-
-        [Option('u', "user", HelpText = "The BGG user name that will be used for uploading the generated post.")]
-        public string User { get; set; }
     }
 }
