@@ -35,8 +35,9 @@ namespace scg.Framework
         
         private string GeneratePostSubject(string gameName, int challengeNumber)
         {
-            var date = DateTime.Now.AddMonths(1).ToString("MMMM yyyy", CultureInfo.InvariantCulture);
-            return $"{gameName} Solo Challenge #{challengeNumber+1} - {date}";
+            var date = DateTime.Now.Day > 16 ? DateTime.Now.AddMonths(1) : DateTime.Now;
+            var dateString = date.ToString("MMMM yyyy", CultureInfo.InvariantCulture);
+            return $"{gameName} Solo Challenge #{challengeNumber+1} - {dateString}";
         }
 
         private string ApplyGeneratorsToTemplate(string templateFile, string generatorFile)
