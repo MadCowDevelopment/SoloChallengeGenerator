@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg-win", "scg\scg-win.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp29", "WpfApp29\WpfApp29.csproj", "{C77C1A49-9C41-4845-914C-A9A2D47092A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scg.UnitTest", "scg.UnitTest\scg.UnitTest.csproj", "{74959C6C-5EDC-4659-9E38-352D78FCD15D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C77C1A49-9C41-4845-914C-A9A2D47092A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77C1A49-9C41-4845-914C-A9A2D47092A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77C1A49-9C41-4845-914C-A9A2D47092A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

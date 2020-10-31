@@ -1,0 +1,87 @@
+﻿[u][b]Challenge Start[/b][/u] 
+Now
+
+
+[u][b]Challenge End[/b][/u] 
+<<END_DATE>>
+
+
+[u][b]Description[/b][/u]
+Here's the challenge #<<CHALLENGE_NUMBER>> for playing Gentes solo.
+
+The rules of the solo version can be found e. g. in the [url=https://www.gamebrewer.com/de_DE/shop/product/gentes-23?category=5]download section[/url] of Game Brewer for Gentes.
+
+[COLOR=#FF0000][b]Important Note[/b]
+Please notice, that there is a misprint in two cards (as it can be found [url=https://www.kickstarter.com/projects/michaelmindes/gentes-deluxifiedtm-edition/posts/2373057?ref=bggforums] here[/url] in the Kickstarter update #22):
+- Frieze: The correct card has 2 total icons not 4 in the upper right corner
+- Villa: Gives a reward of 6 VP instead of 8.
+
+Please take this into account and include it in your rating.
+
+[ImageID=4606027]
+
+Please also note: Only your first blind play, in which you do not know which buildings are coming up, counts for the challenge.
+[/COLOR]
+
+Please post your results in this thread below. It would be awesome if you wanted to include photos of your final board as well as comments on your strategy and/or how your game went, but please post them in spoiler boxes.
+
+Thanks for participating!!
+
+
+[b]<<PREVIOUS_RESULTS>>[/b]
+
+
+[u][b]Setup[/b][/u]
+We play the base game without promos and without the advanced setup. 
+We will use the same 6 starting civ cards from era I. Then we draw from a set lineup of civ cards in every era I, II and III when more are needed. 
+
+At the beginning of each heyday phase you put a cube as indicator on each of the four cards that are face up along the the bottom edge of the board that have a cube silhouette printed above (as desribed in the rules). I have marked them with an asterix (*) in concerning lists below.
+
+We will also use the 6 training cost tokens in equal order. The third one from the left will also get a cube as indicator.
+
+
+[b][u]TRAINING COST TOKEN[/u][/b] 
+
+[b]Starting position[/b] left to right
+[c]<<STARTING_BUILDINGS_TRAINING>>[/c]
+
+
+[u][b]ERA I[/b][/u]
+
+[b]Starting cards[/b]
+[c]<<STARTING_BUILDINGS_ERA1>>[/c]
+
+Take 2 of them of your choice and return the other 4 back to the box (they are out of the game).
+
+After that proceed to deal [b]8 civ cards[/b] of era I in following order (left to right):
+[o][c]<<STARTING_BUILDINGS_ERA1>>[/c][/o]
+Now you're allowed to take [b]4 population[/b] in any combination you would like.
+
+After executing the Scribe Action, slide the remaining cards to the left to close the gaps, then fill the remaining empty spaces on the right by [b]dealing new cards[/b] from the top of the deck of era I in following order:
+
+<<OFFER_BUILDINGS_ERA1>>
+[b]Check[/b]
+These two cards won't be in play in era I (Simulating taking the top 2 cards from era I deck at the beginning and return them to the box without looking at them)
+[o][c]<<STARTING_BUILDINGS_ERA1>>[/c][/o]
+
+[u][b]ERA II[/b][/u]
+Deal [b]8 civ cards[/b] of era II in following order (left to right):
+[o][c]<<STARTING_BUILDINGS_ERA2>>[/c][/o]
+After executing the Scribe Action, slide the remaining cards to the left to close the gaps, then fill the remaining empty spaces on the right by [b]dealing new cards[/b] from the top of the deck of era II in following order:
+
+<<OFFER_BUILDINGS_ERA2>>
+[b]Check[/b]
+These two cards won't be in play in era II (Simulating taking the top 2 cards from era II deck at the beginning and return them to the box without looking at them)
+[o][c]<<STARTING_BUILDINGS_ERA2>>[/c][/o]
+
+[u][b]ERA III[/b][/u]
+Deal [b]8 civ cards[/b] of era III in following order (left to right):
+[o][c]<<STARTING_BUILDINGS_ERA3>>[/c][/o]
+After executing the Scribe Action, slide the remaining cards to the left to close the gaps, then fill the remaining empty spaces on the right by [b]dealing new cards[/b] from the top of the deck of era III in following order:
+
+<<OFFER_BUILDINGS_ERA3>>
+[b]Check[/b]
+These two cards won't be in play in era III (Simulating taking the top 2 cards from era III deck at the beginning and return them to the box without looking at them)
+[o][c]<<STARTING_BUILDINGS_ERA3>>[/c][/o]
+
+Let me know if I missed anything or if you have questions. Good luck and have fun.

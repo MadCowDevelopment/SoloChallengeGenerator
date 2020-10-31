@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators
 {
@@ -34,7 +35,7 @@ namespace scg.Generators
             builder.Append("[/size]");
 
             var placeHolder = Token.Replace("{x}", category.ToUpper());
-            return template.Replace(placeHolder, builder.ToString());
+            return template.ReplaceFirst(placeHolder, builder.ToString());
         }
     }
 }

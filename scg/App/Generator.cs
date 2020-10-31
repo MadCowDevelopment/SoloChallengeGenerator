@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using CommandLine;
 using Ninject;
@@ -7,20 +6,13 @@ using Ninject.Extensions.Conventions;
 using scg.Framework;
 using scg.Generators;
 using scg.Services;
+using scg.Utils;
 
 namespace scg.App
 {
     public class Generator
     {
         public static Task<int> Generate(GenerateOptions options)
-        {
-            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            CultureInfo.CurrentUICulture = CultureInfo.InvariantCulture;
-
-            return GenerateNewPost(options);
-        }
-
-        private static Task<int> GenerateNewPost(GenerateOptions options)
         {
             var bootstrapper = new Bootstrapper();
             return bootstrapper.Execute(options);
@@ -36,6 +28,8 @@ namespace scg.App
                 _kernel.Bind<GameMetadataReader>().ToSelf().InSingletonScope();
                 _kernel.Bind<GameMetadata>().ToConstant(_kernel.Get<GameMetadataReader>().Read());
                 _kernel.Bind<BggApiService>().ToSelf();
+
+                _kernel.Bind<IDateTime>().To<DateTimeWrapper>();
 
                 _kernel.Bind<GlobalRepository>().ToSelf().InSingletonScope();
                 _kernel.Bind<FlagsDictionary>().ToSelf().InSingletonScope();

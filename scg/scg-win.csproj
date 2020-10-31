@@ -5,6 +5,10 @@
     <ToolCommandName>scg-win</ToolCommandName>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\scg-win\</OutputPath>
+  </PropertyGroup>
+
   <Import Project="scg.common.props" />
 
   <ItemGroup>
@@ -12,7 +16,7 @@
     <Resource Include="Windows\OnTheUnderground\landmark_gov.png" />
     <Resource Include="Windows\OnTheUnderground\landmark_mall.png" />
     <Resource Include="Windows\OnTheUnderground\landmark_park.png" />
-    <Resource Include="Windows\OnTheUnderground\London_map.jpg"/>
+    <Resource Include="Windows\OnTheUnderground\London_map.jpg" />
   </ItemGroup>
 
 </Project>

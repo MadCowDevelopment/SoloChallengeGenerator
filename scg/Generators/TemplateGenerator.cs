@@ -1,6 +1,6 @@
 ﻿namespace scg.Generators
 {
-    internal abstract class TemplateGenerator : ITemplateGenerator
+    public abstract class TemplateGenerator : ITemplateGenerator
     {
         public abstract string Token { get; }
 

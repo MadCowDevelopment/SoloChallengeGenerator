@@ -4,6 +4,10 @@
     <ToolCommandName>scg</ToolCommandName>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\scg\</OutputPath>
+  </PropertyGroup>
+
   <Import Project="scg.common.props" />
 
   <ItemGroup>

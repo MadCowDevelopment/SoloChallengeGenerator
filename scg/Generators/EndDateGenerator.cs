@@ -1,15 +1,25 @@
-﻿using System;
+﻿using scg.Utils;
 
 namespace scg.Generators
 {
-    internal class EndDateGenerator : TemplateGenerator
+    public class EndDateGenerator : TemplateGenerator
     {
+        private readonly IDateTime _dateTime;
+
+        public EndDateGenerator(IDateTime dateTime)
+        {
+            _dateTime = dateTime;
+        }
+
         public override string Token { get; } = "<<END_DATE>>";
 
         public override string Apply(string template, string[] arguments)
         {
             var months = int.Parse(arguments[0]);
-            var endDate = DateTime.Now.AddMonths(months);
+            var today = _dateTime.Now;
+            var endDate = today;
+            if (today.Day >= 16) endDate = _dateTime.Now.AddMonths(months);
+           
             while (endDate.AddDays(1).Month == endDate.Month)
             {
                 endDate = endDate.AddDays(1);
