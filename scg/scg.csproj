@@ -9,6 +9,10 @@
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release\scg\</OutputPath>
+  </PropertyGroup>
+
   <Import Project="scg.common.props" />
 
   <ItemGroup>

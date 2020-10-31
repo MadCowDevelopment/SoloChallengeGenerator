@@ -9,6 +9,10 @@
     <OutputPath>bin\Debug\scg-win\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release\scg-win\</OutputPath>
+  </PropertyGroup>
+
   <Import Project="scg.common.props" />
 
   <ItemGroup>

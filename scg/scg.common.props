@@ -12,6 +12,7 @@
     <Copyright>MadCowDevelopment</Copyright>
     <Description>Generator for solo boardgame challenges hosted on BoardGameGeek</Description>
     <RootNamespace>scg</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
