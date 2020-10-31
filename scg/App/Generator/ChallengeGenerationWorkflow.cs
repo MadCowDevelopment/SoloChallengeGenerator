@@ -31,7 +31,7 @@ namespace scg.App.Generator
         private async Task PublishToBGG(GenerateOptions options, GenerationResult generationResult)
         {
             var user = ConsoleUtils.ReadValidString(options.User, "Username: ");
-            var password = ConsoleUtils.ReadValidString(null, "Password: ");
+            var password = ConsoleUtils.ReadValidPassword(null, "Password: ");
             
             await _bggApiService.Login(user, password);
 

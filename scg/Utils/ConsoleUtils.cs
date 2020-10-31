@@ -76,5 +76,17 @@ namespace scg.Utils
 
             return result;
         }
+
+        public static string ReadValidPassword(string initial, string message)
+        {
+            var result = initial;
+            while (string.IsNullOrEmpty(result))
+            {
+                Console.Write(message);
+                result = ReadPassword();
+            }
+
+            return result;
+        }
     }
 }
