@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace scg.Services
 {
@@ -84,15 +85,15 @@ namespace scg.Services
             return location;
         }
 
-        public async Task<string> PostImage(string path, string filename)
+        public async Task<int> PostImage(string path, string filename)
         {
-            HttpClient httpClient = new HttpClient(new HttpClientHandler { CookieContainer = _cookie });
-            MultipartFormDataContent form = new MultipartFormDataContent();
+            var httpClient = new HttpClient(new HttpClientHandler { CookieContainer = _cookie });
+            var form = new MultipartFormDataContent();
             form.Add(new StringContent("4"), "license[licenseid]");
             form.Add(new StringContent("user"), "objecttype");
             form.Add(new StringContent("1034692"), "objectid");
 
-            FileStream fs = System.IO.File.OpenRead(Path.Combine(path, filename));
+            var fs = System.IO.File.OpenRead(Path.Combine(path, filename));
 
             var streamContent = new StreamContent(fs);
             streamContent.Headers.Add("Content-Type", "application/octet-stream");
@@ -103,7 +104,7 @@ namespace scg.Services
             response.EnsureSuccessStatusCode();
             httpClient.Dispose();
             var result = response.Content.ReadAsStringAsync().Result;
-            return result;
+            return JsonConvert.DeserializeObject<ImageUploadResult>(result).ImageId;
         }
 
         public async Task<bool> LogPlay(string username, string password, int gameId, DateTime date, int amount, string comments, int length)
@@ -132,6 +133,12 @@ namespace scg.Services
                 }
             }
             return true;
+        }
+
+        private class ImageUploadResult
+        {
+            public string Message { get; set; }
+            public int ImageId { get; set; }
         }
     }
 }

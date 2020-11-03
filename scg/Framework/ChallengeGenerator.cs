@@ -11,26 +11,29 @@ namespace scg.Framework
         private readonly FileRepository _repository;
         private readonly GameMetadata _metadata;
         private readonly ChallengeData _challengeData;
+        private readonly GenerationResult _generationResult;
         private readonly Dictionary<string, ITemplateGenerator> _generators;
 
         public ChallengeGenerator(
             FileRepository repository,
             GameMetadata metadata,
             ChallengeData challengeData,
+            GenerationResult generationResult,
             IEnumerable<ITemplateGenerator> generators)
         {
             _repository = repository;
             _metadata = metadata;
             _challengeData = challengeData;
+            _generationResult = generationResult;
             _generators = generators.ToDictionary(p => p.Token, p => p);
         }
 
         public GenerationResult Generate()
         {
-            return GenerationResultBuilder.Create()
-                .WithChallengePost(new ChallengePost(GeneratePostSubject(_metadata.Name, _challengeData.Count), GeneratePostBody()))
-                .WithGeeklistPost(new GeeklistPost(GenerateGeeklistPostComments()))
-                .Build();
+            _generationResult.ChallengePost =
+                new ChallengePost(GeneratePostSubject(_metadata.Name, _challengeData.Count), GeneratePostBody());
+            _generationResult.GeeklistPost = new GeeklistPost(GenerateGeeklistPostComments());
+            return _generationResult;
         }
         
         private string GeneratePostSubject(string gameName, int challengeNumber)

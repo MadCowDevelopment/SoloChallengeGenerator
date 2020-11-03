@@ -1,0 +1,21 @@
+﻿Welcome to the monthly challenge #<<CHALLENGE_NUMBER>> for On the Underground.
+
+[u]Previous challenges:[/u]
+<<PREVIOUS_RESULTS>>
+
+[u]Solo rules:[/u]
+- After your turn the passenger moves. New destination cards are revealed and then the passenger moves again.
+- When selecting a route as a final tie-breaker always choose the route that gives the Underground the most points.
+- First turn: like each other turn you take 4 actions in the first turn
+- Final turn: Complete your actions and passenger movement until you're supposed to reveal new destinations. (The game is still won even if the Underground has now more points than you.)
+
+[u]The Challenge[/u]
+[imageid=$SETUP_IMAGE$ large]
+<<LINE_SETUP>>
+
+When you finish, report the number of cards remaining in the deck, both the Underground's and your score and preferably an image of your final boardstate, so we can all compare how we did. I'll award 15:gg: to the person who reported the best score by the end of the month. (Feel free to report multiple attempts, but only your first try is valid to compete for the :gg:)
+
+Good luck everyone, but most of all: [b]Enjoy the ride![/b]
+
+Destination cards:
+[c]<<DESTINATION_CARDS>> 1: [o][BGCOLOR=#FF3333]I'm sorry, you've lost!    [/BGCOLOR][/o][/c]

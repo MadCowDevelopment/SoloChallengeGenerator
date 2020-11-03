@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using scg.Utils;
 
-namespace scg.Games.OnTheUnderground.Logic
+namespace scg.Windows.OnTheUnderground
 {
     public class DestinationDeck
     {
-        private readonly List<DestinationCard> _destinations;
-
-        public DestinationDeck(List<DestinationCard> destinations)
+        public DestinationDeck(IEnumerable<DestinationCard> destinations)
         {
-            _destinations = destinations;
+            Destinations = destinations.ToList();
+            Destinations.Shuffle();
         }
+
+        public List<DestinationCard> Destinations { get; }
     }
 }

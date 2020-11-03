@@ -26,6 +26,7 @@ namespace scg.App.Generator
                 _kernel.Bind<FileRepository>().ToSelf().InSingletonScope().WithConstructorArgument("game", options.Game);
                 _kernel.Bind<GameMetadataReader>().ToSelf().InSingletonScope();
                 _kernel.Bind<GameMetadata>().ToConstant(_kernel.Get<GameMetadataReader>().Read());
+                _kernel.Bind<GenerationResult>().ToConstant(new GenerationResult());
                 _kernel.Bind<BggApiService>().ToSelf();
 
                 _kernel.Bind<IDateTime>().To<DateTimeWrapper>();

@@ -1,8 +1,8 @@
 ﻿namespace scg.Framework
 {
-    internal class GeeklistPost
+    public class GeeklistPost
     {
-        public string Comments { get; private set; }
+        public string Comments { get; set; }
 
         public GeeklistPost(string comments)
         {

@@ -1,9 +1,9 @@
 ﻿namespace scg.Framework
 {
-    internal class ChallengePost
+    public class ChallengePost
     {
         public string Subject { get; }
-        public string Body { get; }
+        public string Body { get; set; }
 
         public ChallengePost(string subject, string body)
         {

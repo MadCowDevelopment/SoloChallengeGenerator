@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace scg.Games.OnTheUnderground.Logic
+namespace scg.Windows.OnTheUnderground
 {
     public class DestinationDeckFactory
     {

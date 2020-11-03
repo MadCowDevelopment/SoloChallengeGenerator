@@ -1,11 +1,11 @@
-﻿namespace scg.Games.OnTheUnderground.Logic
+﻿namespace scg.Windows.OnTheUnderground
 {
     public class DestinationCard
     {
-        private string Name { get; }
-        private string Region { get; }
-        private LondonLocation Location { get; }
-        private RouteType RouteType { get; }
+        public string Name { get; }
+        public string Region { get; }
+        public LondonLocation Location { get; }
+        public RouteType RouteType { get; }
 
         public DestinationCard(LondonLocation location, RouteType routeType, string region)
             : this(location, routeType, region, location.ToString()) { }

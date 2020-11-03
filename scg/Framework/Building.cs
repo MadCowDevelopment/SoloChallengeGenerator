@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace scg.Framework
 {
-    internal class Building
+    public class Building
     {
         private readonly FlagsDictionary _flags;
 

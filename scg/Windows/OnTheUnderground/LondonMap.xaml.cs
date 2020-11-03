@@ -5,11 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using scg.Games.OnTheUnderground.Logic;
 using scg.Utils;
-using static scg.Games.OnTheUnderground.Logic.LondonLocation;
+using static scg.Windows.OnTheUnderground.LondonLocation;
 
-namespace scg.Games.OnTheUnderground
+namespace scg.Windows.OnTheUnderground
 {
     /// <summary>
     /// Interaction logic for LondonMap.xaml
@@ -21,10 +20,6 @@ namespace scg.Games.OnTheUnderground
             InitializeComponent();
 
             InitializeLandmarks();
-
-            var lines = new LinesFactory().CreateLines();
-            InitializeLine(lines.ElementAt(9));
-            InitializeLine(lines.ElementAt(10));
         }
 
         public void InitializeLine(LondonLine line)

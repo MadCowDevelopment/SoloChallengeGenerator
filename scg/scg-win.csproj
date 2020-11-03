@@ -16,6 +16,16 @@
   <Import Project="scg.common.props" />
 
   <ItemGroup>
+    <None Remove="Games\OnTheUnderground\Buildings.dat" />
+    <None Remove="Games\OnTheUnderground\ForumPost.gen" />
+    <None Remove="Games\OnTheUnderground\ForumPost.template" />
+    <None Remove="Games\OnTheUnderground\GeeklistPost.gen" />
+    <None Remove="Games\OnTheUnderground\GeeklistPost.template" />
+    <None Remove="Games\OnTheUnderground\Metadata.json" />
+    <None Remove="Games\OnTheUnderground\PreviousChallenges.dat" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Windows\OnTheUnderground\landmark_food.png" />
     <Resource Include="Windows\OnTheUnderground\landmark_gov.png" />
     <Resource Include="Windows\OnTheUnderground\landmark_mall.png" />

@@ -1,4 +1,4 @@
-﻿namespace scg.Games.OnTheUnderground.Logic
+﻿namespace scg.Windows.OnTheUnderground
 {
     public enum LondonLocation
     {

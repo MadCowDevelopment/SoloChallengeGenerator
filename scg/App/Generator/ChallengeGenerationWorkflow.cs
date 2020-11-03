@@ -24,7 +24,7 @@ namespace scg.App.Generator
         {
             var generationResult = _challengeGenerator.Generate();
             if (options.Publish) await PublishToBGG(options, generationResult);
-            else await SaveToFile(generationResult.ChallengePost.Body);
+            else await SaveToFile(generationResult);
             return 0;
         }
 
@@ -35,7 +35,11 @@ namespace scg.App.Generator
             
             await _bggApiService.Login(user, password);
 
-            //await service.PostImage(cookie, @"D:\Incoming", "IMG_20201020_112002.jpg");
+            foreach (var image in generationResult.Images)
+            {
+                var imageId = await _bggApiService.PostImage(@".\", image.Filename);
+                generationResult.UpdateImageId(image.Identifier, imageId);
+            }
 
             var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
                 _metadata.PostFormData.ForumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
@@ -51,10 +55,10 @@ namespace scg.App.Generator
             new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.ListId}").OpenInBrowser();
         }
 
-        private async Task SaveToFile(string challengePost)
+        private async Task SaveToFile(GenerationResult generationResult)
         {
             var outputFilename = @"ForumPost.txt";
-            await System.IO.File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename), challengePost);
+            await System.IO.File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename), generationResult.ChallengePost.Body);
             FileHelper.OpenFile(outputFilename);
         }
     }

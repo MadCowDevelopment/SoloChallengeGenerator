@@ -5,12 +5,12 @@ using scg.Utils;
 
 namespace scg.Framework
 {
-    internal class BuildingData
+    public class BuildingData
     {
         private readonly FileRepository _repository;
         private readonly List<Building> _buildings = new List<Building>();
         private readonly Dictionary<string, int> _takenBuildings = new Dictionary<string, int>();
-        private FlagsDictionary _flags;
+        private readonly FlagsDictionary _flags;
 
         public BuildingData(FileRepository repository, FlagsDictionary flags)
         {
