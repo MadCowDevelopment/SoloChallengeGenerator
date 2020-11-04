@@ -10,6 +10,7 @@ Currently supports the following games:
 * Fields of Arle
 * Gentes
 * Glass Road
+* On The Underground (Windows only)
 * Tiny Towns
 
 ## Installation
@@ -28,6 +29,7 @@ This will install/update the latest version of scg as a global tool. Default fol
 
 ### Generate posts
 
+#### Generate and automatically upload
 The following command will generate a new challenge, post a thread on BGG and add an entry to the Solo Challenges geeklist:
 
 `scg generate [game] --publish --user [username]`
@@ -35,6 +37,11 @@ The following command will generate a new challenge, post a thread on BGG and ad
 or short
 
 `scg [game] -p -u [username]`
+
+#### Generate file only
+The following command will generate a new challenge, save it to a file ForumPost.txt and open the default text editor to show it. Nothing will be uploaded to BGG. This needs to be done manually.
+
+`scg [game]`
 
 ### Customizing posts
 
@@ -58,6 +65,10 @@ Remove the last entry:
 List all scores:
 
 `scg score list [game]`
+
+### Migrating from grcg
+
+Simply copy all folders from %LOCALAPPDATA%\MadCowDevelopment\grcg\Games to %LOCALAPPDATA%\MadCowDevelopment\scg\Games
 
 ## Acknowledgements
 
