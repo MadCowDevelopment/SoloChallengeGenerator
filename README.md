@@ -10,14 +10,14 @@ Currently supports the following games:
 * Fields of Arle
 * Gentes
 * Glass Road
-* On The Underground (Windows only)
+* On The Underground
 * Tiny Towns
 
 ## Installation
 
-scg is built with .NET Core. The latest version can be found [here](https://dotnet.microsoft.com/download).
+scg is built with .NET 5. The latest version can be found [here](https://dotnet.microsoft.com/download).
 
-After successful installation of .NET Core, open a command prompt and type the following:
+After successful installation of .NET 5, open a command prompt and type the following:
 
 | Install:                     | Upgrade:                    |
 | ---------------------------- | --------------------------- |
