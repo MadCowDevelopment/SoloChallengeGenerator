@@ -1,4 +1,4 @@
-﻿namespace scg.Windows.OnTheUnderground
+﻿namespace scg.Generators.OnTheUnderground
 {
     public enum RouteType
     {

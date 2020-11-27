@@ -24,6 +24,13 @@ namespace scg.Framework
             }
         }
 
+        public Stream Open(string filename)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var stream = assembly.GetManifestResourceStream($"{_resourcePath}{filename}");
+            return stream;
+        }
+
         public IEnumerable<string> GetFiles(string path, string endsWith)
         {
             var assembly = Assembly.GetExecutingAssembly();

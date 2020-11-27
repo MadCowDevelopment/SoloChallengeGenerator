@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace scg.Windows.OnTheUnderground
+namespace scg.Generators.OnTheUnderground
 {
     public class DestinationDeckFactory
     {

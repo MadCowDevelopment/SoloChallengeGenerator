@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using System.Text;
-using scg.Generators;
 using scg.Utils;
 
-namespace scg.Windows.OnTheUnderground
+namespace scg.Generators.OnTheUnderground
 {
     public class DestinationCardsGenerator : TemplateGenerator
     {

@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg", "scg\scg.csproj", "{0F10E26F-F67B-4A65-89E2-5033989D4049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg-win", "scg\scg-win.csproj", "{BC055EA3-D63B-48AF-BBA8-DA32FBE632EF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scg.UnitTest", "scg.UnitTest\scg.UnitTest.csproj", "{74959C6C-5EDC-4659-9E38-352D78FCD15D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scg.UnitTest", "scg.UnitTest\scg.UnitTest.csproj", "{74959C6C-5EDC-4659-9E38-352D78FCD15D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{0F10E26F-F67B-4A65-89E2-5033989D4049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F10E26F-F67B-4A65-89E2-5033989D4049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F10E26F-F67B-4A65-89E2-5033989D4049}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC055EA3-D63B-48AF-BBA8-DA32FBE632EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC055EA3-D63B-48AF-BBA8-DA32FBE632EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC055EA3-D63B-48AF-BBA8-DA32FBE632EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC055EA3-D63B-48AF-BBA8-DA32FBE632EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74959C6C-5EDC-4659-9E38-352D78FCD15D}.Release|Any CPU.ActiveCfg = Release|Any CPU

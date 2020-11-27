@@ -2,7 +2,7 @@
 using System.Linq;
 using scg.Utils;
 
-namespace scg.Windows.OnTheUnderground
+namespace scg.Generators.OnTheUnderground
 {
     public class DestinationDeck
     {
