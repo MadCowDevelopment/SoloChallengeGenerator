@@ -29,6 +29,6 @@ jobs:
         # Filepath of the project to be packaged, relative to root of repository
         PROJECT_FILE_PATH: scg/scg.csproj
         # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-        VERSION_FILE_PATH: scg/scg.common.props
+        # VERSION_FILE_PATH: scg/scg.csproj
         # API key to authenticate with NuGet server
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
