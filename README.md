@@ -1,5 +1,5 @@
 # SoloChallengeGenerator (scg)
-![Build, test and publish](https://github.com/MadCowDevelopment/SoloChallengeGenerator/workflows/Build,%20test%20and%20publish/badge.svg)
+[![Build, test and publish](https://github.com/MadCowDevelopment/SoloChallengeGenerator/workflows/Build,%20test%20and%20publish/badge.svg)](https://github.com/MadCowDevelopment/SoloChallengeGenerator/actions?query=workflow%3A"Build%2C+test+and+publish")
 ![GitHub](https://img.shields.io/github/license/MadCowDevelopment/SoloChallengeGenerator)
 [![Nuget](https://img.shields.io/nuget/v/scg)](https://www.nuget.org/packages/scg/)
 
@@ -56,15 +56,15 @@ Each game contains the following files:
 
 Add a new entry to the PreviousChallenges.dat:
 
-`scg score add [game]`
+`scg score [game] add`
 
 Remove the last entry:
 
-`scg score remove [game]`
+`scg score [game] remove`
 
 List all scores:
 
-`scg score list [game]`
+`scg score [game] list`
 
 ### Migrating from grcg
 
