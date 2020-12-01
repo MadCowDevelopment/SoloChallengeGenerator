@@ -9,7 +9,7 @@ namespace scg.Framework
     {
         private readonly FileRepository _repository;
         private readonly List<Building> _buildings = new List<Building>();
-        private readonly Dictionary<string, int> _takenBuildings = new Dictionary<string, int>();
+        private readonly List<Building> _takenBuildings = new List<Building>();
         private readonly FlagsDictionary _flags;
 
         public BuildingData(FileRepository repository, FlagsDictionary flags)
@@ -67,8 +67,10 @@ namespace scg.Framework
             var buildingData = _repository.ReadAllLines(File.Buildings, false);
             foreach (var line in buildingData)
             {
-
-                Add(new Building(line, _flags));
+                var splits = line.Split(",");
+                var category = splits[0].Trim();
+                var subcategory = splits.Length > 1 ? splits[1].Trim() : string.Empty;
+                Add(new Building(category, subcategory,  _flags));
             }
         }
 
@@ -79,13 +81,26 @@ namespace scg.Framework
 
         public IEnumerable<Building> GetAndSkipTakenBuildings(string category, int number)
         {
-            var buildingsToSkip = _takenBuildings.ContainsKey(category) ? _takenBuildings[category] : 0;
-            var buildings = _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).Skip(buildingsToSkip).Take(number).ToList();
-
-            if (_takenBuildings.ContainsKey(category)) _takenBuildings[category] += buildings.Count;
-            else _takenBuildings[category] = buildings.Count;
-
+            var buildings = _buildings.Except(_takenBuildings)
+                .Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase))
+                .Take(number).ToList();
+            _takenBuildings.AddRange(buildings);
             return buildings;
+        }
+
+        public IEnumerable<Building> GetAndSkipTakenBuildings(string category, IEnumerable<string> subcategories, int number)
+        {
+            var buildings = _buildings.Except(_takenBuildings)
+                .Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase) 
+                            && subcategories.Any(s => string.Equals(s, p.Subcategory, StringComparison.InvariantCultureIgnoreCase)))
+                .Take(number).ToList();
+            _takenBuildings.AddRange(buildings);
+            return buildings;
+        }
+
+        public void ResetTakenBuildings()
+        {
+            _takenBuildings.Clear();
         }
 
         public IEnumerable<Building> GetAll(string category)

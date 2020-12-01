@@ -38,7 +38,7 @@ namespace scg.App.Generator
                 _kernel.Bind<BuildingData>().ToSelf().InSingletonScope();
                 _kernel.Bind<ChallengeData>().ToSelf().InSingletonScope();
 
-                _kernel.Bind(s => s.FromAssembliesMatching("scg*dll").IncludingNonPublicTypes()
+                _kernel.Bind(s => s.FromAssembliesMatching("scg.dll").IncludingNonPublicTypes()
                     .Select(type => type.GetInterfaces().Contains(typeof(ITemplateGenerator)))
                     .BindAllInterfaces()
                     .Configure(x => x.InSingletonScope()));

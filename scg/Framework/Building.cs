@@ -8,16 +8,18 @@ namespace scg.Framework
         private readonly FlagsDictionary _flags;
 
         private readonly Dictionary<string, string> _translations = new Dictionary<string, string>();
-        public Building(string category, FlagsDictionary flags)
+        public Building(string category, string subcategory, FlagsDictionary flags)
         {
             _flags = flags;
             Id = NextId++;
             Category = category;
+            Subcategory = subcategory;
         }
 
         private static int NextId { get; set; } = 1;
 
         public string Category { get; }
+        public string Subcategory { get; }
         public IEnumerable<KeyValuePair<string, string>> Translations => _translations;
         public int Id { get; }
 
