@@ -1,6 +1,6 @@
 # SoloChallengeGenerator (scg)
 [![Build, test and publish](https://github.com/MadCowDevelopment/SoloChallengeGenerator/workflows/Build,%20test%20and%20publish/badge.svg)](https://github.com/MadCowDevelopment/SoloChallengeGenerator/actions?query=workflow%3A"Build%2C+test+and+publish")
-![GitHub](https://img.shields.io/github/license/MadCowDevelopment/SoloChallengeGenerator)
+[![GitHub](https://img.shields.io/github/license/MadCowDevelopment/SoloChallengeGenerator)](https://github.com/MadCowDevelopment/SoloChallengeGenerator/blob/master/LICENSE)
 [![Nuget](https://img.shields.io/nuget/v/scg)](https://www.nuget.org/packages/scg/)
 
 Generator and uploader for solo boardgame challenges posted to BoardGameGeek.
