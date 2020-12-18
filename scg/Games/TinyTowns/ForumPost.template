@@ -1,4 +1,4 @@
-﻿[size=18][center][b]Tiny Towns Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
+[size=18][center][b]Tiny Towns Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
 [b][size=18]TODO - PUT TITLE HERE[/b][/size]
 
 Challenge Start: Now
@@ -13,9 +13,10 @@ Challenge End: <<END_DATE>>
 [microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE>>
 [microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE>>
 [microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE>>
-[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE>>[/c]
-[size=12]Choose between the following monument cards:[/size]
-[c][microbadge=47019] :  <<STARTING_BUILDINGS_PINK_BASE>>[/c]
+[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE>>
+
+[microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
+<<STARTING_BUILDINGS_PINK_BASE>>[/c]
 
 
 [b][size=18]Base + Fortune challenge[/size][/b]
@@ -25,9 +26,10 @@ Challenge End: <<END_DATE>>
 [microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|FORTUNE>>
 [microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|FORTUNE>>
 [microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|FORTUNE>>
-[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE>>[/c]
-[size=12]Choose between the following monument cards:[/size]
-[c][microbadge=47019] :  <<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
+[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE>>
+
+[microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
+<<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
 
 
 [b]Rules:[/b]
@@ -68,4 +70,7 @@ Username          Score          Monument        [/u][/b]
 
 
 Have fun and thanks to all the mayors of Tiny Towns who participate in this challenge!
+Thanks to [user=talzaroff]Thom Mollinga[/user] for providing Dutch translations.
+Thanks to [user=sgtpepere]Sgt Pepere[/user] for providing French translations.
 If you have the game in another language and want to provide translations, please send me a geek mail about details how to do that.
+Also it would be great if someone could make microbadges for the black and gray buildings.
