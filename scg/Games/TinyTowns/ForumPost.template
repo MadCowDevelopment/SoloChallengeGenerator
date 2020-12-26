@@ -32,15 +32,30 @@ Challenge End: <<END_DATE>>
 <<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
 
 
+[b][size=18]Base + Fortune + Villagers challenge[/size][/b]
+[c][microbadge=27022] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE|VILLAGERS>>
+[microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|FORTUNE|VILLAGERS>>
+[microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|FORTUNE|VILLAGERS>>
+[microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|FORTUNE|VILLAGERS>>
+[microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|FORTUNE|VILLAGERS>>
+[microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|FORTUNE|VILLAGERS>>
+[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE|VILLAGERS>>
+1  Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_1>>
+2+ Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_2+>>
+
+[microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
+<<STARTING_BUILDINGS_PINK_BASE|FORTUNE|VILLAGERS>>[/c]
+
+
 [b]Rules:[/b]
-Play a normal solo game using the rules from the base game (and the respective expansion).
+Play a normal solo game using the rules from the base game (and the respective expansions).
 Repeat plays are encouraged.
 
 When reporting scores, feel free to post a screenshot and strategy explanations but please keep those in spoiler tags.
 
 You can use the following scoring template (quote this post to see the BGG code):
 [c]
-[b]Challenge:[/b] Base / Base + Fortune
+[b]Challenge:[/b] Base / Base + Fortune / Base + Fortune + Villagers
 [microbadge=27022] :
 [microbadge=47027] :
 [microbadge=47028] :
@@ -69,8 +84,15 @@ Username          Score          Monument        [/u][/b]
 [/c]
 
 
-Have fun and thanks to all the mayors of Tiny Towns who participate in this challenge!
+[size=12][b]Leaderboard - Base + Fortune + Villagers[/b][/size]
+[c][b][u]
+Username          Score          Monument        [/u][/b]
+[/c]
+
+
 Thanks to [user=talzaroff]Thom Mollinga[/user] for providing Dutch translations.
 Thanks to [user=sgtpepere]Sgt Pepere[/user] for providing French translations.
 If you have the game in another language and want to provide translations, please send me a geek mail about details how to do that.
 Also it would be great if someone could make microbadges for the black and gray buildings.
+
+Have fun and thanks to all the mayors of Tiny Towns who participate in this challenge!
