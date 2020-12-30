@@ -35,11 +35,11 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-            builder.AppendLine($"A) {skills[0].ToEnglish()}");
+            builder.AppendLine($"A) {skills[0].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[0].Id]);
-            builder.AppendLine($"B) {skills[1].ToEnglish()}");
+            builder.AppendLine($"B) {skills[1].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[1].Id]);
-            builder.AppendLine($"C) {skills[2].ToEnglish()}");
+            builder.AppendLine($"C) {skills[2].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[2].Id]);
             builder.Append("[/size]");
 

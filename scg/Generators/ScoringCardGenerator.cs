@@ -10,6 +10,7 @@ namespace scg.Generators
     {
         private readonly BuildingData _buildingData;
         private readonly Dictionary<int, int> _targetScores;
+        private readonly Dictionary<int, int> _cardNumbers;
 
         public ScoringCardGenerator(BuildingData buildingData)
         {
@@ -18,6 +19,12 @@ namespace scg.Generators
             {
                 {18, 17}, {19, 22}, {20, 18}, {21, 25}, {22, 27}, {23, 24}, {24, 20}, {25, 22},
                 {26, 16}, {27, 16}, {28, 20}, {29, 21}, {30, 20}, {31, 24}, {32, 24}, {33, 24}
+            };
+
+            _cardNumbers = new Dictionary<int, int>
+            {
+                {18, 28}, {19, 27}, {20, 29}, {21, 26}, {22, 33}, {23, 30}, {24, 32}, {25, 31},
+                {26, 34}, {27, 35}, {28, 37}, {29, 36}, {30, 41}, {31, 40}, {32, 38}, {33, 39}
             };
         }
 
@@ -35,10 +42,10 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-            builder.AppendLine($"A) [{_targetScores[scoringCards[0].Id]}] {scoringCards[0].ToPostFormat()}");
-            builder.AppendLine($"B) [{_targetScores[scoringCards[1].Id]}] {scoringCards[1].ToPostFormat()}");
-            builder.AppendLine($"C) [{_targetScores[scoringCards[2].Id]}] {scoringCards[2].ToPostFormat()}");
-            builder.AppendLine($"D) [{_targetScores[scoringCards[3].Id]}] {scoringCards[3].ToPostFormat()}");
+            builder.AppendLine($"A) [{_targetScores[scoringCards[0].Id]} pts](#{_cardNumbers[scoringCards[0].Id]}) {scoringCards[0].ToPostFormat()}");
+            builder.AppendLine($"B) [{_targetScores[scoringCards[1].Id]} pts](#{_cardNumbers[scoringCards[1].Id]}) {scoringCards[1].ToPostFormat()}");
+            builder.AppendLine($"C) [{_targetScores[scoringCards[2].Id]} pts](#{_cardNumbers[scoringCards[2].Id]}) {scoringCards[2].ToPostFormat()}");
+            builder.AppendLine($"D) [{_targetScores[scoringCards[3].Id]} pts](#{_cardNumbers[scoringCards[3].Id]}) {scoringCards[3].ToPostFormat()}");
             builder.Append("[/size]");
 
             builder.AppendLine();

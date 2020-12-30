@@ -31,11 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Games\**\*"/>
     <EmbeddedResource Include="Flags.dat" />
     <EmbeddedResource Include="Games\**\*" />
-    <None Remove="Games\TinyTowns\Translations\Dutch.lang" />
-    <None Remove="Games\TinyTowns\Translations\French.lang" />
-    <None Remove="Games\TinyTowns\Translations\German.lang" />
     <EmbeddedResource Include="OnTheUnderground.svg" />
   </ItemGroup>
 

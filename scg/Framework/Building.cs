@@ -35,19 +35,29 @@ namespace scg.Framework
 
         public string ToPostFormat()
         {
-            var translations = _translations.Select(p =>
-            {
-                var translation = string.Empty;
-                if (_flags.Exists(p.Key))
+            return FormatTranslations(_translations);
+        }
+
+        public string ToPostFormatWithoutDuplicateTranslations()
+        {
+            var englishTranslation = _translations["English"];
+            return FormatTranslations(_translations.Where(p => p.Key == "English" || p.Value != englishTranslation));
+        }
+
+        private string FormatTranslations(IEnumerable<KeyValuePair<string, string>> translations)
+        {
+            return string.Join(" - ",
+                translations.Select(p =>
                 {
-                    translation += $"[microbadge={_flags[p.Key]}]";
-                }
+                    var translation = string.Empty;
+                    if (_flags.Exists(p.Key))
+                    {
+                        translation += $"[microbadge={_flags[p.Key]}]";
+                    }
 
-                translation += p.Value;
-                return translation;
-            });
-
-            return string.Join(" - ", translations);
+                    translation += p.Value;
+                    return translation;
+                }));
         }
     }
 }
