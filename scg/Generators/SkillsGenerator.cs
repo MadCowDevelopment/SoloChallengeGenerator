@@ -9,6 +9,7 @@ namespace scg.Generators
     {
         private readonly BuildingData _buildingData;
         private readonly Dictionary<int, string> _skillDescriptions;
+        private readonly Dictionary<int, string> _skillNumbers;
 
         public SkillsGenerator(BuildingData buildingData)
         {
@@ -25,6 +26,18 @@ namespace scg.Generators
                 { 44, "Cost: [b]1[/b] coin - During the Draw phase, draw a 2x2 shape instead of one of the available shapes." },
                 { 45, "Cost: [b]0[/b] coins - During the Draw phase, draw an additional 1x1 shape adjacent to the drawn shape. Fill it with the same terrain type." }
             };
+
+            _skillNumbers = new Dictionary<int, string>
+            {
+                { 38, "S3"},
+                { 39, "S1" },
+                { 40, "S2" },
+                { 41, "S5" },
+                { 42, "S4" },
+                { 43, "S6" },
+                { 44, "S7" },
+                { 45, "S8" }
+            };
         }
 
         public override string Token { get; } = "<<SKILL_CARDS>>";
@@ -35,11 +48,11 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-            builder.AppendLine($"A) {skills[0].ToPostFormatWithoutDuplicateTranslations()}");
+            builder.AppendLine($"A) {_skillNumbers[skills[0].Id]} {skills[0].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[0].Id]);
-            builder.AppendLine($"B) {skills[1].ToPostFormatWithoutDuplicateTranslations()}");
+            builder.AppendLine($"B) {_skillNumbers[skills[1].Id]} {skills[1].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[1].Id]);
-            builder.AppendLine($"C) {skills[2].ToPostFormatWithoutDuplicateTranslations()}");
+            builder.AppendLine($"C) {_skillNumbers[skills[2].Id]} {skills[2].ToPostFormatWithoutDuplicateTranslations()}");
             builder.AppendLine(_skillDescriptions[skills[2].Id]);
             builder.Append("[/size]");
 

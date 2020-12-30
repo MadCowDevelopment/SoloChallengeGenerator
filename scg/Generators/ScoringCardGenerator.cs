@@ -42,10 +42,10 @@ namespace scg.Generators
 
             var builder = new StringBuilder();
             builder.Append("[size=11]");
-            builder.AppendLine($"A) [{_targetScores[scoringCards[0].Id]} pts](#{_cardNumbers[scoringCards[0].Id]}) {scoringCards[0].ToPostFormat()}");
-            builder.AppendLine($"B) [{_targetScores[scoringCards[1].Id]} pts](#{_cardNumbers[scoringCards[1].Id]}) {scoringCards[1].ToPostFormat()}");
-            builder.AppendLine($"C) [{_targetScores[scoringCards[2].Id]} pts](#{_cardNumbers[scoringCards[2].Id]}) {scoringCards[2].ToPostFormat()}");
-            builder.AppendLine($"D) [{_targetScores[scoringCards[3].Id]} pts](#{_cardNumbers[scoringCards[3].Id]}) {scoringCards[3].ToPostFormat()}");
+            builder.AppendLine($"A) #{_cardNumbers[scoringCards[0].Id]} [{_targetScores[scoringCards[0].Id]} pts] {scoringCards[0].ToPostFormat()}");
+            builder.AppendLine($"B) #{_cardNumbers[scoringCards[1].Id]} [{_targetScores[scoringCards[1].Id]} pts] {scoringCards[1].ToPostFormat()}");
+            builder.AppendLine($"C) #{_cardNumbers[scoringCards[2].Id]} [{_targetScores[scoringCards[2].Id]} pts] {scoringCards[2].ToPostFormat()}");
+            builder.AppendLine($"D) #{_cardNumbers[scoringCards[3].Id]} [{_targetScores[scoringCards[3].Id]} pts] {scoringCards[3].ToPostFormat()}");
             builder.Append("[/size]");
 
             builder.AppendLine();
