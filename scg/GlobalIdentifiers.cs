@@ -8,7 +8,7 @@
 #if DEBUG
         public static readonly int ListId = 249689; // For testing purposes.
 #else
-        public static readonly int ListId = 266253; // Solo challenges 2020.
+        public static readonly int ListId = 280790; // Solo challenges 2021.
 #endif
     }
 }
