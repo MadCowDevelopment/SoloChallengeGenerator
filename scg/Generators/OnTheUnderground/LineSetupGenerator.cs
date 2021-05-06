@@ -33,15 +33,10 @@ namespace scg.Generators.OnTheUnderground
 
             var setupText =
                 $"Setup the board like the image, with the yellow ({line1.Value}) and pink ({line2.Value}) lines belonging to the Underground. " +
-                $"The Underground starts at {line1.Value + line2.Value} points and we start with [b]no[/b] branching tokens. " +
+                $"The Underground starts at {line1.Value + line2.Value + 15} points and we start with [b]one[/b] branching tokens. " +
                 "The game immediately ends once we overtake the Underground or the destination deck is empty.";
 
             return template.Replace(Token, setupText);
-        }
-
-        private void CreateMap(LondonLine line1, LondonLine line2)
-        {
-            
         }
     }
 }

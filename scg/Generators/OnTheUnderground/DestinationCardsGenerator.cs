@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using scg.Utils;
 
@@ -6,28 +7,74 @@ namespace scg.Generators.OnTheUnderground
 {
     public class DestinationCardsGenerator : TemplateGenerator
     {
-        private readonly DestinationDeck _destinationDeck;
-
-        public DestinationCardsGenerator()
-        {
-            _destinationDeck = new DestinationDeckFactory().Create();
-        }
+        private List<DestinationDeck> _destinationDecks;
 
         public override string Token { get; } = "<<DESTINATION_CARDS>>";
         public override string Apply(string template, string[] arguments)
         {
+            var rounds = int.Parse(arguments.Length<1 ? "1" : arguments[0]);
+            InitializedDestinationDecks(rounds);
+            return template.Replace(Token, CreateTemplateString());
+        }
+
+        private void InitializedDestinationDecks(int rounds)
+        {
+            _destinationDecks = new List<DestinationDeck>();
+            var factory = new DestinationDeckFactory();
+            for (int i = 0; i < rounds; i++)
+            {
+                _destinationDecks.Add(factory.Create());
+            }
+        }
+
+        private string CreateTemplateString()
+        {
+            var longestName = _destinationDecks[0].Destinations.Max(p => p.Name.Length);
+
             var builder = new StringBuilder();
-            var longestName = _destinationDeck.Destinations.Max(p => p.Name.Length);
+            builder.AppendLine(CreateRoundHeader(longestName));
+
             for (var i = 54; i > 0; i--)
             {
-                var card = _destinationDeck.Destinations[i];
-                var number = $"{i+1:D2}".ReplaceLeading("0", " ");
-                var color = card.RouteType == RouteType.Express ? "FFDF00" : "ADADAD";
-                var whitespaces = string.Join("", Enumerable.Repeat(" ", longestName - card.Name.Length));
-                builder.AppendLine($"{number}: [o][BGCOLOR=#{color}]{card.Region} - {card.Name}{whitespaces}[/BGCOLOR][/o]");
+                builder.AppendLine(string.Join("   ", _destinationDecks.Select(p => CreateDestinationEntry(p, i, longestName))));
             }
 
-            return template.Replace(Token, builder.ToString());
+            builder.AppendLine(CreateFooter());
+            return builder.ToString();
+        }
+
+        private string CreateRoundHeader(int longestName)
+        {
+            var headers = new List<string>();
+            for (var i = 1; i <= _destinationDecks.Count; i++)
+            {
+                var header = $"    Round {i}";
+                if (i == 1) header += " (main event)";
+                var whitespaces = string.Join("", Enumerable.Repeat(" ", longestName - header.Length + 10));
+                headers.Add($"[b]{header}{whitespaces}[/b]");
+            }
+
+            return string.Join("   ", headers);
+        }
+
+        private static string CreateDestinationEntry(DestinationDeck destinationDeck, int i, int longestName)
+        {
+            var card = destinationDeck.Destinations[i];
+            var number = $"{i + 1:D2}".ReplaceLeading("0", " ");
+            var color = card.RouteType == RouteType.Express ? "FFDF00" : "ADADAD";
+            var whitespaces = string.Join("", Enumerable.Repeat(" ", longestName - card.Name.Length));
+            return $"{number}: [o][BGCOLOR=#{color}]{card.Region} - {card.Name}{whitespaces}[/BGCOLOR][/o]";
+        }
+
+        private string CreateFooter()
+        {
+            var headers = new List<string>();
+            for (var i = 1; i <= _destinationDecks.Count; i++)
+            {
+                headers.Add(" 1: [o][BGCOLOR=#FF3333]I'm sorry, you've lost!    [/BGCOLOR][/o]");
+            }
+
+            return string.Join("   ", headers);
         }
     }
 }
