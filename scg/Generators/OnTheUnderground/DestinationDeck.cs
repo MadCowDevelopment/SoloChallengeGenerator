@@ -6,8 +6,11 @@ namespace scg.Generators.OnTheUnderground
 {
     public class DestinationDeck
     {
-        public DestinationDeck(IEnumerable<DestinationCard> destinations)
+        public string Id { get; }
+
+        public DestinationDeck(string id, IEnumerable<DestinationCard> destinations)
         {
+            Id = id;
             Destinations = destinations.ToList();
             Destinations.Shuffle();
         }

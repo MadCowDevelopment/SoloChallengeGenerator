@@ -4,18 +4,29 @@
     {
         public string Name { get; }
         public string Region { get; }
-        public LondonLocation Location { get; }
         public RouteType RouteType { get; }
 
-        public DestinationCard(LondonLocation location, RouteType routeType, string region)
-            : this(location, routeType, region, location.ToString()) { }
-
-        public DestinationCard(LondonLocation location, RouteType routeType, string region, string name)
+        private DestinationCard(RouteType routeType, string region, string name)
         {
             Name = name;
             Region = region;
-            Location = location;
             RouteType = routeType;
+        }
+
+        public DestinationCard(LondonLocation location, RouteType routeType, string region) : this(routeType, region, location.ToString())
+        {
+        }
+
+        public DestinationCard(LondonLocation location, RouteType routeType, string region, string name) : this(routeType, region, name)
+        {
+        }
+
+        public DestinationCard(BerlinLocation location, RouteType routeType, string region) : this(routeType, region, location.ToString())
+        {
+        }
+
+        public DestinationCard(BerlinLocation location, RouteType routeType, string region, string name) : this(routeType, region, name)
+        {
         }
     }
 }

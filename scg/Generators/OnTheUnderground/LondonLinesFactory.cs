@@ -4,9 +4,9 @@ using static scg.Generators.OnTheUnderground.LondonLocation;
 
 namespace scg.Generators.OnTheUnderground
 {
-    public class LinesFactory
+    public static class LondonLinesFactory
     {
-        public IReadOnlyCollection<LondonLine> CreateLines()
+        public static IReadOnlyCollection<LondonLine> Create()
         {
             return new ReadOnlyCollection<LondonLine>(
                 new List<LondonLine>

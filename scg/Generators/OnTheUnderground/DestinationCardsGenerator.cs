@@ -1,13 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using scg.Framework;
 using scg.Utils;
 
 namespace scg.Generators.OnTheUnderground
 {
     public class DestinationCardsGenerator : TemplateGenerator
     {
+        private readonly GameOptions _gameOptions;
         private List<DestinationDeck> _destinationDecks;
+        private string _map;
+
+        public DestinationCardsGenerator(GameOptions gameOptions)
+        {
+            _gameOptions = gameOptions;
+        }
 
         public override string Token { get; } = "<<DESTINATION_CARDS>>";
         public override string Apply(string template, string[] arguments)
@@ -20,12 +29,24 @@ namespace scg.Generators.OnTheUnderground
         private void InitializedDestinationDecks(int rounds)
         {
             _destinationDecks = new List<DestinationDeck>();
-            var factory = new DestinationDeckFactory();
+            var factory = ChooseFactory();
             for (int i = 0; i < rounds; i++)
             {
                 _destinationDecks.Add(factory.Create());
             }
         }
+
+        private IDestinationDeckFactory ChooseFactory()
+        {
+            return Map switch
+            {
+                "London" => new LondonDestinationDeckFactory(),
+                "Berlin" => new BerlinDestinationDeckFactory(),
+                _ => throw new InvalidOperationException($"Map '{Map}' is not supported.")
+            };
+        }
+
+        private string Map => _map ??= _gameOptions.Options["Map"];
 
         private string CreateTemplateString()
         {
