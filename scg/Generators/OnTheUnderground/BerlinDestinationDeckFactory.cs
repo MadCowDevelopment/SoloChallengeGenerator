@@ -48,7 +48,7 @@ namespace scg.Generators.OnTheUnderground
                 new(SamariterStr, RouteType.Standard, "D2", "Samariterstr."),
                 new(Schoeneberg, RouteType.Express, "B3", "Schöneberg"),
                 new(SchoenhauserAllee, RouteType.Express, "C2", "Schönhauser Allee"),
-                new(Siemensdamm, RouteType.Standard, "A"),
+                new(Siemensdamm, RouteType.Standard, "A2"),
                 new(Springpfuhl, RouteType.Express, "E2"),
                 new(Stadtmitte, RouteType.Standard, "C2"),
                 new(StrausbergerPlatz, RouteType.Standard, "C2", "Strausberger Platz"),

@@ -17,13 +17,13 @@ namespace scg.Generators.OnTheUnderground
         {
             var threePointLocations = new List<BerlinLocation>
             {
-                KrummeLanke, RathausSteglitz, HermannStr, Ostbahnhof, HohenzollernDamm
+                Adlershof, Greifswalderstr, HermannStr, Ostbahnhof, HohenzollernDamm
             };
             threePointLocations.Shuffle();
 
             var twoPointLocations = new List<BerlinLocation>
             {
-                Adlershof, AltTegel, Greifswalderstr, Hauptbahnhof, Kurfuerstendamm,
+                AltTegel, KrummeLanke, Hauptbahnhof, Kurfuerstendamm, RathausSteglitz,
                 OsloerStr, Spandau, Westend, Wittenau, Wuhletal
             };
             twoPointLocations.Shuffle();

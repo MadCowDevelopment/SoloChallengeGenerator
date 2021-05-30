@@ -19,9 +19,10 @@ namespace scg.Generators.OnTheUnderground
         }
 
         public override string Token { get; } = "<<DESTINATION_CARDS>>";
+
         public override string Apply(string template, string[] arguments)
         {
-            var rounds = int.Parse(arguments.Length<1 ? "1" : arguments[0]);
+            var rounds = int.Parse(arguments.Length < 1 ? "1" : arguments[0]);
             InitializedDestinationDecks(rounds);
             return template.Replace(Token, CreateTemplateString());
         }
@@ -57,10 +58,12 @@ namespace scg.Generators.OnTheUnderground
 
             for (var i = 54; i > 0; i--)
             {
-                builder.AppendLine(string.Join("   ", _destinationDecks.Select(p => CreateDestinationEntry(p, i, longestName))));
+                builder.AppendLine(string.Join("   ",
+                    _destinationDecks.Select(p => CreateDestinationEntry(p, i, longestName))));
             }
 
-            builder.AppendLine(CreateFooter());
+            var footer = CreateFooter(longestName);
+            builder.AppendLine(CreateFooter(longestName));
             return builder.ToString();
         }
 
@@ -87,15 +90,13 @@ namespace scg.Generators.OnTheUnderground
             return $"{number}: [o][BGCOLOR=#{color}]{card.Region} - {card.Name}{whitespaces}[/BGCOLOR][/o]";
         }
 
-        private string CreateFooter()
+        private string CreateFooter(int longestName)
         {
-            var headers = new List<string>();
-            for (var i = 1; i <= _destinationDecks.Count; i++)
-            {
-                headers.Add(" 1: [o][BGCOLOR=#FF3333]I'm sorry, you've lost!    [/BGCOLOR][/o]");
-            }
-
-            return string.Join("   ", headers);
+            const string sorryText = "I'm sorry, you've lost!";
+            var whitespaces = string.Join("", Enumerable.Repeat(" ", longestName - sorryText.Length + 5));
+            return string.Join("   ",
+                Enumerable.Repeat($" 1: [o][BGCOLOR=#FF3333]{sorryText}{whitespaces}[/BGCOLOR][/o]",
+                    _destinationDecks.Count));
         }
     }
 }
