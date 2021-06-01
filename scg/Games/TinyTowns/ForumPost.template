@@ -7,39 +7,39 @@ Challenge End: <<END_DATE>>
 <<PREVIOUS_RESULTS>>
 
 [b][size=18]Base game challenge[/size][/b]
-[c][microbadge=27022] : <<STARTING_BUILDINGS_BLACK_BASE>>
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE>>
 [microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE>>
 [microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE>>
 [microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE>>
 [microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE>>
 [microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE>>
-[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE>>
 
 [microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
 <<STARTING_BUILDINGS_PINK_BASE>>[/c]
 
 
 [b][size=18]Base + Fortune challenge[/size][/b]
-[c][microbadge=27022] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE>>
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE>>
 [microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|FORTUNE>>
 [microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|FORTUNE>>
 [microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|FORTUNE>>
 [microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|FORTUNE>>
 [microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|FORTUNE>>
-[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE>>
 
 [microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
 <<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
 
 
 [b][size=18]Base + Fortune + Villagers challenge[/size][/b]
-[c][microbadge=27022] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE|VILLAGERS>>
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|FORTUNE|VILLAGERS>>
-[microbadge=45293] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE|VILLAGERS>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE|VILLAGERS>>
 1  Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_1>>
 2+ Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_2+>>
 
@@ -56,17 +56,17 @@ When reporting scores, feel free to post a screenshot and strategy explanations 
 You can use the following scoring template (quote this post to see the BGG code):
 [c]
 [b]Challenge:[/b] Base / Base + Fortune / Base + Fortune + Villagers
-[microbadge=27022] :
+[microbadge=52323] :
 [microbadge=47027] :
 [microbadge=47028] :
 [microbadge=47030] :
 [microbadge=47031] :
-[microbadge=45293] :
+[microbadge=52340] :
 [microbadge=47019] :
 [microbadge=41184] :
 [microbadge=31261] :
 ----------------- 
-[microbadge=12865] : 
+[microbadge=52320] : 
 
 [microbadge=47019] Chosen monument:
 [/c]
@@ -92,7 +92,7 @@ Username          Score          Monument        [/u][/b]
 
 Thanks to [user=talzaroff]Thom Mollinga[/user] for providing Dutch translations.
 Thanks to [user=sgtpepere]Sgt Pepere[/user] for providing French translations.
+Thanks to [user=magic_erwt]Dimitri[/user] for making the missing microbadges!
 If you have the game in another language and want to provide translations, please send me a geek mail about details how to do that.
-Also it would be great if someone could make microbadges for the black and gray buildings.
 
 Have fun and thanks to all the mayors of Tiny Towns who participate in this challenge!
