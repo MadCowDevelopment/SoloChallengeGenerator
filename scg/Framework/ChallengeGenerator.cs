@@ -58,6 +58,8 @@ namespace scg.Framework
             var definitions = _repository.ReadAllLines(generatorFile, false);
             foreach (var definition in definitions)
             {
+                if (string.IsNullOrWhiteSpace(definition)) continue;
+
                 var splitDefinitions = definition.Split(',');
                 var token = splitDefinitions[0];
                 var arguments = splitDefinitions.Skip(1).ToArray();
