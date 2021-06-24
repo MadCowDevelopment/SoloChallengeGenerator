@@ -12,7 +12,6 @@ namespace scg.Framework
         private readonly GameMetadata _metadata;
         private readonly ChallengeData _challengeData;
         private readonly GenerationResult _generationResult;
-        private readonly GameOptions _gameOptions;
         private readonly Dictionary<string, ITemplateGenerator> _generators;
 
         public ChallengeGenerator(
@@ -27,22 +26,16 @@ namespace scg.Framework
             _metadata = metadata;
             _challengeData = challengeData;
             _generationResult = generationResult;
-            _gameOptions = gameOptions;
+            gameOptions.Initialize(_metadata.Id);
             _generators = generators.ToDictionary(p => p.Token, p => p);
         }
 
         public GenerationResult Generate()
         {
-            InitializeGeneratorOptions(_metadata.Id);
             _generationResult.ChallengePost =
                 new ChallengePost(GeneratePostSubject(_metadata.Name, _challengeData.Count), GeneratePostBody());
             _generationResult.GeeklistPost = new GeeklistPost(GenerateGeeklistPostComments());
             return _generationResult;
-        }
-
-        private void InitializeGeneratorOptions(string gameId)
-        {
-            _gameOptions.Initialize(gameId);
         }
 
         private string GeneratePostSubject(string gameName, int challengeNumber)

@@ -32,6 +32,21 @@ Challenge End: <<END_DATE>>
 <<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
 
 
+[b][size=18]Base + Villagers challenge[/size][/b]
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|VILLAGERS>>
+[microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|VILLAGERS>>
+[microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|VILLAGERS>>
+[microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|VILLAGERS>>
+[microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|VILLAGERS>>
+[microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|VILLAGERS>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|VILLAGERS>>
+1  Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_1>>
+2+ Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_2+>>
+
+[microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
+<<STARTING_BUILDINGS_PINK_BASE|VILLAGERS>>[/c]
+
+
 [b][size=18]Base + Fortune + Villagers challenge[/size][/b]
 [c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE|VILLAGERS>>
 [microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|FORTUNE|VILLAGERS>>
@@ -84,6 +99,12 @@ Username          Score          Monument        [/u][/b]
 [/c]
 
 
+[size=12][b]Leaderboard - Base + Villagers[/b][/size]
+[c][b][u]
+Username          Score          Monument        [/u][/b]
+[/c]
+
+
 [size=12][b]Leaderboard - Base + Fortune + Villagers[/b][/size]
 [c][b][u]
 Username          Score          Monument        [/u][/b]
@@ -95,4 +116,4 @@ Thanks to [user=sgtpepere]Sgt Pepere[/user] for providing French translations.
 Thanks to [user=magic_erwt]Dimitri[/user] for making the missing microbadges!
 If you have the game in another language and want to provide translations, please send me a geek mail about details how to do that.
 
-Have fun and thanks to all the mayors of Tiny Towns who participate in this challenge!
+Have fun and thanks to all the mayors of Tiny Towns!

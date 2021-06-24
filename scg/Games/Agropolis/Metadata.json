@@ -1,0 +1,15 @@
+{
+  "id": "Agropolis",
+  "name": "Agropolis",
+  "postFormData": {
+    "forumId": 274,
+    "objectId": 314088,
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 314088,
+    "objectType": "thing",
+    "geekItemName": "Agropolis",
+    "imageId": 5674430
+  }
+}
