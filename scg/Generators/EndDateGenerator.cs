@@ -4,11 +4,11 @@ namespace scg.Generators
 {
     public class EndDateGenerator : TemplateGenerator
     {
-        private readonly IDateTime _dateTime;
+        private readonly EndDateHelper _endDateHelper;
 
-        public EndDateGenerator(IDateTime dateTime)
+        public EndDateGenerator(EndDateHelper endDateHelper)
         {
-            _dateTime = dateTime;
+            _endDateHelper = endDateHelper;
         }
 
         public override string Token { get; } = "<<END_DATE>>";
@@ -16,15 +16,7 @@ namespace scg.Generators
         public override string Apply(string template, string[] arguments)
         {
             var months = int.Parse(arguments[0]);
-            var today = _dateTime.Now;
-            var endDate = today;
-            if (today.Day >= 16) endDate = _dateTime.Now.AddMonths(months);
-           
-            while (endDate.AddDays(1).Month == endDate.Month)
-            {
-                endDate = endDate.AddDays(1);
-            }
-
+            var endDate = _endDateHelper.GetEndDate(months);
             return template.Replace(Token, endDate.ToShortDateString());
         }
     }

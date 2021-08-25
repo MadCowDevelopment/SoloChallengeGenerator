@@ -1,10 +1,19 @@
+using System;
 using System.Collections.Generic;
+using scg.Utils;
 
 namespace scg.Framework
 {
     public class GameOptions
     {
-        public Dictionary<string, string> Options { get; } = new Dictionary<string, string>();
+        private readonly EndDateHelper _endDateHelper;
+
+        public GameOptions(EndDateHelper endDateHelper)
+        {
+            _endDateHelper = endDateHelper;
+        }
+
+        public Dictionary<string, string> Options { get; } = new();
 
         public string Id => Options["Id"];
 
@@ -14,7 +23,14 @@ namespace scg.Framework
 
             if (gameId == "OnTheUnderground")
             {
-                Options.Add("Map", "Berlin"); // TODO: Randomize
+                var mapName = (_endDateHelper.GetEndDate(1).Month % 2) switch
+                {
+                    0 => "Berlin",
+                    1 => "London",
+                    _ => throw new InvalidOperationException("Cannot determine map name.")
+                };
+
+                Options.Add("Map", mapName);
             }
         }
     }

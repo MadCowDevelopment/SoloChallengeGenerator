@@ -32,15 +32,32 @@ namespace scg.Generators.OnTheUnderground
             var lines = _buildingData.GetAndSkipTakenBuildings("LINE", 2).ToList();
 
             var (line1, line2) = GenerateImage(lines);
+            var targetScore = CalculateTargetScore(line1, line2);
 
             _generationResult.AddImage(new GeekImage("SETUP_IMAGE", "SETUP_IMAGE.png"));
 
             var setupText =
                 $"Setup the board like the image, with the yellow ({line1.Value}) and pink ({line2.Value}) lines belonging to the Underground. " +
-                $"The Underground starts at {line1.Value + line2.Value + 15} points and we start with [b]one[/b] branching tokens. " +
+                $"The Underground starts at {targetScore} points and we start with [b]one[/b] branching tokens. " +
                 "The game immediately ends once we overtake the Underground or the destination deck is empty.";
 
             return template.Replace(Token, setupText);
+        }
+
+        private int CalculateTargetScore(Line line1, Line line2)
+        {
+            var baseScore = line1.Value + line2.Value;
+            var expertScore = baseScore + 15;
+
+            if (line1 is BerlinLine berlinLine1 && line2 is BerlinLine berlinLine2)
+            {
+                if (berlinLine1.Icon == berlinLine2.Icon)
+                {
+                    return expertScore + 30;
+                }
+            }
+
+            return expertScore;
         }
 
         private (Line line1, Line line2) GenerateImage(List<Building> lines)

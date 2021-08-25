@@ -12,14 +12,14 @@ namespace scg.Generators.OnTheUnderground
             return new ReadOnlyCollection<BerlinLine>(
                 new List<BerlinLine>
                 {
-                    new BerlinLine(1, "S1", 20,
+                    new BerlinLine(1, "S1", 20, BerlinLineIcon.Circle,
                         new List<BerlinLocation>
                         {
                             Oranienburg, Birkenwerder, Wittenau, BornholmerStr, Gesundbrunnen, Friedrichstr,
                             PotsdamerPlatz, Moeckernbruecke, YorckStr, Schoeneberg, RathausSteglitz,
                             BotanischerGarten, Zehlendorf, KrummeLanke, Wannsee, PotsdamHbf
                         }),
-                    new BerlinLine(2, "S2/S25/S26", 20,
+                    new BerlinLine(2, "S2/S25/S26", 20, BerlinLineIcon.Circle,
                         new List<BerlinLocation>
                         {
                             Henningsdorf, AltTegel, KarlBonhoefferNervenklinik, Wittenau, BornholmerStr,
@@ -28,7 +28,7 @@ namespace scg.Generators.OnTheUnderground
                             Karow, Bernau, Priesterweg, LichterfeldeOst, TeltowStadt
                         }),
 
-                    new BerlinLine(3, "S3/S9", 15,
+                    new BerlinLine(3, "S3/S9", 15, BerlinLineIcon.Square,
                         new List<BerlinLocation>
                         {
                             Spandau, Olympiastadion, MesseSued, Westkreuz, Charlottenburg, ZoologischerGarten,
@@ -36,7 +36,7 @@ namespace scg.Generators.OnTheUnderground
                             SchoeneWeide, Adlershof, Gruenbergallee, FlughafenBerlinSchoenefeld,
                             WarschauerStr, Ostkreuz, Karlshorst, Koepenick, Erkner
                         }),
-                    new BerlinLine(4, "S7/S75", 15,
+                    new BerlinLine(4, "S7/S75", 15, BerlinLineIcon.Square,
                         new List<BerlinLocation>
                         {
                             PotsdamHbf, Wannsee, Grunewald, MesseSued, Westkreuz, Charlottenburg, ZoologischerGarten,
@@ -44,14 +44,14 @@ namespace scg.Generators.OnTheUnderground
                             Lichtenberg, FriedrichsfeldeOst, Springpfuhl, Hohenschoenhausen, Wartenberg,
                             Springpfuhl, Marzahn, Ahrensfelde
                         }),
-                    new BerlinLine(5, "S8/S85", 20,
+                    new BerlinLine(5, "S8/S85", 20, BerlinLineIcon.None,
                         new List<BerlinLocation>
                         {
                             Bergfelde, Schoenfliess, MuehlenbeckMoenchMuehle, Karow, Pankow, BornholmerStr,
                             SchoenhauserAllee, PrenzlauerAllee, Greifswalderstr, LandsbergerAllee, FrankfurterAllee,
                             Ostkreuz, TreptowerPark, SchoeneWeide, Adlershof, Zeuthen
                         }),
-                    new BerlinLine(6, "S41/S42", 10,
+                    new BerlinLine(6, "S41/S42", 10, BerlinLineIcon.Triangle,
                         new List<BerlinLocation>
                         {
                             Westend, Jungfernheide, Westhafen, Wedding, Gesundbrunnen, SchoenhauserAllee,
@@ -59,7 +59,7 @@ namespace scg.Generators.OnTheUnderground
                             TreptowerPark, Neukoelln, HermannStr, Tempelhof, Suedkreuz, Schoeneberg,
                             Bundesplatz, HeidelbergerPlatz, HohenzollernDamm, Westkreuz
                         }),
-                    new BerlinLine(7, "S45/S46/S47", 15,
+                    new BerlinLine(7, "S45/S46/S47", 15, BerlinLineIcon.Triangle,
                         new List<BerlinLocation>
                         {
                             Westend, MesseNord, Westkreuz, HohenzollernDamm, HeidelbergerPlatz, Bundesplatz,
@@ -67,14 +67,14 @@ namespace scg.Generators.OnTheUnderground
                             SchoeneWeide, Spindlersfeld, SchoeneWeide, Adlershof, Zeuthen, KoenigsWusterhausen,
                             Adlershof, Gruenbergallee, FlughafenBerlinSchoenefeld
                         }),
-                    new BerlinLine(8, "U2", 25,
+                    new BerlinLine(8, "U2", 25, BerlinLineIcon.None,
                         new List<BerlinLocation>
                         {
                             Ruhleben, TheodorHeussPlatz, MesseNord, BismarckStr, ZoologischerGarten,
                             Nollendorfplatz, PotsdamerPlatz, Stadtmitte, Alexanderplatz, SchoenhauserAllee,
                             Pankow
                         }),
-                    new BerlinLine(9, "U3/U6", 20,
+                    new BerlinLine(9, "U3/U6", 20, BerlinLineIcon.None,
                         new List<BerlinLocation>
                         {
                             AltTegel, Leopoldplatz, Wedding, Friedrichstr, Stadtmitte, HalleschesTor,
@@ -82,7 +82,7 @@ namespace scg.Generators.OnTheUnderground
                             HalleschesTor, Moeckernbruecke, Nollendorfplatz, FehrbellinerPlatz, HeidelbergerPlatz,
                             DahlemDorf, KrummeLanke
                         }),
-                    new BerlinLine(10, "U5/U8", 20,
+                    new BerlinLine(10, "U5/U8", 20, BerlinLineIcon.None,
                         new List<BerlinLocation>
                         {
                             Wittenau, KarlBonhoefferNervenklinik, OsloerStr, Gesundbrunnen, Alexanderplatz,
@@ -90,7 +90,7 @@ namespace scg.Generators.OnTheUnderground
                             Wuhletal, Hoenow, Alexanderplatz, Ostbahnhof, KottbusserTor, Hermannplatz,
                             HermannStr
                         }),
-                    new BerlinLine(11, "U7", 20,
+                    new BerlinLine(11, "U7", 20, BerlinLineIcon.None,
                         new List<BerlinLocation>
                         {
                             Spandau, Zitadelle, PaulSternStr, Siemensdamm, Jungfernheide, Mierendorffplatz,
