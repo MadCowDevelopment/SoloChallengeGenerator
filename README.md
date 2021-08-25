@@ -13,6 +13,7 @@ Currently supports the following games:
 * Glass Road
 * On The Underground
 * Sprawlopolis
+* The Search for Planet X
 * Tiny Towns
 
 ## Installation
