@@ -2,7 +2,7 @@
 
 namespace scg.Framework
 {
-    public class FlagsDictionary
+    public class  FlagsDictionary
     {
         public FlagsDictionary(GlobalRepository repository)
         {

@@ -4,34 +4,29 @@ using System.Text;
 using scg.Framework;
 using scg.Utils;
 
-namespace scg.Generators
+namespace scg.Generators.Cartographers
 {
     internal class ScoringCardGenerator : TemplateGenerator
     {
         private readonly BuildingData _buildingData;
-        private readonly Dictionary<int, int> _targetScores;
-        private readonly Dictionary<int, int> _cardNumbers;
+        private Dictionary<int, int> _targetScores;
+        private Dictionary<int, int> _cardNumbers;
 
         public ScoringCardGenerator(BuildingData buildingData)
         {
             _buildingData = buildingData;
-            _targetScores = new Dictionary<int, int>
-            {
-                {18, 17}, {19, 22}, {20, 18}, {21, 25}, {22, 27}, {23, 24}, {24, 20}, {25, 22},
-                {26, 16}, {27, 16}, {28, 20}, {29, 21}, {30, 20}, {31, 24}, {32, 24}, {33, 24}
-            };
 
-            _cardNumbers = new Dictionary<int, int>
-            {
-                {18, 28}, {19, 27}, {20, 29}, {21, 26}, {22, 33}, {23, 30}, {24, 32}, {25, 31},
-                {26, 34}, {27, 35}, {28, 37}, {29, 36}, {30, 41}, {31, 40}, {32, 38}, {33, 39}
-            };
         }
 
         public override string Token { get; } = "<<SCORING_CARDS>>";
 
         public override string Apply(string template, string[] arguments)
         {
+            var set = arguments[0];
+
+            InitializeTargetScores(set);
+            InitializeCardNumbers(set);
+
             var scoring1 = _buildingData.GetAndSkipTakenBuildings("Scoring1", 1).Single();
             var scoring2 = _buildingData.GetAndSkipTakenBuildings("Scoring2", 1).Single();
             var scoring3 = _buildingData.GetAndSkipTakenBuildings("Scoring3", 1).Single();
@@ -54,6 +49,44 @@ namespace scg.Generators
             builder.AppendLine("At the end of your game you have to subtract that from your score to find your rating!");
 
             return template.Replace(Token, builder.ToString());
+        }
+
+        private void InitializeTargetScores(string set)
+        {
+            if (set == "Base")
+            {
+                _targetScores = new Dictionary<int, int>
+                {
+                    {18, 17}, {19, 22}, {20, 18}, {21, 25}, {22, 27}, {23, 24}, {24, 20}, {25, 22},
+                    {26, 16}, {27, 16}, {28, 20}, {29, 21}, {30, 20}, {31, 24}, {32, 24}, {33, 24}
+                };
+            } else if (set == "Heroes")
+            {
+                _targetScores = new Dictionary<int, int>
+                {
+                    {20, 16}, {21, 18}, {22, 22}, {23, 24}, {24, 12}, {25, 14}, {26, 15}, {27, 18},
+                    {28, 14}, {29, 12}, {30, 12}, {31, 16}, {32, 28}, {33, 30}, {34, 28}, {35, 30},
+                };
+            }
+        }
+
+        private void InitializeCardNumbers(string set)
+        {
+            if (set == "Base")
+            {
+                _cardNumbers = new Dictionary<int, int>
+                {
+                    {18, 28}, {19, 27}, {20, 29}, {21, 26}, {22, 33}, {23, 30}, {24, 32}, {25, 31},
+                    {26, 34}, {27, 35}, {28, 37}, {29, 36}, {30, 41}, {31, 40}, {32, 38}, {33, 39}
+                };
+            } else if (set == "Heroes")
+            {
+                _cardNumbers = new Dictionary<int, int>
+                {
+                    {20, 28}, {21, 29}, {22, 30}, {23, 31}, {24, 32}, {25, 33}, {26, 34}, {27, 35},
+                    {28, 36}, {29, 37}, {30, 38}, {31, 39}, {32, 40}, {33, 41}, {34, 42}, {35, 43}
+                };
+            }
         }
     }
 }

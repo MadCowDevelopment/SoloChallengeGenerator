@@ -1,0 +1,9 @@
+﻿<<END_DATE>>,1
+<<CHALLENGE_NUMBER>>
+<<PREVIOUS_RESULTS>>
+<<SKILL_CARDS>>,Heroes
+<<SCORING_CARDS>>,Heroes
+<<SEASON_{x}>>,Spring,Heroes
+<<SEASON_{x}>>,Summer,Heroes
+<<SEASON_{x}>>,Autumn,Heroes
+<<SEASON_{x}>>,Winter,Heroes

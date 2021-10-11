@@ -1,9 +1,9 @@
 ﻿<<END_DATE>>,1
 <<CHALLENGE_NUMBER>>
 <<PREVIOUS_RESULTS>>
-<<SKILL_CARDS>>
-<<SCORING_CARDS>>
-<<SEASON_{x}>>,Spring
-<<SEASON_{x}>>,Summer
-<<SEASON_{x}>>,Autumn
-<<SEASON_{x}>>,Winter
+<<SKILL_CARDS>>,Base
+<<SCORING_CARDS>>,Base
+<<SEASON_{x}>>,Spring,Base
+<<SEASON_{x}>>,Summer,Base
+<<SEASON_{x}>>,Autumn,Base
+<<SEASON_{x}>>,Winter,Base
