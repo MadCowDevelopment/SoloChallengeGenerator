@@ -1,0 +1,49 @@
+﻿[size=18][center][b]Paper Dungeons Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
+
+[b]Challenge Start:[/b] Now
+[b]Challenge End:[/b] <<END_DATE>>
+
+[size=14][b][u]Hall of Fame:[/u][/b][/size]
+[b]<<PREVIOUS_RESULTS>>[/b]
+
+[size=14][b][u]Description:[/u][/b][/size]
+Welcome to the Paper Dungeons Solo Challenge. Every month we will play with a different randomized setup and compare scores.
+Repeat plays are encouraged.
+All regular rules apply.
+
+[size=14][u][b]Setup:[/b][/u][/size]
+[b]Dungeon card:[/b]
+<<DUNGEON_CARD>>
+
+[b]Mission cards:[/b]
+[c]Round: 1 2 3 4 5 6 7 8
+Score: 6 5 4 4 3 3 2 1[/c]
+<<STARTING_BUILDINGS_MISSION>>
+[b]Power cards (choose one):[/b]
+<<STARTING_BUILDINGS_POWER>>
+[b]Objective cards (choose one):[/b]
+<<STARTING_BUILDINGS_OBJECTIVE>>[i]The characters 'B' or 'W' show which characters training paths are black or white. E.g B/W/B/W means Warrior Black, Wizard White, Cleric Black, Rogue White.[/i]
+
+[size=14][u][b]Scoring:[/b][/u][/size]
+[c]Monster 1:
+Monster 2:
+Monster 3:
+Heroes   :
+Artifacts:
+Gems     :
+Minions  :
+Damage   :
+Resurrect:
+Cards    :
+Missions :
+TOTAL    :[/c]
+
+Post your total score and a picture if you want. Happy scrawling!
+
+If anyone wants to provide translations for other languages please contact me via GM.
+
+[size=18][b]TODO: Move leaderboards to reply[/b][/size]
+[size=12][b]Leaderboard[/b][/size]
+[c][b][u]
+Username          Score[/u][/b]
+[/c]
