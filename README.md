@@ -8,10 +8,12 @@ Generator and uploader for solo boardgame challenges posted to BoardGameGeek.
 Currently supports the following games: 
 * Agropolis
 * Cartographers
+* Cartographers Heroes
 * Fields of Arle
 * Gentes
 * Glass Road
 * On The Underground
+* Paper Dungeons
 * Sprawlopolis
 * The Search for Planet X
 * Tiny Towns
