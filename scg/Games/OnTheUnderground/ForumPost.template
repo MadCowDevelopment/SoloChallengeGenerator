@@ -13,7 +13,7 @@
 [imageid=$SETUP_IMAGE$ large]
 <<LINE_SETUP>>
 
-When you finish, report the number of cards remaining in the deck, both the Underground's and your score and preferably an image of your final boardstate, so we can all compare how we did. I'll award 15:gg: to the person who reported the best score by the end of the month. (Feel free to report multiple attempts, but only your first try is valid to compete for the :gg:)
+When you finish, report the number of cards remaining in the deck, both the Underground's and your score and preferably an image of your final boardstate, so we can all compare how we did.
 
 There are now 3 rounds to play in the challenge with separate highscores. Lines stay the same but destination cards order is different.
 Round 1 will be the main event which will be used to pick as the highscore for the previous results list.
@@ -23,3 +23,13 @@ Good luck everyone, but most of all: [b]Enjoy the ride![/b]
 
 Destination cards:
 [c]<<DESTINATION_CARDS>>[/c]
+
+
+[size=18][b]TODO: Move leaderboards to reply[/b][/size]
+[size=18]Scores[/size]
+Round 1 (main event)
+[o][c][/c][/o]
+Round 2
+[o][c][/c][/o]
+Round 3
+[o][c][/c][/o]
