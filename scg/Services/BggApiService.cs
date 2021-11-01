@@ -10,27 +10,36 @@ namespace scg.Services
 {
     public class BggApiService
     {
-        private readonly CookieContainer _cookie = new CookieContainer();
+        private readonly CookieContainer _cookie = new();
 
         public async Task Login(string username, string password)
         {
-            var postData = $"lasturl=&username={username}&password={password}";
+            var postData = @"{""credentials"":{""username"":""" + username + @""",""password"":""" + password + @"""}}";
+
             var byteArray = Encoding.UTF8.GetBytes(postData);
 
-            var webRequest = (HttpWebRequest)WebRequest.Create("https://www.boardgamegeek.com/login");
+            var webRequest = (HttpWebRequest)WebRequest.Create("https://www.boardgamegeek.com/login/api/v1");
             webRequest.Method = "POST";
-            webRequest.ContentType = "application/x-www-form-urlencoded";
+            webRequest.ContentType = "application/json";
             webRequest.CookieContainer = _cookie;
 
-            using (Stream webpageStream = await webRequest.GetRequestStreamAsync())
+            await using (var webpageStream = await webRequest.GetRequestStreamAsync())
             {
-                webpageStream.Write(byteArray, 0, byteArray.Length);
+                await webpageStream.WriteAsync(byteArray, 0, byteArray.Length);
             }
 
-            using var response = await webRequest.GetResponseAsync();
-            using var reader = new StreamReader(response.GetResponseStream());
-            var responseText = reader.ReadToEnd();
-            if (responseText.Contains("<h1>Login Required</h1>"))
+            try
+            {
+                using var response = await webRequest.GetResponseAsync();
+                using var reader = new StreamReader(response.GetResponseStream());
+                var responseText = await reader.ReadToEndAsync();
+                if (responseText.Contains("<h1>Login Required</h1>"))
+                {
+                    Console.WriteLine("Error: Login failed.");
+                    Environment.Exit(2);
+                }
+            }
+            catch (Exception)
             {
                 Console.WriteLine("Error: Login failed.");
                 Environment.Exit(2);

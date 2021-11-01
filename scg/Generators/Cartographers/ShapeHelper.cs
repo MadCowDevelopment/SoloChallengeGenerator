@@ -1,7 +1,3 @@
-// © Baker Hughes Company. All rights reserved.
-// This document contains confidential and proprietary information owned by Baker Hughes Company.
-// Do not use, copy or distribute without permission.
-
 namespace scg.Generators.Cartographers
 {
     public static class ShapeHelper
