@@ -1,0 +1,15 @@
+{
+  "id": "Kingdomino",
+  "name": "Kingdomino",
+  "postFormData": {
+    "forumId": 274,
+    "objectId": 204583,
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 204583,
+    "objectType": "thing",
+    "geekItemName": "Kingdomino",
+    "imageId": 3132685
+  }
+}
