@@ -9,9 +9,11 @@ Currently supports the following games:
 * Agropolis
 * Cartographers
 * Cartographers Heroes
+* Dinosaur Island: Rawr & Write
 * Fields of Arle
 * Gentes
 * Glass Road
+* Kingdomino
 * On The Underground
 * Paper Dungeons
 * Sprawlopolis
