@@ -1,7 +1,3 @@
-// © Baker Hughes Company. All rights reserved.
-// This document contains confidential and proprietary information owned by Baker Hughes Company.
-// Do not use, copy or distribute without permission.
-
 using System.Collections.Generic;
 
 namespace scg.Generators.OnTheUnderground

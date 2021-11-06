@@ -1,0 +1,43 @@
+﻿[size=18][center][b]Dinosaur Island Rawr & Write Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
+
+[b]Challenge Start:[/b] Now
+[b]Challenge End:[/b] <<END_DATE>>
+
+[size=14][b][u]Hall of Fame:[/u][/b][/size]
+[b]<<PREVIOUS_RESULTS>>[/b]
+
+[size=14][b][u]Description:[/u][/b][/size]
+Welcome to the Dinosaur Island Rawr & Write Solo Challenge. Every month we will play with a different randomized setup and compare scores.
+Only the first blind play counts for the challenge but feel free to play as much as you want.
+All regular rules apply with once exception: The 3 objectives are fixed.
+
+[size=14][u][b]Setup:[/b][/u][/size]
+[b]Objectives:[/b]
+<<DINOSAUR_OBJECTIVES>>[b]Buildings:[/b]
+<<STARTING_BUILDINGS_BUILDING>>[b]Specialists:[/b]
+<<STARTING_BUILDINGS_SPECIALIST>>
+[size=14][u][b]AI Dice Draft:[/b][/u][/size]
+<<OFFER_BUILDINGS_AI>>
+[size=14][u][b]Scoring:[/b][/u][/size]
+[c]Herbivores       :
+Small Carnivores :
+Large Carnivores :
+Specialists      :
+Buildings        :
+Park Exits       :
+Excitement       :
+Excess Excitement:
+1 per 2 left DNA :
+-1 per Death     :
+-2 per 20+ Death :
+TOTAL            :[/c]
+
+Please post your total score (or the scoring template above) and a picture if you want.
+
+If anyone wants to provide translations for other languages please contact me via GM.
+
+[size=18][b]TODO: Move leaderboards to reply[/b][/size]
+[size=12][b]Leaderboard[/b][/size]
+[c][b][u]
+Username          Score[/u][/b]
+[/c]
