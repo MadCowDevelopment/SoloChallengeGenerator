@@ -1,0 +1,15 @@
+{
+  "id": "dungeon-academy",
+  "name": "Dungeon Academy",
+  "postFormData": {
+    "forumId": 274,
+    "objectId": 275840,
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 275840,
+    "objectType": "thing",
+    "geekItemName": "dungeon-academy",
+    "imageId": 4641504
+  }
+}

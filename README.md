@@ -10,6 +10,7 @@ Currently supports the following games:
 * Cartographers
 * Cartographers Heroes
 * Dinosaur Island: Rawr & Write
+* Dungeon Academy
 * Fields of Arle
 * Gentes
 * Glass Road

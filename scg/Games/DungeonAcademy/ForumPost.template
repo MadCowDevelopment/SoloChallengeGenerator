@@ -1,0 +1,50 @@
+﻿[size=18][center][b]Dungeon Academy Solo Challenge #<<CHALLENGE_NUMBER>>[/b][/center][/size]
+
+Challenge Start: Now
+Challenge End: <<END_DATE>>
+
+[size=14][b]Hall of Fame:[/b][/size]
+[b]<<PREVIOUS_RESULTS>>[/b]
+
+[size=14][b]Setup:[/b][/size]
+[b]Choose one of the following heroes:[/b]
+<<STARTING_BUILDINGS_HERO>>
+[b]Level 1 Loot:[/b]
+<<STARTING_BUILDINGS_LOOT>>
+[b]Level 2 Loot:[/b]
+<<STARTING_BUILDINGS_LOOT>>
+[b]Level 3 Loot:[/b]
+<<STARTING_BUILDINGS_LOOT>>
+[b]Level 4 Loot:[/b]
+N/A.
+
+[size=14][b]Rules:[/b][/size]
+Play a solo game on any difficulty using the rules from the solo game, using the chosen hero and loot cards.
+Repeat plays are encouraged.
+
+When reporting scores, feel free to post a screenshot and strategy explanations but please keep those in spoiler tags.
+
+You can use the following scoring template (quote this post to see the BGG code):
+[c]
+Level 1 Total :
+Level 2 Total :
+Level 3 Total :
+Level 4 Total :
+Red Monsters  :
+Blue Monsters :
+Small Monsters:
+Large Monsters:
+---------------
+[microbadge=52320]          :
+
+Chosen hero:
+Level 1 Loot:
+Level 2 Loot:
+Level 3 Loot:
+Level 4 Loot:
+[/c]
+
+
+Thanks to [user=MadMihi]Hans Baer[/user] for automating the challenge. Please contact him if you want to provide translations for other languages.
+
+Please feel free to suggest any changes you think might improve the challenge! This is my first time doing one and I'm mostly just cribbing off of the Tiny Towns one.
