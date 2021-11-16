@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using scg.App.Options;
 using scg.Framework;
 using scg.Services;
 using scg.Utils;
@@ -12,12 +13,14 @@ namespace scg.App.Generator
         private readonly ChallengeGenerator _challengeGenerator;
         private readonly BggApiService _bggApiService;
         private readonly GameMetadata _metadata;
+        private readonly ScgOptions _options;
 
-        public ChallengeGenerationWorkflow(ChallengeGenerator challengeGenerator, BggApiService bggApiService, GameMetadata metadata)
+        public ChallengeGenerationWorkflow(ChallengeGenerator challengeGenerator, BggApiService bggApiService, GameMetadata metadata, ScgOptions options)
         {
             _challengeGenerator = challengeGenerator;
             _bggApiService = bggApiService;
             _metadata = metadata;
+            _options = options;
         }
 
         public async Task<int> Run(GenerateOptions options)
@@ -30,8 +33,8 @@ namespace scg.App.Generator
 
         private async Task PublishToBGG(GenerateOptions options, GenerationResult generationResult)
         {
-            var user = ConsoleUtils.ReadValidString(options.User, "Username: ");
-            var password = ConsoleUtils.ReadValidPassword(null, "Password: ");
+            var user = _options.Username ?? ConsoleUtils.ReadValidString(options.User, "Username: ");
+            var password = _options.Password ?? ConsoleUtils.ReadValidPassword(null, "Password: ");
             
             await _bggApiService.Login(user, password);
 

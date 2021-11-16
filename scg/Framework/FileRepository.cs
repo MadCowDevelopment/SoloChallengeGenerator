@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using scg.App.Options;
 
 namespace scg.Framework
 {
@@ -9,10 +10,10 @@ namespace scg.Framework
     {
         private readonly string _userPath;
 
-        public FileRepository(string game) : base($"scg.Games.{game}.")
+        public FileRepository(ScgOptions options, string game) : base($"scg.Games.{game}.")
         {
-            _userPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "MadCowDevelopment", "scg", "Games", game);
+            var basePath = options?.DataFolder ?? Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            _userPath = Path.Combine(basePath, "MadCowDevelopment", "scg", "Games", game);
             Directory.CreateDirectory(_userPath);
         }
 

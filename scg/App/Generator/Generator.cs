@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Ninject;
 using Ninject.Extensions.Conventions;
+using scg.App.Options;
 using scg.Framework;
 using scg.Generators;
 using scg.Services;
@@ -23,6 +24,9 @@ namespace scg.App.Generator
 
             public Task<int> Execute(GenerateOptions options)
             {
+                _kernel.Bind<ScgOptionsRepository>().ToSelf().InSingletonScope();
+                _kernel.Bind<ScgOptions>().ToMethod(p => _kernel.Get<ScgOptionsRepository>().Options);
+
                 _kernel.Bind<FileRepository>().ToSelf().InSingletonScope().WithConstructorArgument("game", options.Game);
                 _kernel.Bind<GameMetadataReader>().ToSelf().InSingletonScope();
                 _kernel.Bind<GameMetadata>().ToConstant(_kernel.Get<GameMetadataReader>().Read());
