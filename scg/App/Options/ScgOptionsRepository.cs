@@ -25,7 +25,7 @@ internal class ScgOptionsRepository
                     decrypted = StringCipher.Decrypt((string)prop.GetValue(_options), PassPhrase);
                     prop.SetValue(_options, decrypted);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     decrypted = null;
                 }
