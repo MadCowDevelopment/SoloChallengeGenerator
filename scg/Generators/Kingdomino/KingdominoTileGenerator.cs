@@ -25,7 +25,7 @@ namespace scg.Generators.Kingdomino
                 {
                     builder.AppendLine($"Set {setNumber + 1}:");
                     builder.Append("[o][c]");
-                    builder.Append(string.Join(", ", numbers.Skip(gameNumber * 24 + setNumber * 4).Take(4).Select(n => $"{n}".PadLeft(2, ' '))));
+                    builder.Append(string.Join(", ", numbers.Skip(gameNumber * 24 + setNumber * 4).Take(4).OrderBy(p=>p).Select(n => $"{n}".PadLeft(2, ' '))));
                     builder.AppendLine("[/c][/o]");
                 }
 

@@ -47,11 +47,11 @@ namespace scg.Generators.OnTheUnderground
         private int CalculateTargetScore(Line line1, Line line2)
         {
             var baseScore = line1.Value + line2.Value;
-            var expertScore = baseScore + 15;
+            var expertScore = baseScore + 20;
 
             if (line1 is BerlinLine berlinLine1 && line2 is BerlinLine berlinLine2)
             {
-                if (berlinLine1.Icon == berlinLine2.Icon)
+                if (berlinLine1.Icon != BerlinLineIcon.None && berlinLine1.Icon == berlinLine2.Icon)
                 {
                     return expertScore + 30;
                 }
