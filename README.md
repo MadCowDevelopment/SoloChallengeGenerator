@@ -17,6 +17,7 @@ Currently supports the following games:
 * Kingdomino
 * On The Underground
 * Paper Dungeons
+* Rolling Realms
 * Sprawlopolis
 * The Search for Planet X
 * Tiny Towns
@@ -73,6 +74,22 @@ Remove the last entry:
 List all scores:
 
 `scg score [game] list`
+
+### Configure settings
+
+The following settings can be saved in a config file :
+* Username - BGG user name used during publish.
+* Password - BGG password used during publish (it's stored encrypted and should be safe as long as you don't give the settings file to anyone).
+* DataFolder - By default this will point to %LOCALAPPDATA% but can be changed to any other folder. I'm using my OneDrive root for example.
+
+Set one of the settings
+
+`scg config set [setting] [value]` e.g. `scg config set Password Password123`
+
+Get one of the settings
+
+`scg config get [setting]`
+
 
 ### Migrating from grcg
 
