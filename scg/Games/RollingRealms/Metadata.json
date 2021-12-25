@@ -1,0 +1,15 @@
+{
+  "id": "RollingRealms",
+  "name": "Rolling Realms",
+  "postFormData": {
+    "forumId": 274,
+    "objectId": 305682,
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 305682,
+    "objectType": "thing",
+    "geekItemName": "Rolling Realms",
+    "imageId": 6313647
+  }
+}

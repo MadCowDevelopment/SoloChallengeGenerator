@@ -1,0 +1,62 @@
+[center][size=16]Rolling Realms Solo Challenge #<<CHALLENGE_NUMBER>>[/size][/center]
+
+[b]Challenge Start:[/b] Now
+[b]Challenge End:[/b] <<END_DATE>>
+
+<<PREVIOUS_RESULTS>>
+
+[b][size=16]Description:[/size][/b]
+Welcome to the Rolling Realms Solo Challenge. Every month we will play with a randomly generated setup and dice rolls. Let's see who earns the most stars.
+Note: If you don't own the game you can participate by using the [url=https://www.dropbox.com/sh/kj5tunjjx1xfhn5/AACc63pMv-erHHfN69_xM2nAa?dl=0&preview=Rolling+Realms+v10.1.pdf]PnP version 10.1.[/url]
+
+[b][size=16]Rules:[/size][/b]
+- All regular rules apply.
+- Only your [b]first blind play[/b] counts.
+- All are welcome to join in. Consider joining the [guild=1301]1P Guild[/guild].
+
+[b][size=16]Prizes:[/size][/b]
+All geekgold donated to this entry will be split between the highest scores and one randomly selected participant.
+
+[b][size=16]Scoring:[/size][/b]
+Please report your score using this format:
+[b]Version:[/b] Please note here whether you used the retail or PnP version.
+[b]Round 1:[/b]
+[b]Round 2:[/b]
+[b]Round 3:[/b]
+[b]Total:[/b]
+Please post a photo if you can.
+
+[b][size=16]Challenge:[/size][/b]
+
+[b][size=14]Round 1:[/size][/b]
+[b]Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_RETAIL>>[/o]
+[b]PnP Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_PNP>>[/o]
+<<ROLLINGREALMS_ROLLS>>
+
+[b][size=14]Round 2:[/size][/b]
+[b]Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_RETAIL>>[/o]
+[b]PnP Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_PNP>>[/o]
+<<ROLLINGREALMS_ROLLS>>
+
+[b][size=14]Round 3:[/size][/b]
+[b]Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_RETAIL>>[/o]
+[b]PnP Realms: [/b][o]<<STARTING_BUILDINGS_HOLE_PNP>>[/o]
+<<ROLLINGREALMS_ROLLS>>
+
+
+
+[size=18][b]TODO: Move leaderboards to reply[/b][/size]
+[b][size=16]🏆 Leaderboard Retail:[/size][/b]
+
+[c]
+Name                         R1 |   R2 |   R3 | Total
+------------------------------------------------------
+[/c]
+
+
+[b][size=16]🏆 Leaderboard PnP:[/size][/b]
+
+[c]
+Name                         R1 |   R2 |   R3 | Total
+------------------------------------------------------
+[/c]

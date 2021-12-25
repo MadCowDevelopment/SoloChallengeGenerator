@@ -1,7 +1,5 @@
-﻿using System.Drawing;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading;
 using scg.Framework;
 using scg.Utils;
 
@@ -34,7 +32,7 @@ namespace scg.Generators
             if (buildingsGroupedByTranslations.Count == 1)
             {
                 var languageGroup = buildingsGroupedByTranslations.First();
-                builder.Append($"[microbadge={_flags[languageGroup.Key]}] {string.Join(" - ", languageGroup.Value)}");
+                builder.Append($"{string.Join(" - ", languageGroup.Value)}");
             }
             else if (number == 1)
             {

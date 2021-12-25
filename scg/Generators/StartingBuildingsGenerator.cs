@@ -29,7 +29,8 @@ namespace scg.Generators
                 .ToDictionary(p => p.Key, p => p.Select(x => x.Value).ToList());
             foreach (var languageGroup in buildingsGroupedByTranslations)
             {
-                builder.AppendLine($"[microbadge={_flags[languageGroup.Key]}] {string.Join(" - ", languageGroup.Value)}");
+                var flag = buildingsGroupedByTranslations.Count == 1 ? "" : $"[microbadge={_flags[languageGroup.Key]}] ";
+                builder.AppendLine($"{flag}{string.Join(" - ", languageGroup.Value)}");
             }
 
             builder.Append("[/size]");

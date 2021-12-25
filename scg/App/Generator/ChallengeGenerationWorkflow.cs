@@ -44,12 +44,7 @@ namespace scg.App.Generator
                 generationResult.UpdateImageId(image.Identifier, imageId);
             }
 
-
-#if DEBUG
-            var forumId = 3; // This doesn't actually work. Something else needs to change too. Maybe ObjectID?
-#else
             var forumId = _metadata.PostFormData.ForumId;
-#endif
 
             var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
                 forumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
