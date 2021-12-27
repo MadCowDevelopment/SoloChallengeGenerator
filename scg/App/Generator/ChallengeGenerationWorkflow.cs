@@ -53,11 +53,11 @@ namespace scg.App.Generator
             
             generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
             await _bggApiService.PostGeeklistItem(generationResult.GeeklistPost.Comments,
-                GlobalIdentifiers.ListId, _metadata.GeeklistFormData.ObjectId,
+                GlobalIdentifiers.GeekListId, _metadata.GeeklistFormData.ObjectId,
                 _metadata.GeeklistFormData.ObjectType, _metadata.GeeklistFormData.GeekItemName,
                 _metadata.GeeklistFormData.ImageId);
             Console.WriteLine("Challenge added to solo challenges geeklist.");
-            new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.ListId}").OpenInBrowser();
+            new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.GeekListId}").OpenInBrowser();
         }
 
         private async Task SaveToFile(GenerationResult generationResult)
