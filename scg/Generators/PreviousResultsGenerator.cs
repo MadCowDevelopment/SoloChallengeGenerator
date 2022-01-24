@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators
 {
@@ -24,7 +25,7 @@ namespace scg.Generators
                 builder.AppendLine($":chalice:[thread={challenge.ThreadId}][/thread] -- {score}:chalice:");
             }
 
-            return template.Replace(Token, builder.ToString());
+            return template.ReplaceFirst(Token, builder.ToString());
         }
     }
 }

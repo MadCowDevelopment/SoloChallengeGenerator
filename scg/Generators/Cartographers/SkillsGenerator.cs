@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators.Cartographers
 {
@@ -18,8 +19,6 @@ namespace scg.Generators.Cartographers
         public SkillsGenerator(BuildingData buildingData)
         {
             _buildingData = buildingData;
-
-
         }
 
         public override string Token { get; } = "<<SKILL_CARDS>>";
@@ -41,7 +40,7 @@ namespace scg.Generators.Cartographers
             builder.AppendLine(S(_skillDescriptions[skills[2].Id]));
             builder.Append("[/size]");
 
-            return template.Replace(Token, builder.ToString());
+            return template.ReplaceFirst(Token, builder.ToString());
         }
 
         private string S(string description)

@@ -8,7 +8,7 @@ namespace scg.Generators.RollingRealms
         public override string Token { get; } = "<<ROLLINGREALMS_ROLLS>>";
         public override string Apply(string template, string[] arguments)
         {
-            return template.Replace(Token, CreateRandomizedTiles());
+            return template.ReplaceFirst(Token, CreateRandomizedTiles());
         }
 
         private string CreateRandomizedTiles()

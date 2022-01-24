@@ -24,7 +24,7 @@ namespace scg.Generators.OnTheUnderground
         {
             var rounds = int.Parse(arguments.Length < 1 ? "1" : arguments[0]);
             InitializedDestinationDecks(rounds);
-            return template.Replace(Token, CreateTemplateString());
+            return template.ReplaceFirst(Token, CreateTemplateString());
         }
 
         private void InitializedDestinationDecks(int rounds)

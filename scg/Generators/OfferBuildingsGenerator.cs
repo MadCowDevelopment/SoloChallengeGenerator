@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators
 {
@@ -37,7 +38,7 @@ namespace scg.Generators
             }
 
             var placeHolder = $"<<OFFER_BUILDINGS_{category.ToUpper()}>>";
-            return template.Replace(placeHolder, builder.ToString());
+            return template.ReplaceFirst(placeHolder, builder.ToString());
         }
     }
 }

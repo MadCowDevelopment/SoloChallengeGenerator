@@ -16,7 +16,7 @@ namespace scg.Generators.PaperDungeons
         {
             var month = _endDateHelper.GetEndDate(1).Month;
             char dungeonCard = (char)(month + 64);
-            return template.Replace(Token, dungeonCard.ToString());
+            return template.ReplaceFirst(Token, dungeonCard.ToString());
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators.DinosaurIsland
 {
@@ -39,7 +40,7 @@ namespace scg.Generators.DinosaurIsland
                 builder.AppendLine(objective);
             }
 
-            return template.Replace(Token, builder.ToString());
+            return template.ReplaceFirst(Token, builder.ToString());
         }
     }
 }

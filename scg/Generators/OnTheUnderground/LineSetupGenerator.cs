@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using scg.Framework;
+using scg.Utils;
 
 namespace scg.Generators.OnTheUnderground
 {
@@ -41,7 +42,7 @@ namespace scg.Generators.OnTheUnderground
                 $"The Underground starts at {targetScore} points and we start with [b]one[/b] branching tokens. " +
                 "The game immediately ends once we overtake the Underground or the destination deck is empty.";
 
-            return template.Replace(Token, setupText);
+            return template.ReplaceFirst(Token, setupText);
         }
 
         private int CalculateTargetScore(Line line1, Line line2)

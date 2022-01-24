@@ -48,7 +48,7 @@ namespace scg.Generators.Cartographers
             builder.AppendLine($"Total of the numbers in the lower right corner: [b]{totalTargetScore}[/b]");
             builder.AppendLine("At the end of your game you have to subtract that from your score to find your rating!");
 
-            return template.Replace(Token, builder.ToString());
+            return template.ReplaceFirst(Token, builder.ToString());
         }
 
         private void InitializeTargetScores(string set)

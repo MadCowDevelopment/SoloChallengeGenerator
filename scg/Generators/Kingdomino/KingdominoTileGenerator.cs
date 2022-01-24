@@ -9,7 +9,7 @@ namespace scg.Generators.Kingdomino
         public override string Token { get; } = "<<KINGDOMINO_TILES>>";
         public override string Apply(string template, string[] arguments)
         {
-            return template.Replace(Token, CreateRandomizedTiles());
+            return template.ReplaceFirst(Token, CreateRandomizedTiles());
         }
 
         private string CreateRandomizedTiles()

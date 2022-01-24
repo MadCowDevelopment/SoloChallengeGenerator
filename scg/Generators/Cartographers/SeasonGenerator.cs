@@ -87,7 +87,7 @@ namespace scg.Generators.Cartographers
             }
 
             var placeHolder = $"<<SEASON_{season.ToUpper()}>>";
-            return template.Replace(placeHolder, builder.ToString());
+            return template.ReplaceFirst(placeHolder, builder.ToString());
         }
 
         private void InitializeCardData(string set)
