@@ -33,17 +33,17 @@ namespace scg.Generators.Cartographers
             var builder = new StringBuilder();
             builder.Append("[size=11]");
             builder.AppendLine($"A) {_skillNumbers[skills[0].Id]} {skills[0].ToPostFormatWithoutDuplicateTranslations()}");
-            builder.AppendLine(S(_skillDescriptions[skills[0].Id]));
+            builder.AppendLine(FormatDescription(_skillDescriptions[skills[0].Id]));
             builder.AppendLine($"B) {_skillNumbers[skills[1].Id]} {skills[1].ToPostFormatWithoutDuplicateTranslations()}");
-            builder.AppendLine(S(_skillDescriptions[skills[1].Id]));
+            builder.AppendLine(FormatDescription(_skillDescriptions[skills[1].Id]));
             builder.AppendLine($"C) {_skillNumbers[skills[2].Id]} {skills[2].ToPostFormatWithoutDuplicateTranslations()}");
-            builder.AppendLine(S(_skillDescriptions[skills[2].Id]));
+            builder.AppendLine(FormatDescription(_skillDescriptions[skills[2].Id]));
             builder.Append("[/size]");
 
             return template.ReplaceFirst(Token, builder.ToString());
         }
 
-        private string S(string description)
+        private string FormatDescription(string description)
         {
             if (!description.Contains("$$"))
             {
@@ -93,7 +93,7 @@ namespace scg.Generators.Cartographers
                     { 45, "S8" },
                 };
             }
-            else if (set == "Heroes")
+            else if (set == SetIdentifiers.Heroes)
             {
                 _skillDescriptions = new Dictionary<int, string>
                 {

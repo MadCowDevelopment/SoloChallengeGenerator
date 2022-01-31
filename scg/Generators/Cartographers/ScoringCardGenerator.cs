@@ -53,14 +53,14 @@ namespace scg.Generators.Cartographers
 
         private void InitializeTargetScores(string set)
         {
-            if (set == "Base")
+            if (set == SetIdentifiers.Base)
             {
                 _targetScores = new Dictionary<int, int>
                 {
                     {18, 17}, {19, 22}, {20, 18}, {21, 25}, {22, 27}, {23, 24}, {24, 20}, {25, 22},
                     {26, 16}, {27, 16}, {28, 20}, {29, 21}, {30, 20}, {31, 24}, {32, 24}, {33, 24}
                 };
-            } else if (set == "Heroes")
+            } else if (set == SetIdentifiers.Heroes)
             {
                 _targetScores = new Dictionary<int, int>
                 {
@@ -72,14 +72,14 @@ namespace scg.Generators.Cartographers
 
         private void InitializeCardNumbers(string set)
         {
-            if (set == "Base")
+            if (set == SetIdentifiers.Base)
             {
                 _cardNumbers = new Dictionary<int, int>
                 {
                     {18, 28}, {19, 27}, {20, 29}, {21, 26}, {22, 33}, {23, 30}, {24, 32}, {25, 31},
                     {26, 34}, {27, 35}, {28, 37}, {29, 36}, {30, 41}, {31, 40}, {32, 38}, {33, 39}
                 };
-            } else if (set == "Heroes")
+            } else if (set == SetIdentifiers.Heroes)
             {
                 _cardNumbers = new Dictionary<int, int>
                 {

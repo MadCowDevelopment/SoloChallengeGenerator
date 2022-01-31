@@ -15,6 +15,7 @@ namespace scg.Generators.Cartographers
 
         private readonly List<Building> _ambushPool = new();
         private readonly List<Building> _heroesPool = new();
+        private readonly List<string> _afterSeasonScoringEffects = new();
         private Dictionary<int, CardData> _cardData = new();
 
         public SeasonGenerator(BuildingData buildingData)
@@ -33,9 +34,9 @@ namespace scg.Generators.Cartographers
 
             var timeThreshold = GetTimeThreshold(season, set);
             var maxPossibleCards = GetMaxPossibleCards(season);
-            int usedTime = 0;
-            int cardsDrawn = 0;
-            bool previousTurnWasRuinsAndMonster = false;
+            var usedTime = 0;
+            var cardsDrawn = 0;
+            var previousTurnWasRuinsAndMonster = false;
 
             var exploreDeck = PrepareExploreDeck(set);
 
@@ -58,6 +59,10 @@ namespace scg.Generators.Cartographers
                 var cardData = _cardData[currentCard.Id];
                 usedTime += cardData.Time;
 
+                if (cardData.HasAfterScoringEffect) _afterSeasonScoringEffects.Add(cardData.AfterScoringEffect);
+
+                if (cardData.IsMonster || cardData.IsHero) maxPossibleCards++;
+
                 if (!cardData.IsMonster && previousTurnWasRuinsAndMonster)
                 {
                     previousTurnWasRuinsAndMonster = false;
@@ -78,16 +83,38 @@ namespace scg.Generators.Cartographers
                 AppendCardData(builder, cardData, drawRuins);
             }
 
-            while (cardsDrawn <= maxPossibleCards)
+            var extraSpoilers = Math.Min(maxPossibleCards - cardsDrawn, 2);
+            while (extraSpoilers > 0)
             {
                 var cardData = CardData.Placeholder;
                 builder.AppendLine($"[o][c][size=11][b]{season} - {usedTime}/{timeThreshold}[/b]: [microbadge=12865] Season is over");
                 AppendCardData(builder, cardData, false);
-                cardsDrawn++;
+                extraSpoilers--;
+            }
+
+            var seasonNumber = GetSeasonNumber(season);
+            if (set == SetIdentifiers.Heroes && seasonNumber < 4 && _afterSeasonScoringEffects.Any())
+            {
+                builder.AppendLine("[b][size=18]After season scoring:[/size][/b]");
+                builder.AppendLine($"[o][c][size=11][microbadge=12865]Perform the following monster action{AddPluralSIf(() => _afterSeasonScoringEffects.Count>1)}:");
+                builder.AppendLine("__________________________________________________________________________________________________________________________");
+                builder.AppendLine();
+                foreach (var afterSeasonScoringEffect in _afterSeasonScoringEffects)
+                {
+                    builder.AppendLine(afterSeasonScoringEffect);
+                }
+
+                builder.AppendLine();
+                builder.AppendLine("[/size][/c][/o]");
             }
 
             var placeHolder = $"<<SEASON_{season.ToUpper()}>>";
             return template.ReplaceFirst(placeHolder, builder.ToString());
+        }
+
+        private string AddPluralSIf(Func<bool> predicate)
+        {
+            return predicate() ? "s" : string.Empty;
         }
 
         private void InitializeCardData(string set)
@@ -95,7 +122,7 @@ namespace scg.Generators.Cartographers
             if (set == "Base")
             {
                 _cardData = BaseCardData.Generate();
-            } else if (set == "Heroes")
+            } else if (set == SetIdentifiers.Heroes)
             {
                 _cardData = HeroesCardData.Generate();
             }
@@ -125,13 +152,25 @@ namespace scg.Generators.Cartographers
             };
         }
 
+        private static int GetSeasonNumber(string season)
+        {
+            return season switch
+            {
+                "Spring" => 1,
+                "Summer" => 2,
+                "Autumn" => 3,
+                "Winter" => 4,
+                _ => throw new InvalidOperationException($"What kind of season is '{season}'?")
+            };
+        }
+
         private List<Building> PrepareExploreDeck(string set)
         {
             var exploreDeck = new List<Building>();
             exploreDeck.AddRange(_buildingData.GetAll("Explore"));
             _ambushPool.AddRange(_buildingData.GetAndSkipTakenBuildings("Ambush", 1));
             exploreDeck.AddRange(_ambushPool);
-            if (set == "Heroes")
+            if (set == SetIdentifiers.Heroes)
             {
                 _heroesPool.AddRange(_buildingData.GetAndSkipTakenBuildings("Hero", 1));
                 exploreDeck.AddRange(_heroesPool);
@@ -155,44 +194,43 @@ namespace scg.Generators.Cartographers
         {
             private readonly IEnumerable<TerrainType> _terrainTypes;
             private readonly string _shapeDescription;
+            private readonly string _afterScoringEffect;
 
-            public CardData(int time, IEnumerable<TerrainType> terrainTypes, string shapeDescription)
+            public CardData(int time, IEnumerable<TerrainType> terrainTypes, string shapeDescription, string afterScoringEffect = null)
             {
                 Time = time;
                 _terrainTypes = terrainTypes;
                 _shapeDescription = shapeDescription;
+                _afterScoringEffect = afterScoringEffect;
             }
 
-            public static CardData Placeholder { get; } = new CardData(0, new[] { TerrainType.None }, $" {NL} {NL} {NL} {NL}");
+            public static CardData Placeholder { get; } = new(0, new[] { TerrainType.None }, $" {NL} {NL} {NL} {NL}");
 
             public int Time { get; }
             public bool IsMonster => _terrainTypes.Any(p => p == TerrainType.Monster) && _terrainTypes.Count() == 1;
+            public bool IsHero => _terrainTypes.Any(p => p == TerrainType.Hero) && _terrainTypes.Count() == 1;
+
+            public bool HasAfterScoringEffect => !string.IsNullOrEmpty(_afterScoringEffect);
 
             public string PrintTerrainTypes()
             {
                 return string.Join("[microbadge=12865]|[microbadge=12865]", _terrainTypes.Select(p =>
                 {
-                    switch (p)
+                    return p switch
                     {
-                        case TerrainType.None:
-                            return "[microbadge=12865]";
-                        case TerrainType.Farm:
-                            return "[microbadge=46466] Farm";
-                        case TerrainType.Forest:
-                            return "[microbadge=46467] Forest";
-                        case TerrainType.Village:
-                            return "[microbadge=46464] Village";
-                        case TerrainType.Water:
-                            return "[microbadge=46465] Water";
-                        case TerrainType.Monster:
-                            return "[microbadge=46463] Monster";
-                        case TerrainType.Hero:
-                            return "[microbadge=35694] Hero";
-                        default:
-                            throw new InvalidOperationException("Unsupported terrain type.");
-                    }
+                        TerrainType.None => "[microbadge=12865]",
+                        TerrainType.Farm => "[microbadge=46466] Farm",
+                        TerrainType.Forest => "[microbadge=46467] Forest",
+                        TerrainType.Village => "[microbadge=46464] Village",
+                        TerrainType.Water => "[microbadge=46465] Water",
+                        TerrainType.Monster => "[microbadge=46463] Monster",
+                        TerrainType.Hero => "[microbadge=35694] Hero",
+                        _ => throw new InvalidOperationException("Unsupported terrain type.")
+                    };
                 }));
             }
+
+            public string AfterScoringEffect => _afterScoringEffect;
 
             public string PrintShapes(bool drawRuins)
             {
@@ -410,12 +448,14 @@ namespace scg.Generators.Cartographers
                     $"D {NL}" +
                     $" X   After scoring each season, draw a zombie in{NL}" +
                     $"     each empty space adjacent to a zombie.{NL}" +
-                    $" {NL}"));
+                    $" {NL}",
+                    "Draw a Zombie in each empty space adjacent to a Zombie."));
                 _cardData.Add(18, new CardData(0, new[] { TerrainType.Monster },
                     $"    D{NL}" +
                     $"XXX    After scoring each season, destroy an{NL}" +
                     $" X     empty space adjacent to the giant troll.{NL}" +
-                    $" {NL}"));
+                    $" {NL}",
+                    "Destroy an empty space adjacent to the Giant Troll."));
                 _cardData.Add(19, new CardData(0, new[] { TerrainType.Monster },
                     $"  {NL}" +
                     $"X X   After drawing the gorgon, destroy an{NL}" +
@@ -430,7 +470,7 @@ namespace scg.Generators.Cartographers
     {
         internal static bool IsRuins(this Building building, string set)
         {
-            return set == "Base" && building.Id is 12 or 13;
+            return set == SetIdentifiers.Base && building.Id is 12 or 13;
         }
     }
 }
