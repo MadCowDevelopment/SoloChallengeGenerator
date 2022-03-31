@@ -9,15 +9,34 @@
 [size=14][b][u]Description:[/u][/b][/size]
 Welcome to the Dinosaur Island Rawr & Write Solo Challenge. Every month we will play with a different randomized setup and compare scores.
 Only the first blind play counts for the challenge but feel free to play as often as you want.
+During the Run Park Phase use as many of the dice as you have Merch Booths (from left to right). Skip the rest.
 All regular rules apply with once exception: The 3 objectives are fixed.
+
+Special thanks to [user=anewcar] for providing all the images of the dice.
 
 [size=14][u][b]Setup:[/b][/u][/size]
 [b]Objectives:[/b]
 <<DINOSAUR_OBJECTIVES>>[b]Buildings:[/b]
 <<STARTING_BUILDINGS_BUILDING>>[b]Specialists:[/b]
 <<STARTING_BUILDINGS_SPECIALIST>>
-[size=14][u][b]AI Dice Draft:[/b][/u][/size]
-<<OFFER_BUILDINGS_AI>>
+[size=14][u][b]Action Phase 1:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Action Phase 2:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Run Park Phase 1:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Action Phase 3:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Action Phase 4:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Run Park Phase 2:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Action Phase 5:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Action Phase 6:[/b][/u][/size]
+<<DINOSAUR_DICE>>
+[size=14][u][b]Run Park Phase 3:[/b][/u][/size]
+<<DINOSAUR_DICE>>
 [size=14][u][b]Scoring:[/b][/u][/size]
 [c]Herbivores       :
 Small Carnivores :
