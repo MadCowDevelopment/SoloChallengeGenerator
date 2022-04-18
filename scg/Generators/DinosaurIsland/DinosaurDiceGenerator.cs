@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using scg.Framework;
@@ -9,6 +10,7 @@ namespace scg.Generators.DinosaurIsland;
 public class DinosaurDiceGenerator : TemplateGenerator
 {
     private readonly BuildingData _buildingData;
+    private readonly FlagsDictionary _flags;
     private List<int> _diceIds = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     private List<int> _dieFaces = new()
     {
@@ -24,9 +26,10 @@ public class DinosaurDiceGenerator : TemplateGenerator
         6778193, 6778194, 6778195, 6778198, 6778166, 6778205,
     };
 
-    public DinosaurDiceGenerator(BuildingData buildingData)
+    public DinosaurDiceGenerator(BuildingData buildingData, FlagsDictionary flags)
     {
         _buildingData = buildingData;
+        _flags = flags;
     }
 
     public override string Token { get; } = "<<DINOSAUR_DICE>>";
@@ -35,30 +38,70 @@ public class DinosaurDiceGenerator : TemplateGenerator
     {
         var isActionPhase = arguments.Length > 0 && arguments[0] == "ACTION";
         var builder = new StringBuilder();
-        builder.Append("[o][c]");
         var diceIds = _diceIds.ToList();
         diceIds.Shuffle();
 
-        for (var i = 0; i < (isActionPhase ? 6 : 4); i++)
-        {
-            var currentDieIndex = diceIds[i] * 6 + RNG.Between(0, 5);
-            var imageId = _dieFaces[currentDieIndex];
-            builder.Append($"[ImageID={imageId} square inline]  ");
-        }
-
         if (isActionPhase)
         {
-            builder.AppendLine();
-            builder.AppendLine();
-
-            foreach (var offerBuilding in _buildingData.GetAndSkipTakenBuildings("AI", 1))
+            builder.AppendLine("[o][b]AI dice:[/b]");
+            var aiInfo = ParseAI(_buildingData.GetAndSkipTakenBuildings("AI", 1).Single());
+            builder.Append("[floatleft][floatleft]");
+            foreach (var language in aiInfo.Languages)
             {
-                builder.Append($"[size=11]{offerBuilding.ToPostFormat()}[/size]");
+                builder.AppendLine($"[microbadge={_flags[language.Key]}] {language.ActionSpot1}");
+            }
+
+            builder.Append($"[/floatleft][floatleft][ImageID={GetDieImageId(diceIds, 0)} square inline][/floatleft][/floatleft] [floatleft][floatleft]");
+            foreach (var language in aiInfo.Languages)
+            {
+                builder.AppendLine($"[microbadge={_flags[language.Key]}] {language.ActionSpot2}");
+            }
+
+            builder.AppendLine($"[/floatleft][floatleft][ImageID={GetDieImageId(diceIds, 1)} square inline][/floatleft][/floatleft][clear][b]Select your dice:[/b]");
+            builder.AppendLine($"[floatleft][ImageID={GetDieImageId(diceIds, 2)} square inline][c]  [/c][ImageID={GetDieImageId(diceIds, 3)} square inline][c]  [/c][ImageID={GetDieImageId(diceIds, 4)} square inline][c]  [/c][ImageID={GetDieImageId(diceIds, 5)} square inline][/floatleft][clear][/o]");
+        }
+        else
+        {
+            for (var i = 0; i < 6; i++)
+            {
+                builder.Append($"[floatleft][o][ImageID={GetDieImageId(diceIds, i)} square inline][/o][/floatleft] ");
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                builder.AppendLine();
             }
         }
 
-        builder.Append("[/c][/o]");
-
         return template.ReplaceFirst(Token, builder.ToString());
+    }
+
+    private int GetDieImageId(List<int> diceIds, int i)
+    {
+        return _dieFaces[diceIds[i] * 6 + RNG.Between(0, 5)];
+    }
+
+    private AIInfo ParseAI(Building building)
+    {
+        var result = new AIInfo();
+        foreach (var translation in building.Translations)
+        {
+            var actionSpots = translation.Value.Split("-").Select(p => p.Trim()).ToList();
+            result.Languages.Add(new SingleLanguageAIInfo
+                { Key = translation.Key, ActionSpot1 = actionSpots[0], ActionSpot2 = actionSpots[1] });
+        }
+        return result;
+    }
+
+    private class AIInfo
+    {
+        public List<SingleLanguageAIInfo> Languages { get; } = new();
+    }
+
+    private class SingleLanguageAIInfo
+    {
+        public string Key { get; set; }
+        public string ActionSpot1 { get; set; }
+        public string ActionSpot2 { get; set; }
     }
 }

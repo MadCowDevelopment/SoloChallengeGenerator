@@ -1,13 +1,13 @@
-﻿(4) Duplicate   - (6) Build
-(2) Make Dinos  - (4) Extract DNA
-(1) Make Dinos  - (6) Raise Funds
-(2) Make Dinos  - (6) Build
-(2) Raise Funds - (5) Extract DNA
-(3) Raise Funds - (6) Duplicate
-(3) Extract DNA - (5) Build
-(1) Make Dinos  - (3) Duplicate
-(1) Extract DNA - (5) Duplicate
-(1) Raise Funds - (4) Build
+﻿Duplicate   - Build
+Make Dinos  - Extract DNA
+Make Dinos  - Raise Funds
+Make Dinos  - Build
+Raise Funds - Extract DNA
+Raise Funds - Duplicate
+Extract DNA - Build
+Make Dinos  - Duplicate
+Extract DNA - Duplicate
+Raise Funds - Build
 Deluxe Break Room
 Goat Pen
 Casino
