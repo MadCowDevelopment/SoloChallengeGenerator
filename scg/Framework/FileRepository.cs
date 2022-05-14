@@ -21,14 +21,14 @@ namespace scg.Framework
         {
             return isUserData
                 ? System.IO.File.ReadAllText(GetPath(filename))
-                : ReadEmbeddedResource(filename);
+                : ReadEmbeddedResource(filename) ?? string.Empty;
         }
 
         public string[] ReadAllLines(string filename, bool isUserData)
         {
             return isUserData
                 ? System.IO.File.ReadAllLines(GetPath(filename))
-                : ReadEmbeddedResource(filename).Split(Environment.NewLine);
+                : ReadEmbeddedResource(filename)?.Split(Environment.NewLine) ?? Array.Empty<string>();
         }
 
         private string GetPath(string filename)

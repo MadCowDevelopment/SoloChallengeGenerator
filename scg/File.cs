@@ -7,6 +7,7 @@ namespace scg
     public static class File
     {
         public static readonly string Buildings = "Buildings.dat";
+        public static readonly string IllegalCombinations = "IllegalCombinations.dat";
         public static readonly string ForumPostTemplate = "ForumPost.template";
         public static readonly string ForumPostGenerators = "ForumPost.gen";
         public static readonly string GeeklistPostTemplate = "GeeklistPost.template";

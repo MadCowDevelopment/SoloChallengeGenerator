@@ -17,11 +17,10 @@ namespace scg.Framework
         protected string ReadEmbeddedResource(string filename)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream($"{_resourcePath}{filename}"))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                return reader.ReadToEnd();
-            }
+            using var stream = assembly.GetManifestResourceStream($"{_resourcePath}{filename}");
+            if (stream == null) return null;
+            using var reader = new StreamReader(stream);
+            return reader.ReadToEnd();
         }
 
         public Stream Open(string filename)
