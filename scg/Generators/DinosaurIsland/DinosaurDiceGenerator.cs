@@ -66,11 +66,6 @@ public class DinosaurDiceGenerator : TemplateGenerator
             {
                 builder.Append($"[floatleft][o][ImageID={GetDieImageId(diceIds, i)} square inline][/o][/floatleft] ");
             }
-
-            for (int i = 0; i < 5; i++)
-            {
-                builder.AppendLine();
-            }
         }
 
         return template.ReplaceFirst(Token, builder.ToString());
