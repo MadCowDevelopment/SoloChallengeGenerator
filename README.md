@@ -11,6 +11,7 @@ Currently supports the following games:
 * Cartographers Heroes
 * Dinosaur Island: Rawr & Write
 * Dungeon Academy
+* Fleet: The Dice Game
 * Fields of Arle
 * Gentes
 * Glass Road
@@ -21,6 +22,8 @@ Currently supports the following games:
 * Sprawlopolis
 * The Search for Planet X
 * Tiny Towns
+* Trails of Tucana
+* Welcome To
 
 ## Installation
 
