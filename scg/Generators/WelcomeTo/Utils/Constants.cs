@@ -26,7 +26,7 @@ namespace scg.Generators.WelcomeTo
             "__________________________________________________________________________________________________________________________\n" +
             "[b][size=15][/size][/b]\n";
 
-    public static string getFigureForEnum(Figure fig) {
+    public static string GetFigureForEnum(Figure fig) {
         switch (fig) {
             case Figure.GREEN:
                 return GREEN_FIGURE;
@@ -60,34 +60,6 @@ namespace scg.Generators.WelcomeTo
             "[size=15][microbadge=3][/size][b][size=15][color=#a5a351][/color][/size][/b]\n" +
             "__________________________________________________________________________________________________________________________\n" +
             "[b][size=15][/size][/b]\n" +
-            "[/c][/o]";
-
-    public static string SAMPLE_CITY_PLANS =
-            "[o][c]\n" +
-            "[b][size=20]City Plan #1[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[size=20]Higher Points: [b]8[/b][/size]\n" +
-            "[size=20]Lower Points:  [b]6[/b][/size]\n" +
-            "[size=20][microbadge=3][/size][b][size=18][color=#a5a351][/color][/size][/b]\n" +
-            "__________________________________________________________________________________________________________________________\n" +
-            "[b][size=18][/size][/b]\n" +
-            "[b][size=20]City Plan #2[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[size=20]Higher Points: [b]8[/b][/size]\n" +
-            "[size=20]Lower Points:  [b]6[/b][/size]\n" +
-            "[size=20][microbadge=3][/size][b][size=18][color=#a5a351][/color][/size][/b]\n" +
-            "__________________________________________________________________________________________________________________________\n" +
-            "[b][size=18][/size][/b]\n" +
-            "[b][size=20]City Plan #3[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[b][size=20]6 \uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32\uD83D\uDD32[/size][/b]\n" +
-            "[size=20]Higher Points: [b]8[/b][/size]\n" +
-            "[size=20]Lower Points:  [b]6[/b][/size]\n" +
-            "[size=20][microbadge=3][/size][b][size=18][color=#a5a351][/color][/size][/b]\n" +
-            "__________________________________________________________________________________________________________________________\n" +
-            "[b][size=18][/size][/b]\n" +
             "[/c][/o]";
     }
 }

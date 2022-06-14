@@ -7,21 +7,21 @@ namespace scg.Generators.WelcomeTo
 {
     public class CityPlanCard
     {
-        public List<int> estateSizes;
-        public int higherPoints;
-        public int lowerPoints;
+        public List<int> EstateSizes { get; }
+        public int HigherPoints { get; }
+        public int LowerPoints { get; }
 
-        public int level;
+        public int Level { get; }
 
         private CityPlanCard(List<int> estateSizes, int higherPoints, int lowerPoints, int level)
         {
-            this.estateSizes = estateSizes;
-            this.higherPoints = higherPoints;
-            this.lowerPoints = lowerPoints;
-            this.level = level;
+            EstateSizes = estateSizes;
+            HigherPoints = higherPoints;
+            LowerPoints = lowerPoints;
+            Level = level;
         }
 
-        public static CityPlanCard create(List<int> estateSizes, int firstPlacePoints, int secondPlacePoints, int level)
+        public static CityPlanCard Create(List<int> estateSizes, int firstPlacePoints, int secondPlacePoints, int level)
         {
             return new CityPlanCard(estateSizes, firstPlacePoints, secondPlacePoints, level);
         }

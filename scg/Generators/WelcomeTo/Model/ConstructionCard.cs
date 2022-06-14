@@ -4,16 +4,16 @@ namespace scg.Generators.WelcomeTo
 {
     public class ConstructionCard
     {
-        public int number;
-        public Figure figure;
+        public int Number { get; }
+        public Figure Figure { get; }
 
         private ConstructionCard(int number, Figure figure)
         {
-            this.number = number;
-            this.figure = figure;
+            Number = number;
+            Figure = figure;
         }
 
-        public static ConstructionCard create(int number, Figure figure)
+        public static ConstructionCard Create(int number, Figure figure)
         {
             return new ConstructionCard(number, figure);
         }
