@@ -21,6 +21,7 @@ namespace scg.Generators.FleetDiceGame
             var builder = new StringBuilder();
             var maxRound = 8;
             
+            _generateBaseBoatDie(builder);
 
             for(int i = 0; i < maxRound; i++) {
                 bool isEven = (i + 1) % 2 == 0;
@@ -42,6 +43,16 @@ namespace scg.Generators.FleetDiceGame
             }
 
             return builder.ToString();
+        }
+
+       private void _generateBaseBoatDie(StringBuilder sb) {
+            int randNum = _rand.Next(0, 5);
+            string currStr = _getBoatSideForNum(randNum);
+            
+            sb.Append("[o][c]");
+            sb.AppendLine("[size=12][b]Base Boat Die[/b][/size]");
+            sb.Append($"{currStr} ");
+            sb.AppendLine("[/c][/o]");
         }
 
         private void _generateBoatDice(StringBuilder sb) {
