@@ -26,20 +26,20 @@ namespace scg.Generators.FleetDiceGame
             for(int i = 0; i < maxRound; i++) {
                 bool isEven = (i + 1) % 2 == 0;
                 string firstPlayer = isEven ? "Captain Ruth" : "You";
-                builder.Append("[o][c]");
                 builder.AppendLine($"[size=15][u][b]Round {i + 1} - First Player: {firstPlayer}[/b][/u][/size]");
                 builder.AppendLine(emptyLine);
+                builder.Append("[o][c]");
                 builder.AppendLine("[size=12][b]Boat Phase[/b][/size]");
 
                 _generateBoatDice(builder);
-
-                builder.AppendLine("__________________________________________________________________________________________________________________________");
+                builder.AppendLine("[/c][/o]");
+                builder.Append("[o][c]");
                 builder.AppendLine("[size=12][b]Town Phase[/b][/size]");
 
                 _generateTownDice(builder);
 
-                builder.AppendLine("[b][size=15][/size][/b]");
                 builder.AppendLine("[/c][/o]");
+                
             }
 
             return builder.ToString();
