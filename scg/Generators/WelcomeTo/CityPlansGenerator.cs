@@ -54,7 +54,7 @@ namespace scg.Generators.WelcomeTo
                     CityPlanCard.Create(new List<int>{5,5}, 8, 4, 1),
                     CityPlanCard.Create(new List<int>{6,6}, 10, 6, 1)
             };
-            WelcomeToUtils.Shuffle(deck);
+            deck.Shuffle();
             return deck;
         }
 
@@ -68,7 +68,7 @@ namespace scg.Generators.WelcomeTo
                     CityPlanCard.Create(new List<int>{4,1,1,1}, 9, 5, 2)
             };
 
-            WelcomeToUtils.Shuffle(deck);
+            deck.Shuffle();
             return deck;
         }
 
@@ -82,7 +82,7 @@ namespace scg.Generators.WelcomeTo
                     CityPlanCard.Create(new List<int>{2,3,5}, 13, 7, 3)
             };
 
-            WelcomeToUtils.Shuffle(deck);
+            deck.Shuffle();
             return deck;
         }
         

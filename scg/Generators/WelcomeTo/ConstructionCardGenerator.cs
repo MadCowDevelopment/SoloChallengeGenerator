@@ -18,7 +18,7 @@ namespace scg.Generators.WelcomeTo
             var sb = new StringBuilder();
 
             List<ConstructionCard> allConstructionCards = _initConstructionDeck();
-            WelcomeToUtils.Shuffle(allConstructionCards);
+            allConstructionCards.Shuffle();
 
             List<ConstructionCard> firstSubDeck = new List<ConstructionCard>();
             List<ConstructionCard> secondSubDeck = new List<ConstructionCard>();
@@ -34,7 +34,7 @@ namespace scg.Generators.WelcomeTo
             }
 
             secondSubDeck.Add(ConstructionCard.Create(0, Figure.SOLO_CARD));
-            WelcomeToUtils.Shuffle(secondSubDeck);
+            secondSubDeck.Shuffle();
 
             Queue<ConstructionCard> finalDeck = new Queue<ConstructionCard>(firstSubDeck);
             secondSubDeck.ForEach(o => finalDeck.Enqueue(o));
