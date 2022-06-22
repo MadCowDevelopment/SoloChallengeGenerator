@@ -21,6 +21,7 @@ Currently supports the following games:
 * Sprawlopolis
 * The Search for Planet X
 * Tiny Towns
+* Welcome To
 
 ## Installation
 
