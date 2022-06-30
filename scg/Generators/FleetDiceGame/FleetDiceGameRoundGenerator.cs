@@ -9,7 +9,7 @@ namespace scg.Generators.FleetDiceGame
     {
         private Random _rand = new Random();
 
-        private string emptyLine = "[size=15][microbadge=3][/size][b][size=15][color=#a5a351][/color][/size][/b]";
+        private string _emptyLine = "[size=15][microbadge=3][/size][b][size=15][color=#a5a351][/color][/size][/b]";
         public override string Token { get; } = "<<ROUNDS>>";
         public override string Apply(string template, string[] arguments)
         {
@@ -27,7 +27,7 @@ namespace scg.Generators.FleetDiceGame
                 bool isEven = (i + 1) % 2 == 0;
                 string firstPlayer = isEven ? "Captain Ruth" : "You";
                 builder.AppendLine($"[size=15][u][b]Round {i + 1} - First Player: {firstPlayer}[/b][/u][/size]");
-                builder.AppendLine(emptyLine);
+                builder.AppendLine(_emptyLine);
                 builder.Append("[o][c]");
                 builder.AppendLine("[size=12][b]Boat Phase[/b][/size]");
 
@@ -62,7 +62,7 @@ namespace scg.Generators.FleetDiceGame
                 sb.Append($"{currStr} ");
             }
 
-            sb.AppendLine(emptyLine);
+            sb.AppendLine(_emptyLine);
         }
 
         private void _generateTownDice(StringBuilder sb) {
@@ -74,7 +74,7 @@ namespace scg.Generators.FleetDiceGame
 
             int num = _rand.Next(0, 6);
             sb.Append(_getBoatSideForNum(num));
-            sb.AppendLine(emptyLine);
+            sb.AppendLine(_emptyLine);
         }
 
         private string _getBoatSideForNum(int num) {
