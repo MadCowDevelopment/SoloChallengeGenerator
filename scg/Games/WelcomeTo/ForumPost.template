@@ -1,0 +1,34 @@
+[b]Challenge Start[/b]: Now
+[b]Challenge End[/b]: <<END_DATE>>
+
+[size=13][u][b]Description[/b][/u][/size]
+Hello! Inspired by Sprawlopolis solo challenges, I decided to generate a Solo challenge for Welcome To.
+
+This challenge will use the [b]base game[/b] only and the [b]base solo rules[/b]. The setup for each challenge will be randomly generated and you will compete with others to get the highest score. The only requirement is drawing the cards in the order specified by the challenge setup. Only the first blind submission will be considered for the challenge.
+
+[size=13][u][b]Rules Summary[/b][/u][/size]
+Every turn 3 Construction cards are dealt. You have to choose [i]two[/i] of the three cards, [b]one for its number[/b], and [b]one for its effect[/b]. The remaining card is discarded.
+When the Solo card is drawn, turn over the Plan cards that are not yet "approved" to their "approved" side (make sure you mark which cards you already "approved" before drawing the solo card).
+
+The game ends when the stack of cards is empty ([b]no reshuffling[/b]), or one of the three end conditions of the basic version occurs.
+The player counts their points as in the classic mode. Exception: in the Temp Agency, the player only earns [b]7 points if they hired at least six temps[/b]. Less than six and the player receives zero points.
+
+[size=13][u][b]Submissions[/b][/u][/size]
+Please add your submissions in the following format:
+[c]BGG Username: {username}
+Score: {score}
+Photo of your board (optional - and please surround the photo with [ o ] [ / o ]  tags so it will be hidden)[/c]
+
+[size=13][u][b]Reference[/b][/u][/size]
+[b][size=11][🌴] - Landscaper[/size][/b]
+[b][size=11][🔶] - Temp Agency[/size][/b]
+[b][size=11][🌊] - Pool Manufacturer[/size][/b]
+[b][size=11][📮] - Bis[/size][/b]
+[b][size=11][🏦] - Surveyor[/size][/b]
+[b][size=11][♐] - Real Estate Agent[/size][/b]
+
+[size=13][u][b]City Plan Cards[/b][/u][/size]
+<<CITY_PLAN_CARDS>>
+
+[size=13][u][b]Construction Cards[/b][/u][/size]
+<<CONSTRUCTION_CARDS>>
