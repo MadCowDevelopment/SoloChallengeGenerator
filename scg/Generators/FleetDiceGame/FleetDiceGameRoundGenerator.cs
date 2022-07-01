@@ -10,13 +10,13 @@ namespace scg.Generators.FleetDiceGame
         private Random _rand = new Random();
 
         private string _emptyLine = "[size=15][microbadge=3][/size][b][size=15][color=#a5a351][/color][/size][/b]";
-        public override string Token { get; } = "<<ROUNDS>>";
+        public override string Token { get; } = "<<FLEET_ROUNDS>>";
         public override string Apply(string template, string[] arguments)
         {
-            return template.ReplaceFirst(Token, CreateRandomizedTiles());
+            return template.ReplaceFirst(Token, CreateRandomizedDice());
         }
 
-        public string CreateRandomizedTiles()
+        public string CreateRandomizedDice()
         {
             var builder = new StringBuilder();
             var maxRound = 8;
