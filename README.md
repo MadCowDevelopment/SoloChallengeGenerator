@@ -23,6 +23,7 @@ Currently supports the following games:
 * The Search for Planet X
 * Tiny Towns
 * Trails of Tucana
+* Twilight Inscription
 * Welcome To
 
 ## Installation

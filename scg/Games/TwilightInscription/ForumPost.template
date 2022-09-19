@@ -1,0 +1,52 @@
+﻿[size=18][center][b]Twilight Inscription Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
+
+[b]Challenge Start:[/b] Now
+[b]Challenge End:[/b] <<END_DATE>>
+
+[size=14][b][u]Hall of Fame:[/u][/b][/size]
+[b]<<PREVIOUS_RESULTS>>[/b]
+
+[size=14][b][u]Description:[/u][/b][/size]
+In this challenge we all play with the same randomized cards and die rolls.
+Only the first blind play counts for the leaderboard.
+
+[size=14][u][b]Setup:[/b][/u][/size]
+[b]Player sheets:[/b]
+[c]Navigation: <<RANDOM_NUMBER>>A
+Expansion : <<RANDOM_NUMBER>>A
+Industry  : <<RANDOM_NUMBER>>A
+Warfare   : <<RANDOM_NUMBER>>A[/c]
+
+[b]Faction:[/b]
+[c]<<STARTING_BUILDINGS_FACTION>>[/c]
+
+[b]Objectives:[/b]
+[c]Navigation: <<STARTING_BUILDINGS_OBJECTIVE_NAVIGATION>>
+Expansion : <<STARTING_BUILDINGS_OBJECTIVE_EXPANSION>>
+Industry  : <<STARTING_BUILDINGS_OBJECTIVE_INDUSTRY>>
+Warfare   : <<STARTING_BUILDINGS_OBJECTIVE_WARFARE>>[/c]
+
+[b]Relics (reveal after claimed):[/b]
+<<OFFER_BUILDINGS_RELIC>>
+
+
+[size=14][u][b]Game Rounds:[/b][/u][/size]
+<<GAME_ROUNDS>>
+
+
+[size=14][u][b]Scoring:[/b][/u][/size]
+[c]Navigation:
+Expansion :
+Industry  :
+Warfare   :
+TOTAL     :[/c]
+
+Post your total score and a picture of your empire if you want.
+Please let me know if you find any problems or have any other ideas how to improve this challenge.
+If you have the game in another language and want to provide translations, please send me a geek mail about details how to do that.
+
+[size=18][b]TODO: Move leaderboard to reply[/b][/size]
+[size=12][b]Leaderboard[/b][/size]
+[c][b][u]
+Username          Score[/u][/b]
+[/c]

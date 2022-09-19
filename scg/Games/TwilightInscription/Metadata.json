@@ -1,0 +1,15 @@
+{
+  "id": "twilight-inscription",
+  "name": "Twilight Inscription",
+  "postFormData": {
+    "forumId": 194,
+    "objectId": 361545,
+    "objectType": "thing"
+  },
+  "geeklistFormData": {
+    "objectId": 361545,
+    "objectType": "thing",
+    "geekItemName": "twilight-inscription",
+    "imageId": 7017748
+  }
+}

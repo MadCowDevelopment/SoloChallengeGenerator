@@ -136,5 +136,10 @@ namespace scg.Framework
         {
             _buildings.Add(building);
         }
+
+        public Building GetById(int id)
+        {
+            return _buildings.FirstOrDefault(p => p.Id == id);
+        }
     }
 }

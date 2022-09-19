@@ -7,7 +7,7 @@ namespace scg.Framework
     {
         private readonly FlagsDictionary _flags;
 
-        private readonly Dictionary<string, string> _translations = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> _translations = new();
         public Building(string category, string subcategory, FlagsDictionary flags)
         {
             _flags = flags;
