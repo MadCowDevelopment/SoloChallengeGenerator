@@ -139,13 +139,13 @@ public class GameRoundsGenerator : TemplateGenerator
     private class WarEventCard : EventCard
     {
         public override string Type => "War";
-        public override string Description => "Advance the deployment line.\nThen resolve a war against the AI.";
+        public override string Description => "Advance the deployment line.\nThen resolve a war against the AI.[o]-[/o]";
     }
 
     private class ProductionEventCard : EventCard
     {
         public override string Type => "Production";
-        public override string Description => "Claim 1 trade good for each unlocked\n+1 trade good icon in your industry chart.";
+        public override string Description => "Claim 1 trade good for each unlocked\n+1 trade good icon in your industry chart.[o]-[/o]";
     }
 
     private class CouncilEventCard : EventCard
@@ -160,7 +160,10 @@ public class GameRoundsGenerator : TemplateGenerator
         }
 
         public override string Type => "Council";
-        public override string Description => $"Pass Agenda: {PassAgenda}\nFail Agenda: {FailAgenda}";
+
+        public override string Description =>
+            $"Pass: {PassAgenda} - Fail: {FailAgenda}\n" +
+            $"AI vote roll:[o]+{RNG.Between(0, 2)}[/o]";
     }
 
     private class SpecialEventCard : EventCard
