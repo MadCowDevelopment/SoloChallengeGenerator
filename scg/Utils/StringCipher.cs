@@ -24,7 +24,7 @@ public static class StringCipher
         var saltStringBytes = Generate128BitsOfRandomEntropy();
         var ivStringBytes = Generate128BitsOfRandomEntropy();
         var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-        using var password = new Rfc2898DeriveBytes(passPhrase, saltStringBytes, DerivationIterations);
+        using var password = new Rfc2898DeriveBytes(passPhrase, saltStringBytes, DerivationIterations, HashAlgorithmName.SHA1);
         var keyBytes = password.GetBytes(Keysize / 8);
         using var symmetricKey = Aes.Create();
         symmetricKey.BlockSize = 128;
@@ -57,7 +57,7 @@ public static class StringCipher
         var cipherTextBytes = cipherTextBytesWithSaltAndIv.Skip((Keysize / 8) * 2)
             .Take(cipherTextBytesWithSaltAndIv.Length - ((Keysize / 8) * 2)).ToArray();
 
-        using var password = new Rfc2898DeriveBytes(passPhrase, saltStringBytes, DerivationIterations);
+        using var password = new Rfc2898DeriveBytes(passPhrase, saltStringBytes, DerivationIterations, HashAlgorithmName.SHA1);
         var keyBytes = password.GetBytes(Keysize / 8);
         using var symmetricKey = Aes.Create();
         symmetricKey.BlockSize = 128;
