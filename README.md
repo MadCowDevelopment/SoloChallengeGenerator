@@ -28,7 +28,7 @@ Currently supports the following games:
 
 ## Installation
 
-scg is built with .NET 6. The latest version of the SDK can be found [here](https://dotnet.microsoft.com/download).
+scg is built with .NET 7. The latest version of the SDK can be found [here](https://dotnet.microsoft.com/download).
 
 After successful installation of .NET, open a command prompt and type the following:
 
