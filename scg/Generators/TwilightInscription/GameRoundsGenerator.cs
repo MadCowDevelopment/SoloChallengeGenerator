@@ -54,7 +54,6 @@ public class GameRoundsGenerator : TemplateGenerator
         availableCards.Add(new StrategyEventCard { CardData = _data.GetById(19), Color = "black", Stage = 4, Resources = { "Influence", "Influence" } });
         availableCards.Add(new StrategyEventCard { CardData = _data.GetById(20), Color = "black", Stage = 4, Resources = { "Material", "Material", "Material" } });
         availableCards.Add(new StrategyEventCard { CardData = _data.GetById(21), Color = "black", Stage = 4, Resources = { "Research" } });
-        availableCards.Add(new SpecialEventCard { CardData = _data.GetById(22), Color = "blue", Stage = 5});
         availableCards.Add(new WarEventCard { CardData = _data.GetById(23), Color = "blue", Stage = 5 });
         availableCards.Add(new StrategyEventCard { CardData = _data.GetById(24), Color = "black", Stage = 5, Resources = { "Influence", "Influence" } });
         availableCards.Add(new StrategyEventCard { CardData = _data.GetById(25), Color = "black", Stage = 5, Resources = { "Material", "Material", "Material" } });
@@ -73,7 +72,15 @@ public class GameRoundsGenerator : TemplateGenerator
 
             currentColor = currentColor == "blue" ? "black" : "blue";
 
-            if (availableCards.All(p => p.Stage != currentStage)) currentStage++;
+            if (availableCards.All(p => p.Stage != currentStage))
+            {
+                currentStage++;
+                if (currentStage == 5)
+                {
+                    var randomBlack = availableCards.Where(p => p.Color == "black").Random();
+                    availableCards.Remove(randomBlack);
+                }
+            }
         }
 
         return eventDeck;
@@ -164,12 +171,6 @@ public class GameRoundsGenerator : TemplateGenerator
         public override string Description =>
             $"Pass: {PassAgenda} - Fail: {FailAgenda}\n" +
             $"AI vote roll:[o]+{RNG.Between(0, 2)}[/o]";
-    }
-
-    private class SpecialEventCard : EventCard
-    {
-        public override string Type => "Special";
-        public override string Description => "Skip this round.\nThe game will have one more strategy event.";
     }
 
     private static class DiceHelper
