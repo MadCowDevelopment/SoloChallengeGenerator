@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using scg.Framework;
 using scg.Utils;
@@ -22,9 +24,9 @@ namespace scg.Generators
             var builder = new StringBuilder();
             builder.Append("[size=11]");
 
-            var category = arguments[0];
-            var number = int.Parse(arguments[1]);
-            var startingBuildings = _buildingData.GetAndSkipTakenBuildings(category, number);
+            var (category, number, options) = ParseArguments(arguments);
+
+            var startingBuildings = GetStartingBuildings(options, category, number);
             var buildingsGroupedByTranslations = startingBuildings.SelectMany(p => p.Translations).GroupBy(p => p.Key)
                 .ToDictionary(p => p.Key, p => p.Select(x => x.Value).ToList());
             foreach (var languageGroup in buildingsGroupedByTranslations)
@@ -37,6 +39,34 @@ namespace scg.Generators
 
             var placeHolder = Token.Replace("{x}", category.ToUpper());
             return template.ReplaceFirst(placeHolder, builder.ToString());
+        }
+
+        private (string Category, int Number, StartingBuildingsGeneratorOptions Options) ParseArguments(string[] arguments)
+        {
+            var category = arguments[0];
+            var number = int.Parse(arguments[1]);
+
+            StartingBuildingsGeneratorOptions options = 0;
+            if (arguments.Length > 2)
+            {
+                options = Enum.Parse<StartingBuildingsGeneratorOptions>(string.Join(",", arguments[2].Split("|")));
+            }
+
+            return (category, number, options);
+        }
+
+        private IEnumerable<Building> GetStartingBuildings(StartingBuildingsGeneratorOptions options, string category, int number)
+        {
+            return (options & StartingBuildingsGeneratorOptions.Determined) ==
+                   StartingBuildingsGeneratorOptions.Determined
+                ? _buildingData.GetBuildingsDeterminedByMonth(category, number)
+                : _buildingData.GetAndSkipTakenBuildings(category, number);
+        }
+
+        [Flags]
+        private enum StartingBuildingsGeneratorOptions
+        {
+            Determined = 1,
         }
     }
 }
