@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace scg.Utils
 {
@@ -9,15 +10,20 @@ namespace scg.Utils
 
         public static void Shuffle<T>(this IList<T> list)
         {
-            int n = list.Count;
+            var n = list.Count;
             while (n > 1)
             {
                 n--;
-                int k = _random.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                var k = _random.Next(n + 1);
+                (list[k], list[n]) = (list[n], list[k]);
             }
+        }
+
+        public static T Random<T>(this IEnumerable<T> enumerable)
+        {
+            var list = enumerable.ToList();
+            var randomIndex = _random.Next(0, list.Count);
+            return list[randomIndex];
         }
     }
 }
