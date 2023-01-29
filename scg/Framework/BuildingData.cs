@@ -8,10 +8,11 @@ namespace scg.Framework
     public class BuildingData
     {
         private readonly FileRepository _repository;
-        private readonly List<Building> _buildings = new();
+        private readonly List<Building> _shuffledBuildings = new();
         private readonly List<Building> _takenBuildings = new();
         private readonly List<List<int>> _illegalBuildingCombinations = new();
         private readonly FlagsDictionary _flags;
+        private List<Building> _buildings;
 
         public BuildingData(FileRepository repository, FlagsDictionary flags)
         {
@@ -38,7 +39,7 @@ namespace scg.Framework
 
         public IEnumerable<Building> GetAll(string category)
         {
-            return _buildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            return _shuffledBuildings.Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
         
         private void Load()
@@ -82,7 +83,8 @@ namespace scg.Framework
 
         private void RandomizeBuildings()
         {
-            _buildings.Shuffle();
+            _buildings = _shuffledBuildings.ToList();
+            _shuffledBuildings.Shuffle();
         }
 
         private void AddTranslation(string translationFile)
@@ -99,20 +101,20 @@ namespace scg.Framework
             for (var i = 0; i < lines.Length; i++)
             {
                 var line = lines[i];
-                var building = _buildings[i];
+                var building = _shuffledBuildings[i];
 
                 building.AddTranslation(languageName, line);
             }
         }
 
-        private int Count => _buildings.Count;
+        private int Count => _shuffledBuildings.Count;
 
         private IEnumerable<Building> GetAndSkipTakenBuildings(string category, int number, Func<Building, bool> additionalFilter)
         {
             var chosenBuildings = new List<Building>();
             while (chosenBuildings.Count < number)
             {
-                var candidate = _buildings.Except(_takenBuildings)
+                var candidate = _shuffledBuildings.Except(_takenBuildings)
                     .Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase))
                     .Where(additionalFilter)
                     .First();
@@ -131,15 +133,36 @@ namespace scg.Framework
             
             return chosenBuildings;
         }
-        
+
+        public IEnumerable<Building> GetBuildingsDeterminedByMonth(string category, int number)
+        {
+            var buildingsInCategory = _buildings
+                .Where(p => string.Equals(p.Category, category, StringComparison.InvariantCultureIgnoreCase)).ToList();
+
+            if (number > buildingsInCategory.Count)
+                throw new InvalidOperationException("Not enough buildings available.");
+
+            var startingIndex = DateTime.Now.MonthsSinceY2K() % buildingsInCategory.Count;
+
+            var result = new List<Building>();
+            var remainingBuildings = number;
+            var currentIndex = startingIndex;
+            while (remainingBuildings-- > 0)
+            {
+                result.Add(buildingsInCategory[currentIndex++ % buildingsInCategory.Count]);
+            }
+
+            return result;
+        }
+
         private void Add(Building building)
         {
-            _buildings.Add(building);
+            _shuffledBuildings.Add(building);
         }
 
         public Building GetById(int id)
         {
-            return _buildings.FirstOrDefault(p => p.Id == id);
+            return _shuffledBuildings.FirstOrDefault(p => p.Id == id);
         }
     }
 }

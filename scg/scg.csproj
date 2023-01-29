@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="Ninject" Version="4.0.0-beta.1" />
+    <PackageReference Include="Ninject" Version="3.3.3" />
     <PackageReference Include="ninject.extensions.conventions" Version="3.3.0" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="Svg" Version="3.4.4" />
