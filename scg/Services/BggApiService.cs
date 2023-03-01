@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace scg.Services
 {
     public class BggApiService
     {
         private readonly CookieContainer _cookie = new();
+
+        private string _token = string.Empty;
 
         public async Task Login(string username, string password)
         {
@@ -33,6 +38,9 @@ namespace scg.Services
                 using var response = await webRequest.GetResponseAsync();
                 using var reader = new StreamReader(response.GetResponseStream());
                 var responseText = await reader.ReadToEndAsync();
+
+                _token = _cookie.GetAllCookies().FirstOrDefault(p => p.Name == "SessionID").Value;
+
                 if (responseText.Contains("<h1>Login Required</h1>"))
                 {
                     Console.WriteLine("Error: Login failed.");
@@ -42,6 +50,35 @@ namespace scg.Services
             catch (Exception)
             {
                 Console.WriteLine("Error: Login failed.");
+                Environment.Exit(2);
+            }
+        }
+
+        public async Task PostGeeklistItem(int listId, int objectId, string comments)
+        {
+            var client = new RestClient("https://api.geekdo.com/api/");
+            var request = new RestRequest($"geeklists/{listId}/listitems", Method.Post);
+            request.AddHeader("authority", "api.geekdo.com");
+            request.AddHeader("accept", "application/json, text/plain, */*");
+            request.AddHeader("accept-language", "en-US,en;q=0.9,de;q=0.8");
+            request.AddHeader("authorization", $"GeekAuth {_token}");
+            request.AddHeader("content-type", "application/json");
+            request.AddHeader("origin", "https://boardgamegeek.com");
+            request.AddHeader("referer", "https://boardgamegeek.com/");
+            request.AddHeader("sec-ch-ua", "\"Opera\";v=\"95\", \"Chromium\";v=\"109\", \"Not;A=Brand\";v=\"24\"");
+            request.AddHeader("sec-ch-ua-mobile", "?0");
+            request.AddHeader("sec-ch-ua-platform", "\"Windows\"");
+            request.AddHeader("sec-fetch-dest", "empty");
+            request.AddHeader("sec-fetch-mode", "cors");
+            request.AddHeader("sec-fetch-site", "cross-site");
+
+            var body = $@"{{""item"":{{""type"":""things"",""id"":""{objectId}""}},""body"":""{comments}""}}";
+            request.AddParameter("application/json", body,  ParameterType.RequestBody);
+
+            var response = await client.ExecuteAsync(request);
+            if (response.StatusCode != HttpStatusCode.Created)
+            {
+                Console.WriteLine("Failed to create subscription geeklist item.");
                 Environment.Exit(2);
             }
         }
@@ -64,30 +101,6 @@ namespace scg.Services
             form.Add(new StringContent("1"), "notify");
 
             var response = await httpClient.PostAsync("https://boardgamegeek.com/article/save", form);
-            response.EnsureSuccessStatusCode();
-            var location = response.RequestMessage.RequestUri;
-            httpClient.Dispose();
-            return location;
-        }
-
-        public async Task<Uri> PostGeeklistItem(string comments, int listId, int objectId, string objectType, string geekItemName, int imageId)
-        {
-            HttpClient httpClient = new HttpClient(new HttpClientHandler { CookieContainer = _cookie });
-            MultipartFormDataContent form = new MultipartFormDataContent();
-            form.Add(new StringContent("save"), "action");
-            form.Add(new StringContent(listId.ToString()), "listid");
-            form.Add(new StringContent("0"), "itemid");
-            form.Add(new StringContent(objectId.ToString()), "objectid");
-            form.Add(new StringContent(geekItemName), "geekitemname");
-            form.Add(new StringContent(objectType), "objecttype");
-            form.Add(new StringContent(imageId.ToString()), "imageId");
-            form.Add(new StringContent(""), "geek_link_select_1");
-            form.Add(new StringContent("10"), "sizesel");
-            form.Add(new StringContent(comments), "comments");
-            form.Add(new StringContent("1"), "subscribe[listitem]");
-            form.Add(new StringContent("B1"), "save");
-
-            var response = await httpClient.PostAsync("https://boardgamegeek.com/geeklist/item/save", form);
             response.EnsureSuccessStatusCode();
             var location = response.RequestMessage.RequestUri;
             httpClient.Dispose();
