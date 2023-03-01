@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -72,8 +71,15 @@ namespace scg.Services
             request.AddHeader("sec-fetch-mode", "cors");
             request.AddHeader("sec-fetch-site", "cross-site");
 
-            var body = $@"{{""item"":{{""type"":""things"",""id"":""{objectId}""}},""body"":""{comments}""}}";
-            request.AddParameter("application/json", body,  ParameterType.RequestBody);
+            var body = new GeeklistPostBody
+            {
+                Item = new Item { Id = objectId },
+                Body = comments
+            };
+
+            var serialized = JsonConvert.SerializeObject(body);
+
+            request.AddParameter("application/json", serialized, ParameterType.RequestBody);
 
             var response = await client.ExecuteAsync(request);
             if (response.StatusCode != HttpStatusCode.Created)
@@ -161,6 +167,25 @@ namespace scg.Services
         {
             public string Message { get; set; }
             public int ImageId { get; set; }
+        }
+
+        private class GeeklistPostBody
+        {
+            [JsonProperty(PropertyName = "item")]
+            public Item Item { get; set; }
+
+            [JsonProperty(PropertyName = "body")]
+            public string Body { get; set; }
+        }
+
+        private class Item
+        {
+            [JsonProperty(PropertyName = "type")]
+            public string Type { get; set; } = "things";
+
+
+            [JsonProperty(PropertyName = "id")]
+            public int Id { get; set; }
         }
     }
 }
