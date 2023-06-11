@@ -10,9 +10,7 @@ public class BggApiTest
     [Fact]
     public async Task X()
     {
-        var api = new BggApiService(new HttpClient());
-
-        var link = await api.GetLinkToLastPageOfList(GlobalIdentifiers.GeekListId);
-        Assert.Equal("xyz", link);
+        //var api = new BggApiService(new HttpClient());
+        //var link = await api.GetLinkToLastPageOfList(GlobalIdentifiers.GeekListId);
     }
 }

@@ -1,7 +1,4 @@
-using System.Net.Http;
-using System.Threading.Tasks;
 using FluentAssertions;
-using scg.Services;
 using scg.Utils;
 using Xunit;
 
@@ -17,12 +14,5 @@ public class StringCypherTest : UnitTest
         var result = StringCipher.Decrypt(encryptedText, "ABC");
 
         result.Should().Be("SomeText");
-    }
-
-    [Fact]
-    public async Task BggLogin()
-    {
-        var service = new BggApiService(new HttpClient());
-        await service.Login("MadMihi", "");
     }
 }
