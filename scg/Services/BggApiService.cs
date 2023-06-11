@@ -3,8 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -13,8 +15,13 @@ namespace scg.Services
     public class BggApiService
     {
         private readonly CookieContainer _cookie = new();
-
+        private readonly HttpClient _httpClient;
         private string _token = string.Empty;
+
+        public BggApiService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
 
         public async Task Login(string username, string password)
         {
@@ -163,6 +170,19 @@ namespace scg.Services
             return true;
         }
 
+        internal async Task<string> GetLinkToLastPageOfList(int geekListId)
+        {
+            var resonse = await _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, $"https://api.geekdo.com/api/listitems?page=999&listid={geekListId}"));
+            if(resonse.IsSuccessStatusCode)
+            {
+                var listData = await resonse.Content.ReadFromJsonAsync<ListData>();
+                var pages = Math.Ceiling((double)listData.Pagination.Total / listData.Pagination.PerPage);
+                return $"https://boardgamegeek.com/geeklist/{geekListId}?page={pages}";
+            }
+
+            return $"https://boardgamegeek.com/geeklist/{geekListId}";
+        }
+
         private class ImageUploadResult
         {
             public string Message { get; set; }
@@ -187,5 +207,8 @@ namespace scg.Services
             [JsonProperty(PropertyName = "id")]
             public int Id { get; set; }
         }
+
+        private record ListData(PaginationData Pagination);
+        private record PaginationData(int PerPage, int Total);
     }
 }

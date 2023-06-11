@@ -48,7 +48,7 @@ namespace scg.App.Generator
 
             var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
                 forumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
-            Console.WriteLine($"Challenge posted at '{threadUri.OriginalString}'.");
+            Console.WriteLine($"Challenge posted at '{threadUri.OriginalString}'.");            
             threadUri.OpenInBrowser();
             
             generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
@@ -57,7 +57,8 @@ namespace scg.App.Generator
                 _metadata.GeeklistFormData.ObjectId,
                 generationResult.GeeklistPost.Comments);
             Console.WriteLine("Challenge added to solo challenges geeklist.");
-            new Uri($"https://boardgamegeek.com/geeklist/{GlobalIdentifiers.GeekListId}").OpenInBrowser();
+            var linkToLastPageOfList = await _bggApiService.GetLinkToLastPageOfList(GlobalIdentifiers.GeekListId);
+            new Uri(linkToLastPageOfList).OpenInBrowser();
         }
 
         private async Task SaveToFile(GenerationResult generationResult)
