@@ -22,7 +22,7 @@ public class StringCypherTest : UnitTest
     [Fact]
     public async Task BggLogin()
     {
-        var service = new BggApiService();
+        var service = new BggApiService(new HttpClient());
         await service.Login("MadMihi", "");
     }
 }
