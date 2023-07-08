@@ -1,0 +1,37 @@
+[size=18]Welcome to "The Search for Lost Species" challenge #<<CHALLENGE_NUMBER>>![/size]
+
+Challenge Start: Now
+Challenge End: <<END_DATE>>
+
+<<PREVIOUS_RESULTS>>
+
+[b]Description[/b]
+Same as the Search for Planet X challenge we will compete against each other to see who spends the least time.
+Points do not matter. Therefore all scoring cards are removed from the pool.
+
+[b]Challenge Rules[/b]
+Play a regular multiplayer game without Tini.
+Play the game on [u]Genius[/u] difficulty with the provided game code.
+The player who can finish with the least amount of [b]time spent[/b] wins the challenge.
+If there is a tie, the players share the victory.
+
+[b]Map Side:[/b]
+Harder
+
+[b]Game Code:[/b]
+TODO: CODE
+
+[b]Lost Species Card:[/b]
+<<STARTING_BUILDINGS_SPECIES>>
+[b]Starting Town Cards:[/b]
+<<STARTING_BUILDINGS_TOWN>>
+[b]Refill Town Cards:[/b]
+<<OFFER_BUILDINGS_TOWN>>
+When you post your result please keep any spoilers in spoiler tags.
+In the app you can use the turn history to make sure you post the correct number of turns.
+
+Good luck and have fun finding the Lost Species!
+
+[size=18][b]TODO: Move leaderboards to reply[/b][/size]
+[size=14][b]Leaderboard[/b][/size]
+[c][/c]
