@@ -1,28 +1,27 @@
 using System;
 
-namespace scg.Utils
+namespace scg.Utils;
+
+public class EndDateHelper
 {
-    public class EndDateHelper
+    private readonly IDateTime _dateTime;
+
+    public EndDateHelper(IDateTime dateTime)
     {
-        private readonly IDateTime _dateTime;
+        _dateTime = dateTime;
+    }
 
-        public EndDateHelper(IDateTime dateTime)
+    public DateTime GetEndDate(int months)
+    {
+        var today = _dateTime.Now;
+        var endDate = today;
+        if (today.Day >= 16) endDate = _dateTime.Now.AddMonths(months);
+
+        while (endDate.AddDays(1).Month == endDate.Month)
         {
-            _dateTime = dateTime;
+            endDate = endDate.AddDays(1);
         }
 
-        public DateTime GetEndDate(int months)
-        {
-            var today = _dateTime.Now;
-            var endDate = today;
-            if (today.Day >= 16) endDate = _dateTime.Now.AddMonths(months);
-
-            while (endDate.AddDays(1).Month == endDate.Month)
-            {
-                endDate = endDate.AddDays(1);
-            }
-
-            return endDate;
-        }
+        return endDate;
     }
 }

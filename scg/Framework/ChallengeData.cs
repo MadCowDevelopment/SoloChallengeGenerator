@@ -1,24 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace scg.Framework
+namespace scg.Framework;
+
+internal class ChallengeData : List<ChallengeResult>
 {
-    internal class ChallengeData : List<ChallengeResult>
+    private readonly FileRepository _repository;
+
+    public ChallengeData(FileRepository repository)
     {
-        private readonly FileRepository _repository;
+        _repository = repository;
+        Load();
+    }
 
-        public ChallengeData(FileRepository repository)
+    private void Load()
+    {
+        foreach (var line in _repository.ReadAllLines(Filename.PreviousChallenges, true).Select(p=>p.Split(",")))
         {
-            _repository = repository;
-            Load();
-        }
-
-        private void Load()
-        {
-            foreach (var line in _repository.ReadAllLines(File.PreviousChallenges, true).Select(p=>p.Split(",")))
-            {
-                Add(new ChallengeResult(line[0], line[1], line[2]));
-            }
+            Add(new ChallengeResult(line[0], line[1], line[2]));
         }
     }
 }

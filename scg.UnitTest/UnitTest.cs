@@ -1,12 +1,11 @@
 ﻿using scg.Utils;
 
-namespace scg.UnitTest
+namespace scg.UnitTest;
+
+public abstract class UnitTest
 {
-    public abstract class UnitTest
+    protected UnitTest()
     {
-        protected UnitTest()
-        {
-            CultureInitializer.Initialize();
-        }
+        CultureInitializer.Initialize();
     }
 }

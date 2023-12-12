@@ -1,14 +1,13 @@
-﻿namespace scg.Framework
-{
-    public class GeekImage
-    {
-        public string Identifier { get; }
-        public string Filename { get; }
+﻿namespace scg.Framework;
 
-        public GeekImage(string identifier, string filename)
-        {
-            Identifier = identifier;
-            Filename = filename;
-        }
+public class GeekImage
+{
+    public string Identifier { get; }
+    public string Filename { get; }
+
+    public GeekImage(string identifier, string filename)
+    {
+        Identifier = identifier;
+        Filename = filename;
     }
 }

@@ -6,66 +6,75 @@ using scg.Framework;
 using scg.Services;
 using scg.Utils;
 
-namespace scg.App.Generator
+namespace scg.App.Generator;
+
+internal class ChallengeGenerationWorkflow
 {
-    internal class ChallengeGenerationWorkflow
+    private readonly ChallengeGenerator _challengeGenerator;
+    private readonly BggApiService _bggApiService;
+    private readonly GameMetadata _metadata;
+    private readonly GeeklistIdRepository _geeklistIdRepository;
+    private readonly ScgOptions _options;
+
+    public ChallengeGenerationWorkflow(
+        ChallengeGenerator challengeGenerator,
+        BggApiService bggApiService,
+        GameMetadata metadata,
+        GeeklistIdRepository geeklistIdRepository,
+        ScgOptions options)
     {
-        private readonly ChallengeGenerator _challengeGenerator;
-        private readonly BggApiService _bggApiService;
-        private readonly GameMetadata _metadata;
-        private readonly ScgOptions _options;
+        _challengeGenerator = challengeGenerator;
+        _bggApiService = bggApiService;
+        _metadata = metadata;
+        _geeklistIdRepository = geeklistIdRepository;
+        _options = options;
+    }
 
-        public ChallengeGenerationWorkflow(ChallengeGenerator challengeGenerator, BggApiService bggApiService, GameMetadata metadata, ScgOptions options)
+    public async Task<int> Run(GenerateOptions options)
+    {
+        var generationResult = _challengeGenerator.Generate();
+        if (options.Publish) await PublishToBGG(options, generationResult);
+        else await SaveToFile(generationResult);
+        return 0;
+    }
+
+    private async Task PublishToBGG(GenerateOptions options, GenerationResult generationResult)
+    {
+        var user = _options.Username ?? ConsoleUtils.ReadValidString(options.User, "Username: ");
+        var password = _options.Password ?? ConsoleUtils.ReadValidPassword(null, "Password: ");
+
+        await _bggApiService.Login(user, password);
+
+        foreach (var image in generationResult.Images)
         {
-            _challengeGenerator = challengeGenerator;
-            _bggApiService = bggApiService;
-            _metadata = metadata;
-            _options = options;
+            var imageId = await _bggApiService.PostImage(@".\", image.Filename);
+            generationResult.UpdateImageId(image.Identifier, imageId);
         }
 
-        public async Task<int> Run(GenerateOptions options)
-        {
-            var generationResult = _challengeGenerator.Generate();
-            if (options.Publish) await PublishToBGG(options, generationResult);
-            else await SaveToFile(generationResult);
-            return 0;
-        }
+        var forumId = _metadata.PostFormData.ForumId;
 
-        private async Task PublishToBGG(GenerateOptions options, GenerationResult generationResult)
-        {
-            var user = _options.Username ?? ConsoleUtils.ReadValidString(options.User, "Username: ");
-            var password = _options.Password ?? ConsoleUtils.ReadValidPassword(null, "Password: ");
-            
-            await _bggApiService.Login(user, password);
+        var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject,
+            generationResult.ChallengePost.Body,
+            forumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
+        Console.WriteLine($"Challenge posted at '{threadUri.OriginalString}'.");
+        threadUri.OpenInBrowser();
 
-            foreach (var image in generationResult.Images)
-            {
-                var imageId = await _bggApiService.PostImage(@".\", image.Filename);
-                generationResult.UpdateImageId(image.Identifier, imageId);
-            }
+        var geeklistId = await _geeklistIdRepository.GetSubscriptionGeeklistId(DateTime.Now.Year);
+        generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
+        await _bggApiService.PostGeeklistItem(
+            geeklistId,
+            _metadata.GeeklistFormData.ObjectId,
+            generationResult.GeeklistPost.Comments);
+        Console.WriteLine("Challenge added to solo challenges geeklist.");
+        var linkToLastPageOfList = await _bggApiService.GetLinkToLastPageOfList(geeklistId);
+        new Uri(linkToLastPageOfList).OpenInBrowser();
+    }
 
-            var forumId = _metadata.PostFormData.ForumId;
-
-            var threadUri = await _bggApiService.PostThread(generationResult.ChallengePost.Subject, generationResult.ChallengePost.Body,
-                forumId, _metadata.PostFormData.ObjectId, _metadata.PostFormData.ObjectType);
-            Console.WriteLine($"Challenge posted at '{threadUri.OriginalString}'.");            
-            threadUri.OpenInBrowser();
-            
-            generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
-            await _bggApiService.PostGeeklistItem(
-                GlobalIdentifiers.GeekListId,
-                _metadata.GeeklistFormData.ObjectId,
-                generationResult.GeeklistPost.Comments);
-            Console.WriteLine("Challenge added to solo challenges geeklist.");
-            var linkToLastPageOfList = await _bggApiService.GetLinkToLastPageOfList(GlobalIdentifiers.GeekListId);
-            new Uri(linkToLastPageOfList).OpenInBrowser();
-        }
-
-        private async Task SaveToFile(GenerationResult generationResult)
-        {
-            var outputFilename = @"ForumPost.txt";
-            await System.IO.File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename), generationResult.ChallengePost.Body);
-            FileHelper.OpenFile(outputFilename);
-        }
+    private async Task SaveToFile(GenerationResult generationResult)
+    {
+        var outputFilename = @"ForumPost.txt";
+        await System.IO.File.WriteAllTextAsync(Path.Combine(Environment.CurrentDirectory, outputFilename),
+            generationResult.ChallengePost.Body);
+        FileHelper.OpenFile(outputFilename);
     }
 }

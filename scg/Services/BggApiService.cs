@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -142,10 +141,13 @@ namespace scg.Services
             return JsonConvert.DeserializeObject<ImageUploadResult>(result).ImageId;
         }
 
-        public async Task<bool> LogPlay(string username, string password, int gameId, DateTime date, int amount, string comments, int length)
+        public async Task<bool> LogPlay(string username, string password, int gameId, DateTime date, int amount,
+            string comments, int length)
         {
-            string requestBase = "dummy=1&ajax=1&action=save&version=2&objecttype=thing&objectid={0}&playid=&action=save&playdate={1}&dateinput={2}&YUIButton=&twitter=0&savetwitterpref=0&location=&quantity={3}&length={4}&incomplete=0&nowinstats=0&comments={5}";
-            string request = string.Format(requestBase, gameId, date.ToString("yyyy-MM-dd"), DateTime.Today.ToString("yyyy-MM-dd"), amount, length, comments);
+            string requestBase =
+                "dummy=1&ajax=1&action=save&version=2&objecttype=thing&objectid={0}&playid=&action=save&playdate={1}&dateinput={2}&YUIButton=&twitter=0&savetwitterpref=0&location=&quantity={3}&length={4}&incomplete=0&nowinstats=0&comments={5}";
+            string request = string.Format(requestBase, gameId, date.ToString("yyyy-MM-dd"),
+                DateTime.Today.ToString("yyyy-MM-dd"), amount, length, comments);
 
             byte[] byteArray = Encoding.UTF8.GetBytes(request);
 
@@ -158,6 +160,7 @@ namespace scg.Services
             {
                 webpageStream.Write(byteArray, 0, byteArray.Length);
             }
+
             using (WebResponse response = await webRequest.GetResponseAsync())
             {
                 using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
@@ -167,13 +170,15 @@ namespace scg.Services
                         return false;
                 }
             }
+
             return true;
         }
 
         internal async Task<string> GetLinkToLastPageOfList(int geekListId)
         {
-            var resonse = await _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, $"https://api.geekdo.com/api/listitems?page=999&listid={geekListId}"));
-            if(resonse.IsSuccessStatusCode)
+            var resonse = await _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get,
+                $"https://api.geekdo.com/api/listitems?page=999&listid={geekListId}"));
+            if (resonse.IsSuccessStatusCode)
             {
                 var listData = await resonse.Content.ReadFromJsonAsync<ListData>();
                 var pages = Math.Ceiling((double)listData.Pagination.Total / listData.Pagination.PerPage);
@@ -191,24 +196,18 @@ namespace scg.Services
 
         private class GeeklistPostBody
         {
-            [JsonProperty(PropertyName = "item")]
-            public Item Item { get; set; }
-
-            [JsonProperty(PropertyName = "body")]
-            public string Body { get; set; }
+            [JsonProperty(PropertyName = "item")] public Item Item { get; set; }
+            [JsonProperty(PropertyName = "body")] public string Body { get; set; }
         }
 
         private class Item
         {
-            [JsonProperty(PropertyName = "type")]
-            public string Type { get; set; } = "things";
-
-
-            [JsonProperty(PropertyName = "id")]
-            public int Id { get; set; }
+            [JsonProperty(PropertyName = "type")] public string Type { get; set; } = "things";
+            [JsonProperty(PropertyName = "id")] public int Id { get; set; }
         }
 
         private record ListData(PaginationData Pagination);
+
         private record PaginationData(int PerPage, int Total);
     }
 }

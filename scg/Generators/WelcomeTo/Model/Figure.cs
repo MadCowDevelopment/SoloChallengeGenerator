@@ -1,7 +1,6 @@
-namespace scg.Generators.WelcomeTo
+namespace scg.Generators.WelcomeTo;
+
+public enum Figure
 {
-    public enum Figure
-    {
-        GREEN, PURPLE, GRAY, ORANGE, RED, BLUE, SOLO_CARD
-    }
+    GREEN, PURPLE, GRAY, ORANGE, RED, BLUE, SOLO_CARD
 }

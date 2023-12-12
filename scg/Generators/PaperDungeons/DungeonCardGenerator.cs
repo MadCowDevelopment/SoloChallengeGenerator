@@ -1,22 +1,21 @@
 using scg.Utils;
 
-namespace scg.Generators.PaperDungeons
+namespace scg.Generators.PaperDungeons;
+
+public class DungeonCardGenerator : TemplateGenerator
 {
-    public class DungeonCardGenerator : TemplateGenerator
+    private readonly EndDateHelper _endDateHelper;
+    public override string Token { get; } = "<<DUNGEON_CARD>>";
+
+    public DungeonCardGenerator(EndDateHelper endDateHelper)
     {
-        private readonly EndDateHelper _endDateHelper;
-        public override string Token { get; } = "<<DUNGEON_CARD>>";
+        _endDateHelper = endDateHelper;
+    }
 
-        public DungeonCardGenerator(EndDateHelper endDateHelper)
-        {
-            _endDateHelper = endDateHelper;
-        }
-
-        public override string Apply(string template, string[] arguments)
-        {
-            var month = _endDateHelper.GetEndDate(1).Month;
-            char dungeonCard = (char)(month + 64);
-            return template.ReplaceFirst(Token, dungeonCard.ToString());
-        }
+    public override string Apply(string template, string[] arguments)
+    {
+        var month = _endDateHelper.GetEndDate(1).Month;
+        char dungeonCard = (char)(month + 64);
+        return template.ReplaceFirst(Token, dungeonCard.ToString());
     }
 }

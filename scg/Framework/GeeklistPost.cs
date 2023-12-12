@@ -1,17 +1,16 @@
-﻿namespace scg.Framework
+﻿namespace scg.Framework;
+
+public class GeeklistPost
 {
-    public class GeeklistPost
+    public string Comments { get; set; }
+
+    public GeeklistPost(string comments)
     {
-        public string Comments { get; set; }
+        Comments = comments;
+    }
 
-        public GeeklistPost(string comments)
-        {
-            Comments = comments;
-        }
-
-        public void IncludeThread(string threadId)
-        {
-            Comments = Comments.Replace("$THREAD_ID$", threadId);
-        }
+    public void IncludeThread(string threadId)
+    {
+        Comments = Comments.Replace("$THREAD_ID$", threadId);
     }
 }

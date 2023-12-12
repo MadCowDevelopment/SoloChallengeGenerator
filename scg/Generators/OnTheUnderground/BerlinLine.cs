@@ -1,24 +1,23 @@
 using System.Collections.Generic;
 
-namespace scg.Generators.OnTheUnderground
+namespace scg.Generators.OnTheUnderground;
+
+public class BerlinLine : Line<BerlinLocation>
 {
-    public class BerlinLine : Line<BerlinLocation>
+    public BerlinLine(int id, string name, int value, BerlinLineIcon icon, IEnumerable<BerlinLocation> locations)
+        : base(id, name, value, locations)
     {
-        public BerlinLine(int id, string name, int value, BerlinLineIcon icon, IEnumerable<BerlinLocation> locations)
-            : base(id, name, value, locations)
-        {
 
-            Icon = icon;
-        }
-
-        public BerlinLineIcon Icon { get; }
+        Icon = icon;
     }
 
-    public enum BerlinLineIcon
-    {
-        None,
-        Circle,
-        Triangle,
-        Square,
-    }
+    public BerlinLineIcon Icon { get; }
+}
+
+public enum BerlinLineIcon
+{
+    None,
+    Circle,
+    Triangle,
+    Square,
 }

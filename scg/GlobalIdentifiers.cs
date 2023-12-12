@@ -1,14 +1,13 @@
-﻿namespace scg
+﻿namespace scg;
+
+public static class GlobalIdentifiers
 {
-    public static class GlobalIdentifiers
-    {
-        /// <summary>
-        /// This is the ID of the yearly Solo Challenges geeklist. Needs to be updated once a year.
-        /// </summary>
+    /// <summary>
+    /// This is the ID of the yearly Solo Challenges geeklist. Needs to be updated once a year.
+    /// </summary>
 #if DEBUG
-        public static readonly int GeekListId = 291214; // For testing purposes.
+    public static readonly int GeekListId = 291214; // For testing purposes.
 #else
         public static readonly int GeekListId = 308698; // Solo challenges 2023.
 #endif
-    }
 }

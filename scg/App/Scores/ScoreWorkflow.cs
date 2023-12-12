@@ -4,58 +4,57 @@ using System.Threading.Tasks;
 using scg.Framework;
 using scg.Utils;
 
-namespace scg.App.Scores
+namespace scg.App.Scores;
+
+internal class ScoreWorkflow
 {
-    internal class ScoreWorkflow
+    private readonly FileRepository _fileRepository;
+
+    public ScoreWorkflow(FileRepository fileRepository)
     {
-        private readonly FileRepository _fileRepository;
+        _fileRepository = fileRepository;
+    }
 
-        public ScoreWorkflow(FileRepository fileRepository)
+    public Task<int> Run(ScoreOptions options)
+    {
+        return options.Operation switch
         {
-            _fileRepository = fileRepository;
+            "add" => AddScore(options),
+            "remove" => RemoveScore(),
+            "list" => ListScores(),
+            _ => throw new InvalidOperationException("The specified operation is not supported.")
+        };
+    }
+
+    private Task<int> AddScore(ScoreOptions options)
+    {
+        var thread = ConsoleUtils.ReadValidInt(options.Thread, "Thread ID: ");
+        var score = ConsoleUtils.ReadValidDouble(options.Score, "Score    : ");
+        var user = ConsoleUtils.ReadValidString(options.User, "Username : ");
+        _fileRepository.AppendLine(Filename.PreviousChallenges, $"{thread},{score},{user}");
+        return Task.FromResult(0);
+    }
+
+    private Task<int> RemoveScore()
+    {
+        var lines = _fileRepository.ReadAllLines(Filename.PreviousChallenges, true);
+        if (lines.Length > 0)
+        {
+            _fileRepository.WriteAllLines(Filename.PreviousChallenges, lines.SkipLast(1));
         }
 
-        public Task<int> Run(ScoreOptions options)
+        return Task.FromResult(0);
+    }
+
+    private Task<int> ListScores()
+    {
+        var lines = _fileRepository.ReadAllLines(Filename.PreviousChallenges, true);
+        Console.WriteLine("Previous challenge scores: ");
+        foreach (var line in lines)
         {
-            return options.Operation switch
-            {
-                "add" => AddScore(options),
-                "remove" => RemoveScore(),
-                "list" => ListScores(),
-                _ => throw new InvalidOperationException("The specified operation is not supported.")
-            };
+            Console.WriteLine(line);
         }
 
-        private Task<int> AddScore(ScoreOptions options)
-        {
-            var thread = ConsoleUtils.ReadValidInt(options.Thread, "Thread ID: ");
-            var score = ConsoleUtils.ReadValidDouble(options.Score, "Score    : ");
-            var user = ConsoleUtils.ReadValidString(options.User, "Username : ");
-            _fileRepository.AppendLine(File.PreviousChallenges, $"{thread},{score},{user}");
-            return Task.FromResult(0);
-        }
-
-        private Task<int> RemoveScore()
-        {
-            var lines = _fileRepository.ReadAllLines(File.PreviousChallenges, true);
-            if (lines.Length > 0)
-            {
-                _fileRepository.WriteAllLines(File.PreviousChallenges, lines.SkipLast(1));
-            }
-
-            return Task.FromResult(0);
-        }
-
-        private Task<int> ListScores()
-        {
-            var lines = _fileRepository.ReadAllLines(File.PreviousChallenges, true);
-            Console.WriteLine("Previous challenge scores: ");
-            foreach (var line in lines)
-            {
-                Console.WriteLine(line);
-            }
-
-            return Task.FromResult(0);
-        }
+        return Task.FromResult(0);
     }
 }

@@ -4,41 +4,40 @@ using System.Text;
 using scg.Framework;
 using scg.Utils;
 
-namespace scg.Generators
+namespace scg.Generators;
+
+internal class OfferBuildingsGenerator : TemplateGenerator
 {
-    internal class OfferBuildingsGenerator : TemplateGenerator
+    private readonly BuildingData _buildingData;
+
+    public OfferBuildingsGenerator(BuildingData buildingData)
     {
-        private readonly BuildingData _buildingData;
+        _buildingData = buildingData;
+    }
 
-        public OfferBuildingsGenerator(BuildingData buildingData)
+    public override string Token { get; } = "<<OFFER_BUILDINGS_{x}>>";
+
+    public override string Apply(string template, string[] arguments)
+    {
+        var builder = new StringBuilder();
+        var category = arguments[0];
+        var number = int.Parse(arguments[1]);
+
+        var buildingLines = new List<string>();
+        foreach (var offerBuilding in _buildingData.GetAndSkipTakenBuildings(category, number))
         {
-            _buildingData = buildingData;
+            buildingLines.Add($"[o][c][size=11]{offerBuilding.ToPostFormat()}%WHITESPACES%[/size][/c][/o]");
         }
 
-        public override string Token { get; } = "<<OFFER_BUILDINGS_{x}>>";
-
-        public override string Apply(string template, string[] arguments)
+        var maxLength = buildingLines.Max(p => p.Length);
+        foreach (var buildingLine in buildingLines)
         {
-            var builder = new StringBuilder();
-            var category = arguments[0];
-            var number = int.Parse(arguments[1]);
-
-            var buildingLines = new List<string>();
-            foreach (var offerBuilding in _buildingData.GetAndSkipTakenBuildings(category, number))
-            {
-                buildingLines.Add($"[o][c][size=11]{offerBuilding.ToPostFormat()}%WHITESPACES%[/size][/c][/o]");
-            }
-
-            var maxLength = buildingLines.Max(p => p.Length);
-            foreach (var buildingLine in buildingLines)
-            {
-                var differenceToMax = maxLength - buildingLine.Length;
-                var whitespaces = string.Join("", Enumerable.Repeat(" ", differenceToMax));
-                builder.Append(buildingLine.Replace("%WHITESPACES%", whitespaces));
-            }
-
-            var placeHolder = $"<<OFFER_BUILDINGS_{category.ToUpper()}>>";
-            return template.ReplaceFirst(placeHolder, builder.ToString());
+            var differenceToMax = maxLength - buildingLine.Length;
+            var whitespaces = string.Join("", Enumerable.Repeat(" ", differenceToMax));
+            builder.Append(buildingLine.Replace("%WHITESPACES%", whitespaces));
         }
+
+        var placeHolder = $"<<OFFER_BUILDINGS_{category.ToUpper()}>>";
+        return template.ReplaceFirst(placeHolder, builder.ToString());
     }
 }

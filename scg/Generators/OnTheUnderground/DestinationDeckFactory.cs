@@ -1,7 +1,6 @@
-﻿namespace scg.Generators.OnTheUnderground
+﻿namespace scg.Generators.OnTheUnderground;
+
+public interface IDestinationDeckFactory
 {
-    public interface IDestinationDeckFactory
-    {
-        public DestinationDeck Create();
-    }
+    public DestinationDeck Create();
 }

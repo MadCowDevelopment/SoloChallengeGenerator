@@ -1,9 +1,8 @@
-﻿namespace scg.Generators
-{
-    internal interface ITemplateGenerator
-    {
-        string Token { get; }
+﻿namespace scg.Generators;
 
-        string Apply(string template, string[] arguments);
-    }
+internal interface ITemplateGenerator
+{
+    string Token { get; }
+
+    string Apply(string template, string[] arguments);
 }

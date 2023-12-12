@@ -1,9 +1,8 @@
-﻿namespace scg.Generators
-{
-    public abstract class TemplateGenerator : ITemplateGenerator
-    {
-        public abstract string Token { get; }
+﻿namespace scg.Generators;
 
-        public abstract string Apply(string template, string[] arguments);
-    }
+public abstract class TemplateGenerator : ITemplateGenerator
+{
+    public abstract string Token { get; }
+
+    public abstract string Apply(string template, string[] arguments);
 }

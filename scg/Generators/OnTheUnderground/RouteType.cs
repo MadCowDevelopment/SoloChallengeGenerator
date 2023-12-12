@@ -1,8 +1,7 @@
-﻿namespace scg.Generators.OnTheUnderground
+﻿namespace scg.Generators.OnTheUnderground;
+
+public enum RouteType
 {
-    public enum RouteType
-    {
-        Standard,
-        Express
-    }
+    Standard,
+    Express
 }
