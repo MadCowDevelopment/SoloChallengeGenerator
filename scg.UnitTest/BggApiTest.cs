@@ -1,6 +1,4 @@
-using System.Net.Http;
 using System.Threading.Tasks;
-using scg.Services;
 using Xunit;
 
 namespace scg.UnitTest;

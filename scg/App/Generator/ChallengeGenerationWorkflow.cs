@@ -60,6 +60,7 @@ internal class ChallengeGenerationWorkflow
         threadUri.OpenInBrowser();
 
         var geeklistId = await _geeklistIdRepository.GetSubscriptionGeeklistId(DateTime.Now.Year);
+
         generationResult.GeeklistPost.IncludeThread(BggUtils.GetThreadFromLocation(threadUri.ToString()));
         await _bggApiService.PostGeeklistItem(
             geeklistId,

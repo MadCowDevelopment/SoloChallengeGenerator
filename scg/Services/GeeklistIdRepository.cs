@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -13,7 +12,10 @@ public class GeeklistIdRepository
         var listId = await GetFromFile(year);
         if (listId != null) return listId.Value;
 
+        Console.WriteLine($"Failed to find subscription geeklist ID locally. Downloading latest ID from mongodb.com...");
         listId = await GetFromMongoDb(year);
+
+        Console.WriteLine($"Download finished. Storing it locally for future use.");
         await SaveIdToFile(year, listId.Value);
         return listId.Value;
     }
@@ -24,33 +26,21 @@ public class GeeklistIdRepository
         if (!File.Exists(filename)) return null;
         var content = await File.ReadAllTextAsync(filename);
         var savedYear = int.Parse(content.Split(",")[0]);
-        if (savedYear == year) return int.Parse(content.Split(",")[0]);
+        if (savedYear == year) return int.Parse(content.Split(",")[1]);
         return null;
     }
 
     private static async Task<int> GetFromMongoDb(int year)
     {
-        var username = "scg";
-        var password = "anonymous";
-        var mongoDbAuthMechanism = "SCRAM-SHA-1";
-        var internalIdentity = new MongoInternalIdentity("admin", username);
-        var passwordEvidence = new PasswordEvidence(password);
-        var mongoCredential = new MongoCredential(mongoDbAuthMechanism, internalIdentity, passwordEvidence);
-        var credentials = new List<MongoCredential>() { mongoCredential };
-
-
-        var settings = new MongoClientSettings();
-        settings.Credentials = credentials;
-
-        var mongoHost = "mongodb+srv://madcowdevcluster.mtp5x8f.mongodb.net";
-        var address = new MongoServerAddress(mongoHost);
-        settings.Server = address;
-
+        const string connectionUri = "mongodb+srv://scg:anonymous@madcowdevcluster.mtp5x8f.mongodb.net/?retryWrites=true&w=majority";
+        var settings = MongoClientSettings.FromConnectionString(connectionUri);
+        settings.ServerApi = new ServerApi(ServerApiVersion.V1);
         var client = new MongoClient(settings);
 
         var db = client.GetDatabase("SoloChallengeGenerator");
         var collection = db.GetCollection<SubscriptionGeeklist>("SubscriptionGeeklist");
-        return (await collection.Find(p => p.Year == year).SingleOrDefaultAsync()).ListId;
+        var subscriptionGeeklist = await collection.Find(x => x.Year == year).FirstOrDefaultAsync();
+        return subscriptionGeeklist.ListId;
     }
 
     private static async Task SaveIdToFile(int year, int listId)
