@@ -76,11 +76,11 @@ public class LineSetupGenerator : TemplateGenerator
 
     private (Line line1, Line line2) GenerateImage(List<Building> lines)
     {
-        var newYorkLines = NewYorkLinesFactory.Create();
+        var newYorkLines = ParisLinesFactory.Create();
         var line1 = newYorkLines.First(p => p.Id == 9);
         var line2 = newYorkLines.First(p => p.Id == 10);
 
-        _newYorkMapGenerator.Generate(line1, line2);
+        _parisMapGenerator.Generate(line1, line2);
         return (line1, line2);
 
         //var map = _gameOptions.Options["Map"];
