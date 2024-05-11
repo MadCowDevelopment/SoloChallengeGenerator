@@ -23,10 +23,12 @@ public class GameOptions
 
         if (gameId == "OnTheUnderground")
         {
-            var mapName = (_endDateHelper.GetEndDate(1).Month % 2) switch
+            var mapName = (_endDateHelper.GetEndDate(1).Month % 4) switch
             {
                 0 => "Berlin",
                 1 => "London",
+                2 => "NewYork",
+                3 => "Paris",
                 _ => throw new InvalidOperationException("Cannot determine map name.")
             };
 

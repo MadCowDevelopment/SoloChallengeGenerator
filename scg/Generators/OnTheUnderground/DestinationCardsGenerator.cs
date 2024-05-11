@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using scg.Framework;
+using scg.Generators.OnTheUnderground.Berlin;
+using scg.Generators.OnTheUnderground.London;
+using scg.Generators.OnTheUnderground.NewYork;
+using scg.Generators.OnTheUnderground.Paris;
 using scg.Utils;
 
 namespace scg.Generators.OnTheUnderground;
@@ -43,6 +47,8 @@ public class DestinationCardsGenerator : TemplateGenerator
         {
             "London" => new LondonDestinationDeckFactory(),
             "Berlin" => new BerlinDestinationDeckFactory(),
+            "NewYork" => new NewYorkDestinationDeckFactory(),
+            "Paris" => new ParisDestinationDeckFactory(),
             _ => throw new InvalidOperationException($"Map '{Map}' is not supported.")
         };
     }
