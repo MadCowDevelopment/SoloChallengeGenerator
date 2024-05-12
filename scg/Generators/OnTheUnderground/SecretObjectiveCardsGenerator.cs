@@ -46,7 +46,7 @@ public class SecretObjectiveCardsGenerator : TemplateGenerator
         builder.AppendLine();
         builder.AppendLine("Secret Objectives:");
         builder.Append("[c]");
-        for(int i=0; i< 3; i++)
+        for(int i=0; i < 2; i++)
         {
             builder.AppendLine(_secretObjectives[i]);
         }
