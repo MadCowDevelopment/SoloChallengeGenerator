@@ -24,7 +24,7 @@ public abstract class MapGenerator<TLine, TLocation> where TLine : Line<TLocatio
             svgRectangle.Visibility = "hidden";
         }
 
-        InitializeLandmarks(doc);
+        InitializeLandmarks(doc, line1, line2);
         InitializeLine(doc, line1, Color.Gold);
         InitializeLine(doc, line2, Color.DeepPink);
 
@@ -32,7 +32,7 @@ public abstract class MapGenerator<TLine, TLocation> where TLine : Line<TLocatio
         bitmap.Save("SETUP_IMAGE.png");
     }
 
-    protected abstract void InitializeLandmarks(SvgDocument doc);
+    protected abstract void InitializeLandmarks(SvgDocument doc, TLine line1, TLine line2);
 
     protected abstract string SvgFilename { get; }
 

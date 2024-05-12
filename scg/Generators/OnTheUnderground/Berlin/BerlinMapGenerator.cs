@@ -13,7 +13,7 @@ public class BerlinMapGenerator : MapGenerator<BerlinLine, BerlinLocation>
     {
     }
 
-    protected override void InitializeLandmarks(SvgDocument doc)
+    protected override void InitializeLandmarks(SvgDocument doc, BerlinLine line1, BerlinLine line2)
     {
         var threePointLocations = new List<BerlinLocation>
         {

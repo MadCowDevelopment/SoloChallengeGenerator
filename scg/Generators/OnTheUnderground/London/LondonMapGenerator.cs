@@ -13,7 +13,7 @@ public class LondonMapGenerator : MapGenerator<LondonLine, LondonLocation>
     {
     }
 
-    protected override void InitializeLandmarks(SvgDocument doc)
+    protected override void InitializeLandmarks(SvgDocument doc, LondonLine line1, LondonLine line2)
     {
         var landmarkLocations = new List<LondonLocation>
         {

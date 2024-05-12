@@ -62,7 +62,7 @@ public class DestinationCardsGenerator : TemplateGenerator
         var builder = new StringBuilder();
         builder.AppendLine(CreateRoundHeader(longestName));
 
-        for (var i = 54; i > 0; i--)
+        for (var i = _destinationDecks[0].Destinations.Count-1; i > 0; i--)
         {
             builder.AppendLine(string.Join("   ",
                 _destinationDecks.Select(p => CreateDestinationEntry(p, i, longestName))));

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using scg.Framework;
 using scg.Utils;
 using Svg;
@@ -13,7 +14,7 @@ public class ParisMapGenerator : MapGenerator<ParisLine, ParisLocation>
     {
     }
 
-    protected override void InitializeLandmarks(SvgDocument doc)
+    protected override void InitializeLandmarks(SvgDocument doc, ParisLine line1, ParisLine line2)
     {
         var landmarkLocations = new List<ParisLocation>
         {
@@ -29,9 +30,14 @@ public class ParisMapGenerator : MapGenerator<ParisLine, ParisLocation>
 
         for (var i = 0; i < landmarkLocations.Count; i++)
         {
+            var landmarkLocation = landmarkLocations[i];
             var landmarkIcon = doc.GetElementById<SvgImage>($"Landmark{i + 1}");
             landmarkIcon.X = new SvgUnit(GetCanvasLeft(landmarkLocations[i]));
             landmarkIcon.Y = new SvgUnit(GetCanvasTop(landmarkLocations[i]));
+            if(line1.Locations.Contains(landmarkLocation) || line2.Locations.Contains(landmarkLocation))
+            {
+                landmarkIcon.Visibility = "hidden";
+            }
         }
     }
 

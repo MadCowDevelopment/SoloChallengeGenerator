@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using scg.Framework;
-using scg.Utils;
+﻿using scg.Framework;
 using Svg;
 
 namespace scg.Generators.OnTheUnderground.NewYork;
@@ -12,38 +9,9 @@ public class NewYorkMapGenerator : MapGenerator<NewYorkLine, NewYorkLocation>
     {
     }
 
-    protected override void InitializeLandmarks(SvgDocument doc)
+    protected override void InitializeLandmarks(SvgDocument doc, NewYorkLine line1, NewYorkLine line2)
     {
-        var landmarkLocations = new List<NewYorkLocation>
-        {
-            
-        };
-
-        landmarkLocations.Shuffle();
-
-        for (var i = 0; i < landmarkLocations.Count; i++)
-        {
-            var landmarkIcon = doc.GetElementById<SvgImage>($"Landmark{i + 1}");
-            landmarkIcon.X = new SvgUnit(GetCanvasLeft(landmarkLocations[i]));
-            landmarkIcon.Y = new SvgUnit(GetCanvasTop(landmarkLocations[i]));
-        }
     }
 
     protected override string SvgFilename { get; } = "Map_NewYork.svg";
-
-    private float GetCanvasLeft(NewYorkLocation landmarkLocation)
-    {
-        return landmarkLocation switch
-        {
-            _ => throw new InvalidOperationException($"The location '{landmarkLocation}' is not valid for a landmark.")
-        };
-    }
-
-    private float GetCanvasTop(NewYorkLocation landmarkLocation)
-    {
-        return landmarkLocation switch
-        {            
-            _ => throw new InvalidOperationException($"The location '{landmarkLocation}' is not valid for a landmark.")
-        };
-    }
 }
