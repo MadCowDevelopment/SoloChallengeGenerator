@@ -23,10 +23,27 @@ public class GameOptions
 
         if (gameId == "OnTheUnderground")
         {
-            var mapName = (_endDateHelper.GetEndDate(1).Month % 2) switch
+            var enddate = _endDateHelper.GetEndDate(1);
+            if (enddate.Year == 2024)
+            {
+                if (enddate.Month == 5 || enddate.Month == 7 || enddate.Month == 9) 
+                {
+                    Options.Add("Map", "Paris");
+                    return;
+                }
+                else if(enddate.Month == 6 || enddate.Month == 8 || enddate.Month == 10)
+                {
+                    Options.Add("Map", "NewYork");
+                    return;
+                }
+            }
+
+            var mapName = (_endDateHelper.GetEndDate(1).Month % 4) switch
             {
                 0 => "Berlin",
-                1 => "London",
+                1 => "Paris",
+                2 => "NewYork",
+                3 => "London",
                 _ => throw new InvalidOperationException("Cannot determine map name.")
             };
 

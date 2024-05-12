@@ -1,4 +1,9 @@
-﻿namespace scg.Generators.OnTheUnderground;
+﻿using scg.Generators.OnTheUnderground.Berlin;
+using scg.Generators.OnTheUnderground.London;
+using scg.Generators.OnTheUnderground.NewYork;
+using scg.Generators.OnTheUnderground.Paris;
+
+namespace scg.Generators.OnTheUnderground;
 
 public class DestinationCard
 {
@@ -27,5 +32,22 @@ public class DestinationCard
 
     public DestinationCard(BerlinLocation location, RouteType routeType, string region, string name) : this(routeType, region, name)
     {
+    }
+
+    public DestinationCard(NewYorkLocation location, string region) : this(RouteType.None, region, location.ToString())
+    {
+    }
+
+    public DestinationCard(NewYorkLocation location, string region, string name) : this(RouteType.None, region, name)
+    {
+
+    }
+    public DestinationCard(ParisLocation location, string region) : this(RouteType.None, region, location.ToString())
+    {
+    }
+
+    public DestinationCard(ParisLocation location, string region, string name) : this(RouteType.None, region, name)
+    {
+
     }
 }
