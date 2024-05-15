@@ -44,7 +44,7 @@ public static class ParisLinesFactory
                     {
                         PontDeLevalloisBegon, Pereire, Villiers, SaintLazare, Opera, ReaumurSebastopol, ArtsEtMetiers, Republique,
                         Parmentier, PereLachaise, Gambetta, Gallieni, SaintLazare, Madeleine, Pyramides, Chatelet, HotelDeVille,
-                        GareDAusterlitz, GareDeLyon, Bergy, CourSaintEmilion, Olympiades
+                        GareDAusterlitz, GareDeLyon, Bercy, CourSaintEmilion, Olympiades
                     }),
                 new ParisLine(6, "12", 15,
                     new List<ParisLocation>
@@ -85,7 +85,7 @@ public static class ParisLinesFactory
                     new List<ParisLocation>
                     {
                         CharlesDeGaulleEtoile, Trogadero, ChampDeMarsTourEiffel, LaMottePicquetGrenelle, SevresLecourbe, Pasteur,
-                        MontparnasseBienvenue, DenfertRochereau, Glaciere, PlaceDItalie, QuaiDeLaGare, Bergy, Daumesnil, Nation
+                        MontparnasseBienvenue, DenfertRochereau, Glaciere, PlaceDItalie, QuaiDeLaGare, Bercy, Daumesnil, Nation
                     })
             });
     }

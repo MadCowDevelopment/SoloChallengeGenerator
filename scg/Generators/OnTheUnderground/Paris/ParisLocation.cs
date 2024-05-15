@@ -34,7 +34,7 @@ public enum ParisLocation
     SaintPlacide,
     Bastille,
     ReuillyDiderot,
-    Bergy,
+    Bercy,
     Daumesnil,
     MichelAnge,
     Pasteur,
