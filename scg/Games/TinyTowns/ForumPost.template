@@ -1,5 +1,4 @@
-[size=18][center][b]Tiny Towns Solo Challenge #<<CHALLENGE_NUMBER>>!
-TODO - PUT TITLE HERE[/b][/center][/size]
+[size=18][center][b]Tiny Towns Solo Challenge #<<CHALLENGE_NUMBER>>![/b][/center][/size]
 
 Challenge Start: Now
 Challenge End: <<END_DATE>>
@@ -32,19 +31,17 @@ Challenge End: <<END_DATE>>
 <<STARTING_BUILDINGS_PINK_BASE|FORTUNE>>[/c]
 
 
-[b][size=18]Base + Villagers challenge[/size][/b]
-[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|VILLAGERS>>
-[microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|VILLAGERS>>
-[microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|VILLAGERS>>
-[microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|VILLAGERS>>
-[microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|VILLAGERS>>
-[microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|VILLAGERS>>
-[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|VILLAGERS>>
-1  Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_1>>
-2+ Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_2+>>
+[b][size=18]Base + Architects challenge[/size][/b]
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|ARCHITECTS>>
+[microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|ARCHITECTS>>
+[microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|ARCHITECTS>>
+[microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|ARCHITECTS>>
+[microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|ARCHITECTS>>
+[microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|ARCHITECTS>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|ARCHITECTS>>
 
 [microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
-<<STARTING_BUILDINGS_PINK_BASE|VILLAGERS>>[/c]
+<<STARTING_BUILDINGS_PINK_BASE|ARCHITECTS>>[/c]
 
 
 [b][size=18]Base + Fortune + Villagers challenge[/size][/b]
@@ -62,15 +59,30 @@ Challenge End: <<END_DATE>>
 <<STARTING_BUILDINGS_PINK_BASE|FORTUNE|VILLAGERS>>[/c]
 
 
+[b][size=18]Base + Fortune + Villagers + Architects challenge[/size][/b]
+[c][microbadge=52323] : <<STARTING_BUILDINGS_BLACK_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=47027] : <<STARTING_BUILDINGS_CYAN_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=47029] : <<STARTING_BUILDINGS_RED_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=47028] : <<STARTING_BUILDINGS_ORANGE_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=47030] : <<STARTING_BUILDINGS_GREEN_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=47031] : <<STARTING_BUILDINGS_YELLOW_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+[microbadge=52340] : <<STARTING_BUILDINGS_GRAY_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>
+1  Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_1>>
+2+ Cost Villager card: <<STARTING_BUILDINGS_VILLAGER_2+>>
+
+[microbadge=47019] : [size=12]Choose one of the following monument cards:[/size]
+<<STARTING_BUILDINGS_PINK_BASE|FORTUNE|VILLAGERS|ARCHITECTS>>[/c]
+
+
 [b]Rules:[/b]
 Play a normal solo game using the rules from the base game (and the respective expansions).
 Repeat plays are encouraged.
 
 When reporting scores, feel free to post a screenshot and strategy explanations but please keep those in spoiler tags.
 
-You can use the following scoring template (quote this post to see the BGG code):
+You can use the following scoring template (quote this post to see the BGG code and remove any expansions you didn't use):
 [c]
-[b]Challenge:[/b] Base / Base + Fortune / Base + Fortune + Villagers
+[b]Challenge:[/b] Base + Fortune + Villagers + Architects
 [microbadge=52323] :
 [microbadge=47027] :
 [microbadge=47028] :
@@ -109,13 +121,19 @@ Username          Score          Monument        [/u][/b]
 [/c]
 
 
-[size=12][b]Leaderboard - Base + Villagers[/b][/size]
+[size=12][b]Leaderboard - Base + Architects[/b][/size]
 [c][b][u]
 Username          Score          Monument        [/u][/b]
 [/c]
 
 
 [size=12][b]Leaderboard - Base + Fortune + Villagers[/b][/size]
+[c][b][u]
+Username          Score          Monument        [/u][/b]
+[/c]
+
+
+[size=12][b]Leaderboard - Base + Fortune + Villagers + Architects[/b][/size]
 [c][b][u]
 Username          Score          Monument        [/u][/b]
 [/c]
