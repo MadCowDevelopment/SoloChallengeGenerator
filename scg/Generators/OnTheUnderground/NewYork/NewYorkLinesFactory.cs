@@ -50,7 +50,7 @@ public static class NewYorkLinesFactory
                         GrandCentral, BryantPk, TimesSq, PortAuthorityBusTerminal, HuntersPointAv, GreenpointAv, FlushingAv,
                         FranklinAv, AtlanticAvBarclaysCtr, BoroughHall, CarrollSt, FourAv9Street, ChurchAv
                     }),
-                 new NewYorkLine(6, "E", 0, NewYorkLineIcon.Square,
+                 new NewYorkLine(6, "E", 10, NewYorkLineIcon.Square,
                     new List<NewYorkLocation>
                     {
                         JamaicaCentreParsonsArcher, SutphinBlvdArcherAvJFKAirport, KewGardensUnionTurnpike, ForestHills,
