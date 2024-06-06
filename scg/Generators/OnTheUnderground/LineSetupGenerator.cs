@@ -71,6 +71,14 @@ public class LineSetupGenerator : TemplateGenerator
             }
         }
 
+        if (line1 is NewYorkLine newYorkLine1 && line2 is NewYorkLine newYorkLine2)
+        {
+            if (newYorkLine1.Icon != NewYorkLineIcon.None && newYorkLine1.Icon == newYorkLine2.Icon)
+            {
+                return expertScore + 20;
+            }
+        }
+
         return expertScore;
     }
 
